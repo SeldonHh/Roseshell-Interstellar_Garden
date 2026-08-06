@@ -3,7 +3,8 @@ extends Node2D
 @onready var asteroid = $Asteroid
 @onready var black_hole = $"../BlackHole"
 
-@export var spawn_interval: float = 0.5
+@export var spawn_interval: float = 2
+
 @export var lifetime: float = 3.0
 
 @export var sprite_scale_min: float = 0.02
@@ -11,6 +12,7 @@ extends Node2D
 
 @export var revolutions: float = 0.3
 @export var spiral_curve: float = 6.0
+
 @export var final_suck_curve: float = 1.0
 
 var timer: float = 0.0
