@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://celrucoq6w7rx"]
+
+[ext_resource type="Script" uid="uid://bjd28k6dqp5df" path="res://scenes/notes/notes.gd" id="1_q84d4"]
+[ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="2_evqf3"]
+
+[node name="Notes" type="Node2D" unique_id=479660983]
+script = ExtResource("1_q84d4")
+
+[node name="Asteroid" type="Sprite2D" parent="." unique_id=700398446]
+position = Vector2(-104, 112)
+scale = Vector2(0.061333332, 0.061333332)
+texture = ExtResource("2_evqf3")

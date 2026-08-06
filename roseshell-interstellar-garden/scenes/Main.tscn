@@ -3,11 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="1_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://jg6xu7axrwp" path="res://scenes/black_hole/black_hole.tscn" id="2_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://phayocmpwem2" path="res://scenes/player/player.tscn" id="4_rarhs"]
-[ext_resource type="Script" uid="uid://bjd28k6dqp5df" path="res://scenes/notes.gd" id="4_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://celrucoq6w7rx" path="res://scenes/notes/notes.tscn" id="4_vcsgt"]
+[ext_resource type="Script" uid="uid://b0pew4hrhr1a0" path="res://scenes/ui and visuals/camera_2d.gd" id="5_vcsgt"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
 particle_flag_disable_z = true
-emission_shape_scale = Vector3(580, 320, 1)
+emission_shape_scale = Vector3(2000, 1000, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 initial_velocity_min = -1.0
@@ -20,15 +21,21 @@ turbulence_noise_scale = 0.0
 [node name="Main" type="Node" unique_id=319315482]
 
 [node name="Background" type="ColorRect" parent="." unique_id=1502370919]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -2.6030002
+anchor_top = -3.3890002
+anchor_right = 3.6430001
+anchor_bottom = 4.559
+offset_left = -0.26391602
+offset_top = 0.23217773
+offset_right = 0.26464844
+offset_bottom = -0.2319336
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Stars?" type="GPUParticles2D" parent="Background" unique_id=1245376643]
-position = Vector2(579, 323)
+position = Vector2(3569.9202, 2521.8398)
 amount = 300
 texture = ExtResource("1_0bbpv")
 lifetime = 100.0
@@ -41,10 +48,10 @@ process_material = SubResource("ParticleProcessMaterial_e5dxq")
 [node name="Player" parent="." unique_id=427548273 instance=ExtResource("4_rarhs")]
 position = Vector2(578, 327)
 
-[node name="Notes" type="Node2D" parent="." unique_id=562261904]
-script = ExtResource("4_vcsgt")
+[node name="Notes" parent="." unique_id=479660983 instance=ExtResource("4_vcsgt")]
 
-[node name="Asteroid" type="Sprite2D" parent="Notes" unique_id=1803648187]
-position = Vector2(-104, 112)
-scale = Vector2(0.061333332, 0.061333332)
-texture = ExtResource("1_0bbpv")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1854921618]
+position = Vector2(576, 335)
+zoom = Vector2(0.7, 0.7)
+position_smoothing_enabled = true
+script = ExtResource("5_vcsgt")
