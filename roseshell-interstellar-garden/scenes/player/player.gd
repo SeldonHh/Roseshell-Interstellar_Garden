@@ -1,7 +1,7 @@
 extends Node2D
 
 var anchor : Vector2 = Vector2(.5,.5)
-var radius : float = 200
+@export var radius : float = 120
 @export var speed := .08
 @onready var rotation_factor := PI
 @onready var body: CharacterBody2D = $body

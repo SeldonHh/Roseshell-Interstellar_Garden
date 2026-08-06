@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="1_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://jg6xu7axrwp" path="res://scenes/black_hole/black_hole.tscn" id="2_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://phayocmpwem2" path="res://scenes/player/player.tscn" id="4_rarhs"]
+[ext_resource type="Script" uid="uid://bjd28k6dqp5df" path="res://scenes/notes.gd" id="4_vcsgt"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
 particle_flag_disable_z = true
@@ -39,3 +40,11 @@ process_material = SubResource("ParticleProcessMaterial_e5dxq")
 
 [node name="Player" parent="." unique_id=427548273 instance=ExtResource("4_rarhs")]
 position = Vector2(578, 327)
+
+[node name="Notes" type="Node2D" parent="." unique_id=562261904]
+script = ExtResource("4_vcsgt")
+
+[node name="Asteroid" type="Sprite2D" parent="Notes" unique_id=1803648187]
+position = Vector2(-104, 112)
+scale = Vector2(0.061333332, 0.061333332)
+texture = ExtResource("1_0bbpv")
