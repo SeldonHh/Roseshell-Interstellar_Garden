@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var asteroid = $Asteroid
 @onready var black_hole = $"../BlackHole"
+@onready var player = $"../Player/body"
 
 @export var spawn_interval: float = 2
 
@@ -14,6 +15,10 @@ extends Node2D
 @export var spiral_curve: float = 6.0
 
 @export var final_suck_curve: float = 1.0
+
+@export var player_hit_distance: float = 30.0
+@export var bounce_distance: float = 300.0
+@export var bounce_time: float = 0.5
 
 var timer: float = 0.0
 
@@ -32,7 +37,21 @@ func _process(delta):
 		if rock == asteroid:
 			continue
 
-		if rock.has_meta("consuming"):
+		if rock.has_meta("consuming") or rock.has_meta("bouncing"):
+			continue
+
+		if rock.global_position.distance_to(player.global_position) <= player_hit_distance:
+			rock.set_meta("bouncing", true)
+
+			var away = (rock.global_position - player.global_position).normalized()
+			var target = rock.global_position + away * bounce_distance
+
+			var tween = create_tween()
+			tween.tween_property(rock, "global_position", target, bounce_time)
+			tween.parallel().tween_property(rock, "scale", Vector2.ZERO, bounce_time)
+			tween.parallel().tween_property(rock, "modulate:a", 0.0, bounce_time)
+			tween.tween_callback(rock.queue_free)
+
 			continue
 
 		var age: float = rock.get_meta("age")
