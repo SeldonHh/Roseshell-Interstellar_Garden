@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bjd28k6dqp5df" path="res://scenes/notes/notes.gd" id="1_q84d4"]
 [ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="2_evqf3"]
+[ext_resource type="AudioStream" uid="uid://ckv8eemr7t6bc" path="res://scenes/SFX/Break1.mp3" id="3_svui1"]
+[ext_resource type="AudioStream" uid="uid://d0266h2qp30ve" path="res://scenes/SFX/Absorb1.mp3" id="4_fi5s2"]
 
 [node name="Notes" type="Node2D" unique_id=479660983]
 script = ExtResource("1_q84d4")
@@ -10,3 +12,11 @@ script = ExtResource("1_q84d4")
 position = Vector2(-73, 143)
 scale = Vector2(0.10266667, 0.10266667)
 texture = ExtResource("2_evqf3")
+
+[node name="Break1" type="AudioStreamPlayer" parent="." unique_id=1883474471]
+stream = ExtResource("3_svui1")
+volume_db = -20.0
+
+[node name="Absorb1" type="AudioStreamPlayer" parent="." unique_id=1570511791]
+stream = ExtResource("4_fi5s2")
+volume_db = -10.0

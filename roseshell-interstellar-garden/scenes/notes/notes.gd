@@ -18,7 +18,7 @@ extends Node2D
 
 @export var final_suck_curve: float = 1.0
 
-@export var player_hit_distance: float = 30.0
+@export var player_hit_distance: float = 50.0
 @export var bounce_distance: float = 300.0
 @export var bounce_time: float = 0.5
 
@@ -141,6 +141,7 @@ func spawn_asteroid():
 
 		var radius = size * randf_range(0.7, 1.0)
 
+		@warning_ignore("confusable_local_declaration")
 		var offset := Vector2.ZERO
 
 		if i > 0:
