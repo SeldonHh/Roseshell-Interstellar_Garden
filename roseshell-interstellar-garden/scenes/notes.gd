@@ -21,6 +21,8 @@ extends Node2D
 @export var bounce_time: float = 0.5
 
 var timer: float = 0.0
+var combo: int = 0
+var combo_active: bool = false
 
 func _ready():
 	randomize()
@@ -42,6 +44,10 @@ func _process(delta):
 
 		if rock.global_position.distance_to(player.global_position) <= player_hit_distance:
 			rock.set_meta("bouncing", true)
+
+			combo += 1
+			combo_active = true
+			print("Combo: x" + str(combo))
 
 			var away = (rock.global_position - player.global_position).normalized()
 			var target = rock.global_position + away * bounce_distance
@@ -79,6 +85,11 @@ func _process(delta):
 		rock.rotation = angle + PI * 0.5
 
 		if t >= 1.0:
+			if combo_active:
+				print("Combo broken")
+				combo = 0
+				combo_active = false
+
 			rock.set_meta("consuming", true)
 
 			var tween = create_tween()
