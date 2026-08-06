@@ -10,6 +10,7 @@ var anchor : Vector2 = Vector2(.5,.5)
 @export var trail_lenght := 100.0
 
 func _ready() -> void:
+	$body/Sprite2D.play("default")
 	Global.player = self
 
 func _process(delta: float) -> void:

@@ -36,7 +36,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 7.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lv1af"]
@@ -56,7 +56,7 @@ collision_mask = 7
 z_index = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_lv1af")
-frame_progress = 0.5421387
+frame_progress = 0.28498447
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body" unique_id=708739122]
 shape = SubResource("CircleShape2D_lv1af")
