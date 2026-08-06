@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Roseshell Interstellar Garden"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
@@ -19,6 +19,14 @@ config/icon="res://Assets/icon.svg"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://resources/": "green",
+"res://scenes/": "yellow"
+}
 
 [physics]
 

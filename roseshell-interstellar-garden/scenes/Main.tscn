@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cricdh2ww2f11"]
 
-[ext_resource type="Script" uid="uid://cp1im3lui0pxp" path="res://IdleBreathScript.gd" id="1_r0du0"]
-[ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="2_cm0pq"]
-[ext_resource type="Texture2D" uid="uid://uixnhr0ywa06" path="res://Assets/BlackCircle.png" id="3_fos0i"]
+[ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="1_0bbpv"]
+[ext_resource type="Script" uid="uid://cp1im3lui0pxp" path="res://scenes/IdleBreathScript.gd" id="2_rarhs"]
+[ext_resource type="Texture2D" uid="uid://uixnhr0ywa06" path="res://Assets/BlackCircle.png" id="3_vcsgt"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
 particle_flag_disable_z = true
@@ -53,7 +53,7 @@ color = Color(0, 0, 0, 1)
 [node name="Stars?" type="GPUParticles2D" parent="Background" unique_id=1245376643]
 position = Vector2(579, 323)
 amount = 300
-texture = ExtResource("2_cm0pq")
+texture = ExtResource("1_0bbpv")
 lifetime = 100.0
 explosiveness = 1.0
 trail_lifetime = 10.0
@@ -61,11 +61,11 @@ process_material = SubResource("ParticleProcessMaterial_e5dxq")
 
 [node name="BlackHole" type="Node2D" parent="." unique_id=1323464710]
 position = Vector2(578, 326)
-script = ExtResource("1_r0du0")
+script = ExtResource("2_rarhs")
 
 [node name="Disk2" type="GPUParticles2D" parent="BlackHole" unique_id=1312868412]
 amount = 400
-texture = ExtResource("2_cm0pq")
+texture = ExtResource("1_0bbpv")
 lifetime = 10.0
 preprocess = 10.0
 trail_lifetime = 1.0
@@ -76,29 +76,29 @@ modulate = Color(1, 1, 1, 0.40784314)
 self_modulate = Color(0.8, 0.78431374, 0.29803923, 1)
 position = Vector2(-2, -2)
 scale = Vector2(0.08, 0.08)
-texture = ExtResource("2_cm0pq")
+texture = ExtResource("1_0bbpv")
 
 [node name="Glow2" type="Sprite2D" parent="BlackHole" unique_id=1822137195]
 modulate = Color(0.78039217, 1, 1, 0.7058824)
 self_modulate = Color(0.87058824, 0.5372549, 0.16078432, 1)
 position = Vector2(-2, -2)
 scale = Vector2(0.078, 0.078)
-texture = ExtResource("2_cm0pq")
+texture = ExtResource("1_0bbpv")
 
 [node name="Glow1" type="Sprite2D" parent="BlackHole" unique_id=1224343061]
 modulate = Color(0.8352941, 0.6, 0.15686275, 1)
 position = Vector2(-2, -2)
 scale = Vector2(0.07699999, 0.07699999)
-texture = ExtResource("2_cm0pq")
+texture = ExtResource("1_0bbpv")
 
 [node name="Glow0" type="Sprite2D" parent="BlackHole" unique_id=855985828]
 modulate = Color(0.77592033, 0.22202933, 0, 1)
 position = Vector2(-2, -2)
 scale = Vector2(0.07499999, 0.07499999)
-texture = ExtResource("2_cm0pq")
+texture = ExtResource("1_0bbpv")
 
 [node name="Hole" type="Sprite2D" parent="BlackHole" unique_id=1073276934]
 position = Vector2(-2, -2)
 scale = Vector2(0.074, 0.074)
-texture = ExtResource("3_fos0i")
+texture = ExtResource("3_vcsgt")
 offset = Vector2(2.01, 0)
