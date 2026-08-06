@@ -7,6 +7,6 @@
 script = ExtResource("1_q84d4")
 
 [node name="Asteroid" type="Sprite2D" parent="." unique_id=700398446]
-position = Vector2(-104, 112)
-scale = Vector2(0.061333332, 0.061333332)
+position = Vector2(-73, 143)
+scale = Vector2(0.10266667, 0.10266667)
 texture = ExtResource("2_evqf3")
