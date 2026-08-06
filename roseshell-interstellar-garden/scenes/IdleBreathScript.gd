@@ -9,10 +9,13 @@ var origin_scale: Vector2
 var t := 0.0
 
 func _ready() -> void:
-	origin_position = position
+	Global.black_hole = self
+	origin_position = get_viewport().get_visible_rect().size / 2.0
 	origin_scale = scale
 
 func _process(delta: float) -> void:
+	origin_position = get_viewport().get_visible_rect().size / 2.0
+
 	t += delta
 
 	var breath = sin(t * breathe_speed)
