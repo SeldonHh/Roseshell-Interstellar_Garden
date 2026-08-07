@@ -42,27 +42,44 @@ func _process(delta):
 			continue
 		if rock == asteroid:
 			continue
-		if rock.has_meta("consuming") or rock.has_meta("bouncing"):
+		if rock.has_meta("consuming") or rock.has_meta("bouncing") or rock.has_meta("destroyed"):
 			continue
+		
+		if not rock.has_meta("age"):
+			continue
+			
 		if rock.global_position.distance_to(player.global_position) <= player_hit_distance:
 			rock.set_meta("bouncing", true)
+			rock.set_meta("destroyed", true)
 			combo += 1
 			combo_active = true
 			print("Combo: x" + str(combo))
 			break_sound.pitch_scale = randf_range(0.80, 1.15)
 			break_sound.play()
 			var away = (rock.global_position - player.global_position).normalized()
+			
+			var rock_scale = rock.scale.x
+			var particle_count = int(8 * clamp(rock_scale / 0.35, 0.5, 2.0))
+			var particle_size_mult = clamp(rock_scale / 0.35, 0.5, 2.0)
+			
 			for piece in rock.get_children():
-				var direction = (piece.position + Vector2(randf_range(-20.0, 20.0), randf_range(-20.0, 20.0))).normalized()
-				var target = piece.position + direction * randf_range(80.0, 150.0)
-				var tween = create_tween()
-				tween.tween_property(piece, "position", target, bounce_time)
-				tween.parallel().tween_property(piece, "rotation", randf_range(-3.0, 3.0), bounce_time)
-				tween.parallel().tween_property(piece, "modulate:a", 0.0, bounce_time)
+				if piece is Polygon2D:
+					var piece_global = rock.global_position + piece.position
+					var dir_to_player = (piece_global - player.global_position).normalized()
+					var piece_direction = (piece.position + Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))).normalized()
+					var target = piece.position + piece_direction * randf_range(40.0, 80.0)
+					
+					spawn_dust(piece_global, piece.color, particle_count, particle_size_mult, piece_direction, target.length())
+					
+					var tween = create_tween()
+					tween.tween_property(piece, "position", target, bounce_time)
+					tween.parallel().tween_property(piece, "rotation", randf_range(-3.0, 3.0), bounce_time)
+					tween.parallel().tween_property(piece, "modulate:a", 0.0, bounce_time)
 			var body_tween = create_tween()
-			body_tween.tween_property(rock, "global_position", rock.global_position + away * bounce_distance, bounce_time)
+			body_tween.tween_property(rock, "global_position", rock.global_position + away * bounce_distance * 0.5, bounce_time)
 			body_tween.tween_callback(rock.queue_free)
 			continue
+			
 		var age: float = rock.get_meta("age")
 		age += delta
 		rock.set_meta("age", age)
@@ -80,6 +97,7 @@ func _process(delta):
 		var angle: float = start_angle + spin * revolutions * TAU * t
 		rock.global_position = black_hole.global_position + Vector2(cos(angle), sin(angle)) * radius
 		rock.rotation += delta * 0.8
+		
 		if t >= 1.0:
 			if combo_active:
 				print("Combo broken")
@@ -93,6 +111,46 @@ func _process(delta):
 			tween.parallel().tween_property(rock, "scale", Vector2.ZERO, 0.12)
 			tween.parallel().tween_property(rock, "modulate:a", 0.0, 0.12)
 			tween.tween_callback(rock.queue_free)
+
+func spawn_dust(pos: Vector2, color: Color, count: int, size_mult: float = 1.0, direction: Vector2 = Vector2.ZERO, distance: float = 60.0):
+	for i in range(count):
+		var dust = Polygon2D.new()
+		var points := PackedVector2Array()
+		var size = randf_range(1.5, 4.0) * size_mult
+		var sides = randi_range(5, 8)
+		for p in sides:
+			var ang = TAU * p / sides
+			var wobble = randf_range(0.7, 1.3)
+			points.append(Vector2(cos(ang), sin(ang)) * size * wobble)
+		dust.polygon = points
+		var shade = randf_range(0.6, 1.4)
+		dust.color = Color(
+			clamp(color.r * shade, 0.0, 1.0),
+			clamp(color.g * shade, 0.0, 1.0),
+			clamp(color.b * shade, 0.0, 1.0),
+			1.0
+		)
+		dust.global_position = pos + Vector2(randf_range(-8.0, 8.0), randf_range(-8.0, 8.0)) * size_mult
+		dust.rotation = randf_range(0.0, TAU)
+		var start_scale = randf_range(0.4, 0.9) * size_mult
+		dust.scale = Vector2.ONE * start_scale
+		add_child(dust)
+		
+		var angle_offset = randf_range(-0.6, 0.6)
+		var dir = direction.rotated(angle_offset)
+		var dist = distance * randf_range(0.7, 1.3)
+		var target = dust.global_position + dir * dist + Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0)) * size_mult * 0.3
+		var duration = bounce_time * randf_range(0.7, 1.0)
+		var end_scale = randf_range(1.5, 3.5) * size_mult
+		
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(dust, "global_position", target, duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(dust, "scale", Vector2.ONE * end_scale, duration * 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(dust, "modulate:a", 0.0, duration * 0.8).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_LINEAR).set_delay(duration * 0.2)
+		tween.tween_property(dust, "rotation", dust.rotation + randf_range(-4.0, 4.0), duration).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+		
+		tween.tween_callback(dust.queue_free).set_delay(duration)
 
 func request_asteroid(suck_time: float, angle: float = INF):
 	var start_radius = 800.0

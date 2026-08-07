@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://4wh2nbypg2"
-path="res://.godot/imported/IBMPlexSans-VariableFont_wdth,wght.ttf-5ea97b91e3aec877744c687acd77ff21.fontdata"
+path="res://.godot/imported/IBMPlexSans-VariableFont_wdth,wght.ttf-aace154c19d0353ee32fa009aba77e0e.fontdata"
 
 [deps]
 
-source_file="res://scenes/ui and visuals/IBMPlexSans-VariableFont_wdth,wght.ttf"
-dest_files=["res://.godot/imported/IBMPlexSans-VariableFont_wdth,wght.ttf-5ea97b91e3aec877744c687acd77ff21.fontdata"]
+source_file="res://Assets/font/IBMPlexSans-VariableFont_wdth,wght.ttf"
+dest_files=["res://.godot/imported/IBMPlexSans-VariableFont_wdth,wght.ttf-aace154c19d0353ee32fa009aba77e0e.fontdata"]
 
 [params]
 

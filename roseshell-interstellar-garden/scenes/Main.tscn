@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cricdh2ww2f11"]
 
-[ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="1_0bbpv"]
+[ext_resource type="Texture2D" uid="uid://cvhsmx3hlrhr6" path="res://Assets/WhiteCircle_1_1.png" id="1_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://jg6xu7axrwp" path="res://scenes/black_hole/black_hole.tscn" id="2_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://phayocmpwem2" path="res://scenes/player/player.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://celrucoq6w7rx" path="res://scenes/notes/notes.tscn" id="4_vcsgt"]
 [ext_resource type="Script" uid="uid://b0pew4hrhr1a0" path="res://scenes/ui and visuals/camera_2d.gd" id="5_vcsgt"]
 [ext_resource type="Script" uid="uid://c7hol7juep6re" path="res://scenes/ui and visuals/ui.gd" id="6_nxtc6"]
-[ext_resource type="FontFile" uid="uid://4wh2nbypg2" path="res://scenes/ui and visuals/IBMPlexSans-VariableFont_wdth,wght.ttf" id="7_nxtc6"]
+[ext_resource type="FontFile" uid="uid://4wh2nbypg2" path="res://Assets/font/IBMPlexSans-VariableFont_wdth,wght.ttf" id="7_nxtc6"]
 [ext_resource type="Script" uid="uid://de5j23ysicdd5" path="res://scenes/notes/Chart1.gd" id="8_jlsqs"]
 [ext_resource type="AudioStream" uid="uid://tuhk64r4l4us" path="res://scenes/notes/Purple1.mp3" id="9_lhr70"]
 
@@ -15,11 +15,11 @@ particle_flag_disable_z = true
 emission_shape_scale = Vector3(2000, 1000, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
-initial_velocity_min = -1.0
-initial_velocity_max = 1.0
+initial_velocity_min = -3.0
+initial_velocity_max = 3.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.0
-scale_max = 0.0
+scale_min = 0.19999999
+scale_max = 0.29999998
 turbulence_noise_scale = 0.0
 
 [node name="Main" type="Node" unique_id=319315482]
@@ -41,7 +41,7 @@ color = Color(0, 0, 0, 1)
 [node name="Stars?" type="GPUParticles2D" parent="Background" unique_id=1245376643]
 position = Vector2(3569.9202, 2521.8398)
 amount = 300
-texture = ExtResource("1_0bbpv")
+texture = ExtResource("1_q8u5g")
 lifetime = 100.0
 explosiveness = 1.0
 trail_lifetime = 10.0

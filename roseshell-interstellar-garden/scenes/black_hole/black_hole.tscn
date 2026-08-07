@@ -34,7 +34,7 @@ color_ramp = SubResource("GradientTexture1D_0hol4")
 [node name="BlackHole" type="Node2D" unique_id=1154158881]
 script = ExtResource("1_nk4ys")
 
-[node name="Disk2" type="GPUParticles2D" parent="." unique_id=589220467]
+[node name="Disk" type="GPUParticles2D" parent="." unique_id=589220467]
 amount = 400
 texture = ExtResource("2_gdg7e")
 lifetime = 10.0
