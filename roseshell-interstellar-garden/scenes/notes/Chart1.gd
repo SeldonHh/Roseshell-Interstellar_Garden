@@ -11,8 +11,6 @@ func _ready():
 
 	var start_time = 3.9
 	var angles = [0, 180, 90, -90, 180]
-	var beat_counter = 0
-	var current_time = start_time
 	
 	var intervals = [
 		{"until": 10.0, "interval": 1.333},

@@ -18,6 +18,7 @@ func _ready():
 	chart.song_ended.connect(_on_song_ended)
 	notes.combo_success.connect(_on_combo_success)
 	notes.combo_break.connect(_on_combo_break)
+	notes.note_spawned.connect(_on_note_spawned)
 
 func _process(_delta: float) -> void:
 	if song_ended:
@@ -75,16 +76,17 @@ func _process(_delta: float) -> void:
 			previous_combo = 0
 			combo.scale = Vector2.ONE
 
+func _on_note_spawned():
+	total_notes += 1
+
 func _on_combo_success():
 	total_score += 100 * notes.combo
 	if notes.combo > max_combo:
 		max_combo = notes.combo
-	total_notes += 1
 	hit_notes += 1
 
 func _on_combo_break():
 	misses += 1
-	total_notes += 1
 
 func _on_song_ended():
 	song_ended = true
@@ -96,12 +98,12 @@ func _on_song_ended():
 	combo.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
 	combo.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	
-	var percentage = (float(hit_notes) / total_notes) * 100 if total_notes > 0 else 0
+	var percentage = ((float(hit_notes) / total_notes) * 100) if total_notes > 0 else 0.0
 	
 	var rating = "F"
 	if percentage >= 99:
 		rating = "SS+"
-	if percentage >= 97:
+	elif percentage >= 97:
 		rating = "SS"
 	elif percentage >= 94:
 		rating = "S"

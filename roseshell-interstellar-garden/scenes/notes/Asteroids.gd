@@ -2,6 +2,7 @@ extends Node2D
 
 signal combo_break
 signal combo_success
+signal note_spawned 
 
 @onready var asteroid = $Asteroid
 @onready var black_hole = $"../BlackHole"
@@ -70,7 +71,6 @@ func _process(delta):
 			for piece in rock.get_children():
 				if piece is Polygon2D:
 					var piece_global = rock.global_position + piece.position
-					var dir_to_player = (piece_global - player.global_position).normalized()
 					var piece_direction = (piece.position + Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))).normalized()
 					var target = piece.position + piece_direction * randf_range(40.0, 80.0)
 					
@@ -108,7 +108,7 @@ func _process(delta):
 				print("Combo broken")
 				combo = 0
 				combo_active = false
-				combo_break.emit()
+			combo_break.emit()
 			rock.set_meta("consuming", true)
 			absorb_sound.pitch_scale = randf_range(0.85, 1.15)
 			absorb_sound.play()
@@ -195,7 +195,7 @@ func spawn_asteroid(suck_angle: float = INF):
 	var view: Vector2 = get_viewport().get_visible_rect().size
 	
 	var spawn_pos = Vector2.ZERO
-	var final_angle = suck_angle
+	var _final_angle = suck_angle
 	
 	if suck_angle == INF:
 		match randi() % 4:
@@ -207,7 +207,7 @@ func spawn_asteroid(suck_angle: float = INF):
 				spawn_pos = Vector2(randf_range(0.0, view.x), -40.0)
 			3:
 				spawn_pos = Vector2(randf_range(0.0, view.x), view.y + 40.0)
-		final_angle = (spawn_pos - black_hole.global_position).angle()
+		_final_angle = (spawn_pos - black_hole.global_position).angle()
 	else:
 		var angle_deg = rad_to_deg(suck_angle)
 		angle_deg = fmod(angle_deg, 360.0)
@@ -226,7 +226,7 @@ func spawn_asteroid(suck_angle: float = INF):
 		var distance = (spawn_pos - black_hole.global_position).length()
 		var suck_dir = Vector2(cos(suck_angle), sin(suck_angle))
 		spawn_pos = black_hole.global_position + suck_dir * distance
-		final_angle = suck_angle
+		_final_angle = suck_angle
 	
 	rock.global_position = spawn_pos
 	
@@ -244,6 +244,8 @@ func spawn_asteroid(suck_angle: float = INF):
 	
 	rock.modulate.a = 0.0
 	add_child(rock)
+	
+	note_spawned.emit()
 	
 	var fade = create_tween()
 	fade.tween_property(rock, "modulate:a", 1.0, 2)
