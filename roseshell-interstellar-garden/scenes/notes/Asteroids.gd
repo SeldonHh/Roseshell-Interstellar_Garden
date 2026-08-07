@@ -59,7 +59,6 @@ func _process(delta):
 			if combo == 1:
 				combo_active = true
 			combo_success.emit()
-			print("Combo: x" + str(combo))
 			break_sound.pitch_scale = randf_range(0.80, 1.15)
 			break_sound.play()
 			var away = (rock.global_position - player.global_position).normalized()
@@ -105,7 +104,6 @@ func _process(delta):
 		
 		if t >= 1.0:
 			if combo_active:
-				print("Combo broken")
 				combo = 0
 				combo_active = false
 			combo_break.emit()

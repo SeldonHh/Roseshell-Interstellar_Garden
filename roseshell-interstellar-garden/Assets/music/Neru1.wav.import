@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cpu1hh4nkb0y8"
-path="res://.godot/imported/Neru1.wav-dd53ad19f93acca263784411fd2e6cb0.sample"
+path="res://.godot/imported/Neru1.wav-20f00fba4d4aaa62a68768c8a1150aac.sample"
 
 [deps]
 
-source_file="res://scenes/notes/Neru1.wav"
-dest_files=["res://.godot/imported/Neru1.wav-dd53ad19f93acca263784411fd2e6cb0.sample"]
+source_file="res://Assets/music/Neru1.wav"
+dest_files=["res://.godot/imported/Neru1.wav-20f00fba4d4aaa62a68768c8a1150aac.sample"]
 
 [params]
 

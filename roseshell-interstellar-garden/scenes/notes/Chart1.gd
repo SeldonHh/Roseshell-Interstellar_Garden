@@ -4,19 +4,17 @@ signal song_ended
 
 @onready var spawner = $"../Notes"
 @onready var music = $"Music"
+@export var song := preload("uid://bj4l508i6ovjs")
 
 func _ready():
-	music.volume_db = -10
+	music.volume_db -= song.decibel_reduction
 	music.play()
 
-	var start_time = 3.9
-	var angles = [0, 180, 90, -90, 180]
+	var start_time = song.start_time
+	var angles = song.angles
+	var intervals = song.intervals
+	#var asteroid_types = song.asteroid_types TODO
 	
-	var intervals = [
-		{"until": 10.0, "interval": 1.333},
-		{"until": 31.0, "interval": 0.66},
-	]
-
 	var time = start_time
 	var note_index = 0
 	

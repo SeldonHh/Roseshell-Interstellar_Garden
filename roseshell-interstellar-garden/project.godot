@@ -15,8 +15,8 @@ config/version="0.1"
 run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/stretch_mode=0
-boot_splash/image="uid://y2dv3ieymjek"
+boot_splash/stretch_mode=2
+boot_splash/image="uid://byv7b1ce68w2i"
 config/icon="uid://y2dv3ieymjek"
 
 [autoload]
@@ -33,9 +33,9 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://Assets/": "red",
+"res://Assets/SFX/": "green",
 "res://resources/": "green",
 "res://scenes/": "yellow",
-"res://scenes/SFX/": "green",
 "res://scenes/Singleton/": "purple",
 "res://scenes/black_hole/": "gray",
 "res://scenes/notes/": "gray",

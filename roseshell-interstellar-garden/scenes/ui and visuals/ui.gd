@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var combo: RichTextLabel = $combo
 @onready var notes: Node2D = $"../Notes"
-@onready var chart = $"../Chart1"
+@onready var chart = $"../Chart"
 
 var combo_stable := false
 var previous_combo := 0
@@ -101,16 +101,22 @@ func _on_song_ended():
 	var percentage = ((float(hit_notes) / total_notes) * 100) if total_notes > 0 else 0.0
 	
 	var rating = "F"
-	if percentage >= 99:
-		rating = "SS+"
+	var color = "#FFFFFF"
+	if percentage == 100:
+		rating = "P"
+		color = "#F0A500"
 	elif percentage >= 97:
 		rating = "SS"
+		color = "#E40000"
 	elif percentage >= 94:
 		rating = "S"
+		color = "#E40000"
 	elif percentage >= 90:
 		rating = "A"
+		color = "#EA9700"
 	elif percentage >= 80:
 		rating = "B"
+		color = "#EBEB00"
 	elif percentage >= 70:
 		rating = "C"
 	elif percentage >= 60:
@@ -120,12 +126,13 @@ func _on_song_ended():
 MAX COMBO: %s
 MISSES: %s
 SCORE: %s
-RATING: %s
+[color=%s]RATING: %s[/color]
 %.1f%%
 [/color][/center]""" % [
 		max_combo,
 		misses,
 		total_score,
+		color,
 		rating,
 		percentage
 	]
