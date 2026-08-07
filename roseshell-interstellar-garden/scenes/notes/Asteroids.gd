@@ -1,5 +1,8 @@
 extends Node2D
 
+signal combo_break
+signal combo_success
+
 @onready var asteroid = $Asteroid
 @onready var black_hole = $"../BlackHole"
 @onready var player = $"../Player/body"
@@ -52,7 +55,9 @@ func _process(delta):
 			rock.set_meta("bouncing", true)
 			rock.set_meta("destroyed", true)
 			combo += 1
-			combo_active = true
+			if combo == 1:
+				combo_active = true
+			combo_success.emit()
 			print("Combo: x" + str(combo))
 			break_sound.pitch_scale = randf_range(0.80, 1.15)
 			break_sound.play()
@@ -103,6 +108,7 @@ func _process(delta):
 				print("Combo broken")
 				combo = 0
 				combo_active = false
+				combo_break.emit()
 			rock.set_meta("consuming", true)
 			absorb_sound.pitch_scale = randf_range(0.85, 1.15)
 			absorb_sound.play()

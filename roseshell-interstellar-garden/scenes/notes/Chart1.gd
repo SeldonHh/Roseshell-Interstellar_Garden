@@ -1,5 +1,7 @@
 extends Node2D
 
+signal song_ended
+
 @onready var spawner = $"../Notes"
 @onready var music = $"Music"
 
@@ -31,3 +33,9 @@ func _ready():
 		var angle = angles[note_index % angles.size()]
 		spawner.request_asteroid(time, deg_to_rad(angle))
 		note_index += 1
+	
+	await get_tree().create_timer(intervals[-1]["until"]+2).timeout
+	music_ended()
+
+func music_ended():
+	song_ended.emit()

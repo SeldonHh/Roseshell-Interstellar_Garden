@@ -2,11 +2,27 @@ extends CanvasLayer
 
 @onready var combo: RichTextLabel = $combo
 @onready var notes: Node2D = $"../Notes"
+@onready var chart = $"../Chart1"
 
 var combo_stable := false
 var previous_combo := 0
+var song_ended := false
+var max_combo := 0
+var misses := 0
+var total_score := 0
+var max_possible_score := 0
+var total_notes := 0
+var hit_notes := 0
+
+func _ready():
+	chart.song_ended.connect(_on_song_ended)
+	notes.combo_success.connect(_on_combo_success)
+	notes.combo_break.connect(_on_combo_break)
 
 func _process(_delta: float) -> void:
+	if song_ended:
+		return
+	
 	if notes.combo > 0:
 		if !combo_stable:
 			combo_stable = true
@@ -58,3 +74,56 @@ func _process(_delta: float) -> void:
 			tween.tween_property(combo, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.2)
 			previous_combo = 0
 			combo.scale = Vector2.ONE
+
+func _on_combo_success():
+	total_score += 100 * notes.combo
+	if notes.combo > max_combo:
+		max_combo = notes.combo
+	total_notes += 1
+	hit_notes += 1
+
+func _on_combo_break():
+	misses += 1
+	total_notes += 1
+
+func _on_song_ended():
+	song_ended = true
+	combo.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	combo.scale = Vector2.ONE
+	combo_stable = false
+	
+	var viewport_size = get_viewport().get_visible_rect().size
+	combo.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
+	combo.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	
+	var percentage = (float(hit_notes) / total_notes) * 100 if total_notes > 0 else 0
+	
+	var rating = "F"
+	if percentage >= 99:
+		rating = "SS+"
+	if percentage >= 97:
+		rating = "SS"
+	elif percentage >= 94:
+		rating = "S"
+	elif percentage >= 90:
+		rating = "A"
+	elif percentage >= 80:
+		rating = "B"
+	elif percentage >= 70:
+		rating = "C"
+	elif percentage >= 60:
+		rating = "D"
+	
+	combo.text = """[center][color=#FFFFFF]
+MAX COMBO: %s
+MISSES: %s
+SCORE: %s
+RATING: %s
+%.1f%%
+[/color][/center]""" % [
+		max_combo,
+		misses,
+		total_score,
+		rating,
+		percentage
+	]
