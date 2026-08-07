@@ -5,6 +5,7 @@ class_name SongChart
 @export var song_name := "Purple's first"
 
 @export_category("parameters")
+@export var song_file := preload("uid://tuhk64r4l4us")
 @export var decibel_reduction := -10
 @export var start_time := 3.9
 @export var angles := [0, 180, 90, -90, 180]

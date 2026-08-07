@@ -8,6 +8,7 @@ signal song_ended
 
 func _ready():
 	music.volume_db -= song.decibel_reduction
+	music.stream = song.song_file
 	music.play()
 
 	var start_time = song.start_time
