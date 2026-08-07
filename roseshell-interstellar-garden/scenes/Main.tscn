@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://phayocmpwem2" path="res://scenes/player/player.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://celrucoq6w7rx" path="res://scenes/notes/notes.tscn" id="4_vcsgt"]
 [ext_resource type="Script" uid="uid://b0pew4hrhr1a0" path="res://scenes/ui and visuals/camera_2d.gd" id="5_vcsgt"]
-[ext_resource type="FontFile" uid="uid://btadbngoffo5x" path="res://Assets/font/Exton Free Trial.otf" id="6_c01mt"]
 [ext_resource type="Script" uid="uid://c7hol7juep6re" path="res://scenes/ui and visuals/ui.gd" id="6_nxtc6"]
+[ext_resource type="FontFile" uid="uid://4wh2nbypg2" path="res://scenes/ui and visuals/IBMPlexSans-VariableFont_wdth,wght.ttf" id="7_nxtc6"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
 particle_flag_disable_z = true
@@ -68,11 +68,14 @@ anchor_left = 0.44500002
 anchor_top = 0.1
 anchor_right = 0.555
 anchor_bottom = 0.1
-offset_left = 0.35998535
+offset_left = -53.640015
+offset_top = -33.800003
+offset_right = 61.640015
+offset_bottom = 43.399994
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/normal_font = ExtResource("6_c01mt")
+theme_override_fonts/normal_font = ExtResource("7_nxtc6")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "COMBO  x9"
