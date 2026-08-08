@@ -1137,6 +1137,18 @@ size_flags_vertical = 3
 texture_normal = ExtResource("10_mwfav")
 stretch_mode = 5
 
+[node name="Label" type="Label" parent="UI/Menu" unique_id=1972863213]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 83.0
+offset_right = 19.0
+offset_bottom = 106.0
+grow_horizontal = 2
+text = "Roseshell Studio"
+
 [node name="lvl1" type="Button" parent="UI/Menu" unique_id=612181185]
 layout_mode = 1
 anchors_preset = 8
