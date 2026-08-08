@@ -37,7 +37,7 @@ func _process(delta):
 		var entry = scheduled_asteroids[i]
 		entry["time"] -= delta
 		if entry["time"] <= 0:
-			spawn_asteroid(entry["angle"])
+			spawn_asteroid(entry["angle"], entry["type"])
 			scheduled_asteroids.remove_at(i)
 		i -= 1
 
@@ -156,19 +156,23 @@ func spawn_dust(pos: Vector2, color: Color, count: int, size_mult: float = 1.0, 
 		
 		tween.tween_callback(dust.queue_free).set_delay(duration)
 
-func request_asteroid(suck_time: float, angle: float = INF):
+func request_asteroid(suck_time: float, angle: float = INF, type: String = "Regular"):
 	var start_radius = 800.0
 	var sync_ratio = 1.0 - (sync_radius / start_radius)
 	var adjusted_lifetime = lifetime * sync_ratio
 	var wait_time = suck_time - adjusted_lifetime
 	if wait_time < 0:
 		wait_time = 0
-	scheduled_asteroids.append({"time": wait_time, "angle": angle})
+	scheduled_asteroids.append({"time": wait_time, "angle": angle, "type": type})
 
-func spawn_asteroid(suck_angle: float = INF):
+func spawn_asteroid(suck_angle: float = INF, type: String = "Regular"):
 	var rock := Node2D.new()
 	var colors = [Color(0.5, 0.55, 0.65), Color(0.6, 0.62, 0.68), Color(0.62, 0.55, 0.45), Color(0.55, 0.48, 0.38), Color(0.45, 0.52, 0.6)]
 	var asteroid_color = colors[randi() % colors.size()]
+	
+	if type == "Red":
+		asteroid_color = Color(0.9, 0.1, 0.05)
+	
 	var size = randf_range(55.0, 90.0)
 	var circles = randi_range(3, 6)
 	for i in circles:

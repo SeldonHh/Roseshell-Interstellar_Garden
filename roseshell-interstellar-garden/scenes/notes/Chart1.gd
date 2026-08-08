@@ -15,10 +15,11 @@ func play_song():
 	var start_time = song.start_time
 	var angles = song.angles
 	var intervals = song.intervals
-	#var asteroid_types = song.asteroid_types TODO
+	var asteroid_types = song.asteroid_types
 	
 	var time = start_time
 	var note_index = 0
+	var type_index = 0
 	
 	while time < intervals[-1]["until"]:
 		var interval = 1
@@ -29,8 +30,10 @@ func play_song():
 		
 		time += interval
 		var angle = angles[note_index % angles.size()]
-		spawner.request_asteroid(time, deg_to_rad(angle))
+		var type = asteroid_types[type_index % asteroid_types.size()]
+		spawner.request_asteroid(time, deg_to_rad(angle), type)
 		note_index += 1
+		type_index += 1
 	
 	await get_tree().create_timer(intervals[-1]["until"]+2).timeout
 	music_ended()
