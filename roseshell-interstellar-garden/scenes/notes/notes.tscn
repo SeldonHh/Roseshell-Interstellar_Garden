@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://bjd28k6dqp5df" path="res://scenes/notes/Asteroids.gd" id="1_q84d4"]
 [ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="2_evqf3"]
 [ext_resource type="AudioStream" uid="uid://ckv8eemr7t6bc" path="res://Assets/SFX/Break1.mp3" id="3_svui1"]
+[ext_resource type="AudioStream" uid="uid://1waxwti1n5k5" path="res://Assets/SFX/BadBoom.mp3" id="4_2h2u6"]
 [ext_resource type="AudioStream" uid="uid://d0266h2qp30ve" path="res://Assets/SFX/Absorb1.mp3" id="4_fi5s2"]
+[ext_resource type="AudioStream" uid="uid://c17e7mbb0ebfh" path="res://Assets/SFX/Green.mp3" id="5_2h2u6"]
 
 [node name="Notes" type="Node2D" unique_id=479660983]
 script = ExtResource("1_q84d4")
@@ -15,6 +17,12 @@ volume_db = -20.0
 [node name="Absorb1" type="AudioStreamPlayer" parent="." unique_id=1570511791]
 stream = ExtResource("4_fi5s2")
 volume_db = -10.0
+
+[node name="BadBoom" type="AudioStreamPlayer" parent="." unique_id=97011230]
+stream = ExtResource("4_2h2u6")
+
+[node name="Green" type="AudioStreamPlayer" parent="." unique_id=312719781]
+stream = ExtResource("5_2h2u6")
 
 [node name="Asteroid" type="Sprite2D" parent="." unique_id=700398446]
 position = Vector2(-73, 143)

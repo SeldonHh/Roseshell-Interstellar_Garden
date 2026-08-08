@@ -9,6 +9,7 @@ signal note_spawned
 @onready var player = $"../Player/body"
 @onready var break_sound = $Break1
 @onready var absorb_sound = $Absorb1
+@onready var bad_boom_sound = $BadBoom
 
 @export var spawn_interval: float = 2
 @export var lifetime: float = 3
@@ -21,6 +22,7 @@ signal note_spawned
 @export var bounce_distance: float = 300.0
 @export var bounce_time: float = 0.5
 @export var sync_radius: float = 120.0
+@export var green_final_suck_curve: float = 6
 
 var timer: float = 0.0
 var combo: int = 0
@@ -30,6 +32,7 @@ var scheduled_asteroids: Array = []
 func _ready():
 	randomize()
 	asteroid.hide()
+	bad_boom_sound.volume_db = -3.0
 
 func _process(delta):
 	var i = scheduled_asteroids.size() - 1
@@ -51,37 +54,70 @@ func _process(delta):
 		
 		if not rock.has_meta("age"):
 			continue
-			
+		
+		var is_red = rock.has_meta("is_red") and rock.get_meta("is_red") == true
+		var is_green = rock.has_meta("is_green") and rock.get_meta("is_green") == true
+		
 		if rock.global_position.distance_to(player.global_position) <= player_hit_distance:
 			rock.set_meta("bouncing", true)
 			rock.set_meta("destroyed", true)
-			combo += 1
-			if combo == 1:
-				combo_active = true
-			combo_success.emit()
-			break_sound.pitch_scale = randf_range(0.80, 1.15)
-			break_sound.play()
-			var away = (rock.global_position - player.global_position).normalized()
 			
-			var rock_scale = rock.scale.x
-			var particle_count = int(8 * clamp(rock_scale / 0.35, 0.5, 2.0))
-			var particle_size_mult = clamp(rock_scale / 0.35, 0.5, 2.0)
-			
-			for piece in rock.get_children():
-				if piece is Polygon2D:
-					var piece_global = rock.global_position + piece.position
-					var piece_direction = (piece.position + Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))).normalized()
-					var target = piece.position + piece_direction * randf_range(40.0, 80.0)
-					
-					spawn_dust(piece_global, piece.color, particle_count, particle_size_mult, piece_direction, target.length())
-					
-					var tween = create_tween()
-					tween.tween_property(piece, "position", target, bounce_time)
-					tween.parallel().tween_property(piece, "rotation", randf_range(-3.0, 3.0), bounce_time)
-					tween.parallel().tween_property(piece, "modulate:a", 0.0, bounce_time)
-			var body_tween = create_tween()
-			body_tween.tween_property(rock, "global_position", rock.global_position + away * bounce_distance * 0.5, bounce_time)
-			body_tween.tween_callback(rock.queue_free)
+			if is_red:
+				combo = 0
+				combo_active = false
+				combo_break.emit()
+				bad_boom_sound.pitch_scale = randf_range(0.80, 1.15)
+				bad_boom_sound.play()
+				
+				var rock_scale = rock.scale.x
+				var particle_count = int(12 * clamp(rock_scale / 0.35, 0.5, 2.0))
+				var particle_size_mult = clamp(rock_scale / 0.35, 0.5, 2.0)
+				
+				for piece in rock.get_children():
+					if piece is Polygon2D:
+						var piece_global = rock.global_position + piece.position
+						var piece_direction = (piece.position + Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))).normalized()
+						var target = piece.position + piece_direction * randf_range(40.0, 80.0)
+						
+						var explosion_color = Color(0.9, 0.1, 0.05)
+						spawn_dust(piece_global, explosion_color, particle_count, particle_size_mult * 1.5, piece_direction, target.length())
+						spawn_dust(piece_global, Color(1.0, 0.6, 0.0), particle_count / 2, particle_size_mult * 0.8, piece_direction, target.length() * 0.7)
+						
+						var tween = create_tween()
+						tween.tween_property(piece, "position", target, bounce_time)
+						tween.parallel().tween_property(piece, "rotation", randf_range(-3.0, 3.0), bounce_time)
+						tween.parallel().tween_property(piece, "modulate:a", 0.0, bounce_time)
+				var body_tween = create_tween()
+				body_tween.tween_property(rock, "global_position", rock.global_position + (rock.global_position - player.global_position).normalized() * bounce_distance * 0.3, bounce_time)
+				body_tween.tween_callback(rock.queue_free)
+			else:
+				combo += 1
+				if combo == 1:
+					combo_active = true
+				combo_success.emit()
+				break_sound.pitch_scale = randf_range(0.80, 1.15)
+				break_sound.play()
+				var away = (rock.global_position - player.global_position).normalized()
+				
+				var rock_scale = rock.scale.x
+				var particle_count = int(8 * clamp(rock_scale / 0.35, 0.5, 2.0))
+				var particle_size_mult = clamp(rock_scale / 0.35, 0.5, 2.0)
+				
+				for piece in rock.get_children():
+					if piece is Polygon2D:
+						var piece_global = rock.global_position + piece.position
+						var piece_direction = (piece.position + Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))).normalized()
+						var target = piece.position + piece_direction * randf_range(40.0, 80.0)
+						
+						spawn_dust(piece_global, piece.color, particle_count, particle_size_mult, piece_direction, target.length())
+						
+						var tween = create_tween()
+						tween.tween_property(piece, "position", target, bounce_time)
+						tween.parallel().tween_property(piece, "rotation", randf_range(-3.0, 3.0), bounce_time)
+						tween.parallel().tween_property(piece, "modulate:a", 0.0, bounce_time)
+				var body_tween = create_tween()
+				body_tween.tween_property(rock, "global_position", rock.global_position + away * bounce_distance * 0.5, bounce_time)
+				body_tween.tween_callback(rock.queue_free)
 			continue
 			
 		var age: float = rock.get_meta("age")
@@ -92,24 +128,41 @@ func _process(delta):
 		var start_angle: float = rock.get_meta("start_angle")
 		var spin: float = rock.get_meta("spin")
 		var radius_progress: float
-		if t < 0.75:
-			radius_progress = pow(t / 0.75, spiral_curve) * 0.3
+		
+		if is_green:
+			if t < 0.75:
+				radius_progress = pow(t / 0.75, spiral_curve) * 0.3
+			else:
+				var x: float = (t - 0.75) / 0.25
+				radius_progress = 0.3 + 0.7 * pow(x, green_final_suck_curve)
 		else:
-			var x: float = (t - 0.75) / 0.25
-			radius_progress = 0.3 + 0.7 * pow(x, final_suck_curve)
+			if t < 0.75:
+				radius_progress = pow(t / 0.75, spiral_curve) * 0.3
+			else:
+				var x: float = (t - 0.75) / 0.25
+				radius_progress = 0.3 + 0.7 * pow(x, final_suck_curve)
+		
 		var radius: float = lerp(start_radius, 0.0, radius_progress)
 		var angle: float = start_angle + spin * revolutions * TAU * t
 		rock.global_position = black_hole.global_position + Vector2(cos(angle), sin(angle)) * radius
 		rock.rotation += delta * 0.8
 		
 		if t >= 1.0:
-			if combo_active:
-				combo = 0
-				combo_active = false
-			combo_break.emit()
 			rock.set_meta("consuming", true)
-			absorb_sound.pitch_scale = randf_range(0.85, 1.15)
-			absorb_sound.play()
+			
+			if is_red:
+				combo += 1
+				if combo == 1:
+					combo_active = true
+				combo_success.emit()
+				absorb_sound.pitch_scale = randf_range(0.85, 1.15)
+				absorb_sound.play()
+			else:
+				if combo_active:
+					combo = 0
+					combo_active = false
+				combo_break.emit()
+			
 			var tween = create_tween()
 			tween.tween_property(rock, "global_position", black_hole.global_position, 0.12)
 			tween.parallel().tween_property(rock, "scale", Vector2.ZERO, 0.12)
@@ -169,12 +222,22 @@ func spawn_asteroid(suck_angle: float = INF, type: String = "Regular"):
 	var rock := Node2D.new()
 	var colors = [Color(0.5, 0.55, 0.65), Color(0.6, 0.62, 0.68), Color(0.62, 0.55, 0.45), Color(0.55, 0.48, 0.38), Color(0.45, 0.52, 0.6)]
 	var asteroid_color = colors[randi() % colors.size()]
+	var is_red = false
+	var is_green = false
 	
 	if type == "Red":
-		asteroid_color = Color(0.9, 0.1, 0.05)
+		is_red = true
+		asteroid_color = Color(0.45, 0.48, 0.55)
+	elif type == "Green":
+		is_green = true
+		asteroid_color = Color(0.45, 0.52, 0.45)
+	
+	rock.set_meta("is_red", is_red)
+	rock.set_meta("is_green", is_green)
 	
 	var size = randf_range(55.0, 90.0)
 	var circles = randi_range(3, 6)
+	
 	for i in circles:
 		var circle := Polygon2D.new()
 		var points := PackedVector2Array()
@@ -192,6 +255,50 @@ func spawn_asteroid(suck_angle: float = INF, type: String = "Regular"):
 		circle.color = Color(clamp(asteroid_color.r * shade, 0.0, 1.0), clamp(asteroid_color.g * shade, 0.0, 1.0), clamp(asteroid_color.b * shade, 0.0, 1.0))
 		circle.rotation = randf_range(0.0, TAU)
 		rock.add_child(circle)
+		
+		if is_red:
+			var ore_count = randi_range(2, 4)
+			for j in range(ore_count):
+				var ore := Polygon2D.new()
+				var points2 := PackedVector2Array()
+				var ore_size = randf_range(14.0, 24.0)
+				var sides = randi_range(4, 6)
+				var ore_offset = Vector2(randf_range(-radius * 0.7, radius * 0.7), randf_range(-radius * 0.7, radius * 0.7)) + offset
+				var test_dist = ore_offset.length()
+				var max_dist = radius * 0.8
+				if test_dist > max_dist:
+					ore_offset = ore_offset.normalized() * max_dist
+				for p in sides:
+					var ang = TAU * p / sides
+					var wobble = randf_range(0.7, 1.3)
+					points2.append(ore_offset + Vector2(cos(ang), sin(ang)) * ore_size * wobble)
+				ore.polygon = points2
+				ore.color = Color(0.9, 0.1, 0.05, 1.0)
+				ore.rotation = randf_range(0.0, TAU)
+				rock.add_child(ore)
+				rock.move_child(ore, -1)
+		elif is_green:
+			var ore_count = randi_range(2, 4)
+			for j in range(ore_count):
+				var ore := Polygon2D.new()
+				var points2 := PackedVector2Array()
+				var ore_size = randf_range(14.0, 24.0)
+				var sides = randi_range(4, 6)
+				var ore_offset = Vector2(randf_range(-radius * 0.7, radius * 0.7), randf_range(-radius * 0.7, radius * 0.7)) + offset
+				var test_dist = ore_offset.length()
+				var max_dist = radius * 0.8
+				if test_dist > max_dist:
+					ore_offset = ore_offset.normalized() * max_dist
+				for p in sides:
+					var ang = TAU * p / sides
+					var wobble = randf_range(0.7, 1.3)
+					points2.append(ore_offset + Vector2(cos(ang), sin(ang)) * ore_size * wobble)
+				ore.polygon = points2
+				ore.color = Color(0.1, 0.9, 0.05, 1.0)
+				ore.rotation = randf_range(0.0, TAU)
+				rock.add_child(ore)
+				rock.move_child(ore, -1)
+	
 	var s: float = randf_range(0.28, 0.42)
 	rock.scale = Vector2.ONE * s
 	var view: Vector2 = get_viewport().get_visible_rect().size
