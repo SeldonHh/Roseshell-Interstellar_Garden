@@ -5,6 +5,10 @@ extends CanvasLayer
 @onready var chart = $"../Chart"
 @onready var menu: Control = $Menu
 @onready var recap_screen: RichTextLabel = $recap_screen
+@onready var lvl_1: TextureButton = %lvl1
+@onready var lvl_2: TextureButton = %lvl2
+@onready var lvl_holder: GridContainer = $Menu/Lvl_Holder
+@onready var tutorial: TextureButton = %Tutorial
 
 var combo_stable := false
 var previous_combo := 0
@@ -17,6 +21,9 @@ var total_notes := 0
 var hit_notes := 0
 
 func _ready():
+	tutorial.set_meta("song",preload("uid://cja8bn21mm8o"))
+	lvl_1.set_meta("song",preload("uid://bj4l508i6ovjs"))
+	lvl_2.set_meta("song",preload("uid://et45168hj3r3"))
 	chart.song_ended.connect(_on_song_ended)
 	notes.combo_success.connect(_on_combo_success)
 	notes.combo_break.connect(_on_combo_break)
@@ -119,9 +126,9 @@ func _on_song_ended():
 	elif percentage >= 80:
 		rating = "B"
 		color = "#EBEB00"
-	elif percentage >= 70:
+	elif percentage >= 65:
 		rating = "C"
-	elif percentage >= 60:
+	elif percentage >= 50:
 		rating = "D"
 	
 	recap_screen.text = """[center][color=#FFFFFF]
@@ -138,6 +145,12 @@ SCORE: %s
 		rating,
 		percentage
 	]
+	for child in lvl_holder.get_children():
+		if child.has_meta("song"):
+			if child.get_meta("song") == chart.song:
+				child.get_child(0).text = "%s\n[color=%s]rank: %s[/color]"%[chart.song.song_name,color,rating]
+				
+			
 	await get_tree().create_timer(3).timeout
 	combo_stable = false
 	previous_combo = 0
@@ -156,13 +169,18 @@ SCORE: %s
 
 
 func _on_lvl_2_pressed() -> void:
-	chart.song = preload("uid://et45168hj3r3")
+	chart.song = lvl_2.get_meta("song")
 	menu.hide()
 	chart.play_song()
-	
-	
+
 
 func _on_lvl_1_pressed() -> void:
-	chart.song = preload("uid://bj4l508i6ovjs")
+	chart.song = lvl_1.get_meta("song")
+	menu.hide()
+	chart.play_song()
+
+
+func _on_tutorial_pressed() -> void:
+	chart.shong = tutorial.get_meta("song")
 	menu.hide()
 	chart.play_song()

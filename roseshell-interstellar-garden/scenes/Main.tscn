@@ -12,6 +12,7 @@
 [ext_resource type="Shader" uid="uid://732i5j48dd6p" path="res://scenes/MainBG.gdshader" id="8_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://bd5cs6s122gj2" path="res://Assets/ui/settings.png" id="9_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://d4alefqcbowc1" path="res://Assets/ui/credits.png" id="10_mwfav"]
+[ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/icon.png" id="12_qmy6f"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
 particle_flag_disable_z = true
@@ -1149,43 +1150,117 @@ offset_bottom = 106.0
 grow_horizontal = 2
 text = "Roseshell Studio"
 
-[node name="lvl1" type="Button" parent="UI/Menu" unique_id=612181185]
+[node name="Lvl_Holder" type="GridContainer" parent="UI/Menu" unique_id=767009705]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -115.0
-offset_top = -18.0
-offset_right = -66.0
-offset_bottom = 13.0
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
-text = "LVL 1"
-flat = true
+columns = 2
 
-[node name="lvl2" type="Button" parent="UI/Menu" unique_id=27055190]
+[node name="Tutorial" type="TextureButton" parent="UI/Menu/Lvl_Holder" unique_id=1754331138]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("12_qmy6f")
+stretch_mode = 5
+
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Lvl_Holder/Tutorial" unique_id=1318893708]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.35
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = -20.0
-offset_right = 89.0
-offset_bottom = 11.0
+anchor_bottom = 1.35
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 56.0
+offset_bottom = 12.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "LVL 2
-"
-flat = true
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("7_nxtc6")
+bbcode_enabled = true
+text = "Tutorial
+Rank ???"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lvl1" type="TextureButton" parent="UI/Menu/Lvl_Holder" unique_id=1569913496]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("12_qmy6f")
+stretch_mode = 5
+
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Lvl_Holder/lvl1" unique_id=2014470321]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.35
+anchor_right = 0.5
+anchor_bottom = 1.35
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 56.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("7_nxtc6")
+bbcode_enabled = true
+text = "Stellar ballad
+Rank ???"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lvl2" type="TextureButton" parent="UI/Menu/Lvl_Holder" unique_id=1013879592]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("12_qmy6f")
+stretch_mode = 5
+
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Lvl_Holder/lvl2" unique_id=1242659967]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.35
+anchor_right = 0.5
+anchor_bottom = 1.35
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("7_nxtc6")
+bbcode_enabled = true
+text = "Oh my !
+Rank ???"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Chart" type="Node2D" parent="." unique_id=359360928]
 script = ExtResource("8_jlsqs")
 
 [node name="Music" type="AudioStreamPlayer" parent="Chart" unique_id=748155325]
 
-[connection signal="pressed" from="UI/Menu/lvl1" to="UI" method="_on_lvl_1_pressed"]
-[connection signal="pressed" from="UI/Menu/lvl2" to="UI" method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="UI/Menu/Lvl_Holder/Tutorial" to="UI" method="_on_tutorial_pressed"]
+[connection signal="pressed" from="UI/Menu/Lvl_Holder/lvl1" to="UI" method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="UI/Menu/Lvl_Holder/lvl2" to="UI" method="_on_lvl_2_pressed"]

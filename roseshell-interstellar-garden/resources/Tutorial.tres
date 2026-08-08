@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://cja8bn21mm8o"]
+
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_1rfy5"]
+[ext_resource type="AudioStream" uid="uid://tuhk64r4l4us" path="res://Assets/music/Purple1.mp3" id="2_8gdo2"]
+
+[resource]
+script = ExtResource("1_1rfy5")
+song_name = "Tutorial"
+angles = Array[int]([0, 180])
+intervals = Array[Dictionary]([{
+"interval": 1.333,
+"until": 10.0
+}])
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"
