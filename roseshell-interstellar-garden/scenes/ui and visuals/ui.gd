@@ -181,6 +181,13 @@ func _on_lvl_1_pressed() -> void:
 
 
 func _on_tutorial_pressed() -> void:
-	chart.shong = tutorial.get_meta("song")
+	chart.song = tutorial.get_meta("song")
 	menu.hide()
 	chart.play_song()
+	
+	var viewport_size = get_viewport().get_visible_rect().size
+	recap_screen.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
+	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	recap_screen.text= "oh an asteroid is approaching\nBlock it before it goes in the black hole!"
+	
+	recap_screen.show()
