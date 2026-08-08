@@ -8,7 +8,7 @@ extends CanvasLayer
 @onready var lvl_1: TextureButton = %lvl1
 @onready var lvl_2: TextureButton = %lvl2
 @onready var tutorial: TextureButton = %Tutorial
-@onready var lvl_holder: GridContainer = $"Menu/Purple's advenure"
+@onready var lvl_holder: Node = $"Menu/Purple's advenure"
 
 var combo_stable := false
 var previous_combo := 0

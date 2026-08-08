@@ -1079,6 +1079,7 @@ trail_lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_e5dxq")
 
 [node name="first planet" type="ColorRect" parent="UI/Menu" unique_id=134270359]
+visible = false
 material = SubResource("ShaderMaterial_bjd11")
 layout_mode = 1
 anchors_preset = 15
@@ -1092,6 +1093,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="second planet" type="ColorRect" parent="UI/Menu" unique_id=477740230]
+visible = false
 material = SubResource("ShaderMaterial_cvmbd")
 layout_mode = 1
 anchors_preset = 15
