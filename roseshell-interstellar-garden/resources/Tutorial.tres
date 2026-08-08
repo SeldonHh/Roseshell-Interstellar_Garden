@@ -8,7 +8,7 @@ script = ExtResource("1_1rfy5")
 song_name = "Tutorial"
 angles = Array[int]([0, 180])
 intervals = Array[Dictionary]([{
-"interval": 1.333,
-"until": 10.0
+"interval": 3.0,
+"until": 15.0
 }])
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"
