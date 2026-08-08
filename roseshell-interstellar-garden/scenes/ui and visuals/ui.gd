@@ -164,6 +164,7 @@ SCORE: %s
 	hit_notes = 0
 	combo.modulate = Color(1.0,1.0,1.0,0.0)
 	combo.scale = Vector2.ONE
+	chart.music.stop()
 	menu.show()
 	recap_screen.hide()
 
@@ -189,5 +190,10 @@ func _on_tutorial_pressed() -> void:
 	recap_screen.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
 	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	recap_screen.text= "oh an asteroid is approaching\nBlock it before it goes in the black hole!"
-	
 	recap_screen.show()
+	await get_tree().create_timer(4).timeout
+	recap_screen.text = "If you miss an asteroid it will be absorbed by the black hole\n If it absorbs too much it will reach critical mass and you'll fail"
+	await get_tree().create_timer(4).timeout
+	recap_screen.text = "There are some special types of asteroids:\nred ones ...\n... ones ...\n... ones ..."
+	await get_tree().create_timer(12).timeout
+	recap_screen.text = "Try to get high combo by deflecting all the asteroid and try to reach P rank for all levels, good luck"
