@@ -13,9 +13,11 @@ signal note_spawned
 
 @export var spawn_interval: float = 2
 @export var lifetime: float = 3
+@export var yellow_lifetime: float = 4
 @export var sprite_scale_min: float = 6
 @export var sprite_scale_max: float = 7
 @export var revolutions: float = 0.3
+@export var yellow_revolutions: float = 0.8
 @export var spiral_curve: float = 6.0
 @export var final_suck_curve: float = 1
 @export var player_hit_distance: float = 50.0
@@ -23,6 +25,7 @@ signal note_spawned
 @export var bounce_time: float = 0.5
 @export var sync_radius: float = 120.0
 @export var green_final_suck_curve: float = 6
+@export var yellow_spawn_distance_multiplier: float = 1.35
 
 var timer: float = 0.0
 var combo: int = 0
@@ -57,6 +60,7 @@ func _process(delta):
 		
 		var is_red = rock.has_meta("is_red") and rock.get_meta("is_red") == true
 		var is_green = rock.has_meta("is_green") and rock.get_meta("is_green") == true
+		var is_yellow = rock.has_meta("is_yellow") and rock.get_meta("is_yellow") == true
 		
 		if rock.global_position.distance_to(player.global_position) <= player_hit_distance:
 			rock.set_meta("bouncing", true)
@@ -123,7 +127,8 @@ func _process(delta):
 		var age: float = rock.get_meta("age")
 		age += delta
 		rock.set_meta("age", age)
-		var t: float = clamp(age / lifetime, 0.0, 1.0)
+		var current_lifetime = yellow_lifetime if is_yellow else lifetime
+		var t: float = clamp(age / current_lifetime, 0.0, 1.0)
 		var start_radius: float = rock.get_meta("start_radius")
 		var start_angle: float = rock.get_meta("start_angle")
 		var spin: float = rock.get_meta("spin")
@@ -143,7 +148,8 @@ func _process(delta):
 				radius_progress = 0.3 + 0.7 * pow(x, final_suck_curve)
 		
 		var radius: float = lerp(start_radius, 0.0, radius_progress)
-		var angle: float = start_angle + spin * revolutions * TAU * t
+		var current_revolutions = yellow_revolutions if is_yellow else revolutions
+		var angle: float = start_angle + spin * current_revolutions * TAU * t
 		rock.global_position = black_hole.global_position + Vector2(cos(angle), sin(angle)) * radius
 		rock.rotation += delta * 0.8
 		
@@ -212,7 +218,8 @@ func spawn_dust(pos: Vector2, color: Color, count: int, size_mult: float = 1.0, 
 func request_asteroid(suck_time: float, angle: float = INF, type: String = "Regular"):
 	var start_radius = 800.0
 	var sync_ratio = 1.0 - (sync_radius / start_radius)
-	var adjusted_lifetime = lifetime * sync_ratio
+	var current_lifetime = yellow_lifetime if type == "Yellow" else lifetime
+	var adjusted_lifetime = current_lifetime * sync_ratio
 	var wait_time = suck_time - adjusted_lifetime
 	if wait_time < 0:
 		wait_time = 0
@@ -224,16 +231,21 @@ func spawn_asteroid(suck_angle: float = INF, type: String = "Regular"):
 	var asteroid_color = colors[randi() % colors.size()]
 	var is_red = false
 	var is_green = false
+	var is_yellow = false
 	
 	if type == "Red":
 		is_red = true
 		asteroid_color = Color(0.45, 0.48, 0.55)
 	elif type == "Green":
 		is_green = true
-		asteroid_color = Color(0.45, 0.52, 0.45)
+		asteroid_color = Color(0.55, 0.65, 0.45)
+	elif type == "Yellow":
+		is_yellow = true
+		asteroid_color = Color(0.65, 0.6, 0.35)
 	
 	rock.set_meta("is_red", is_red)
 	rock.set_meta("is_green", is_green)
+	rock.set_meta("is_yellow", is_yellow)
 	
 	var size = randf_range(55.0, 90.0)
 	var circles = randi_range(3, 6)
@@ -298,6 +310,27 @@ func spawn_asteroid(suck_angle: float = INF, type: String = "Regular"):
 				ore.rotation = randf_range(0.0, TAU)
 				rock.add_child(ore)
 				rock.move_child(ore, -1)
+		elif is_yellow:
+			var ore_count = randi_range(2, 4)
+			for j in range(ore_count):
+				var ore := Polygon2D.new()
+				var points2 := PackedVector2Array()
+				var ore_size = randf_range(14.0, 24.0)
+				var sides = randi_range(4, 6)
+				var ore_offset = Vector2(randf_range(-radius * 0.7, radius * 0.7), randf_range(-radius * 0.7, radius * 0.7)) + offset
+				var test_dist = ore_offset.length()
+				var max_dist = radius * 0.8
+				if test_dist > max_dist:
+					ore_offset = ore_offset.normalized() * max_dist
+				for p in sides:
+					var ang = TAU * p / sides
+					var wobble = randf_range(0.7, 1.3)
+					points2.append(ore_offset + Vector2(cos(ang), sin(ang)) * ore_size * wobble)
+				ore.polygon = points2
+				ore.color = Color(1.0, 0.85, 0.1, 1.0)
+				ore.rotation = randf_range(0.0, TAU)
+				rock.add_child(ore)
+				rock.move_child(ore, -1)
 	
 	var s: float = randf_range(0.28, 0.42)
 	rock.scale = Vector2.ONE * s
@@ -306,16 +339,18 @@ func spawn_asteroid(suck_angle: float = INF, type: String = "Regular"):
 	var spawn_pos = Vector2.ZERO
 	var _final_angle = suck_angle
 	
+	var spawn_distance_multiplier = yellow_spawn_distance_multiplier if is_yellow else 1.0
+	
 	if suck_angle == INF:
 		match randi() % 4:
 			0:
-				spawn_pos = Vector2(-40.0, randf_range(0.0, view.y))
+				spawn_pos = Vector2(-40.0 * spawn_distance_multiplier, randf_range(0.0, view.y))
 			1:
-				spawn_pos = Vector2(view.x + 40.0, randf_range(0.0, view.y))
+				spawn_pos = Vector2(view.x + 40.0 * spawn_distance_multiplier, randf_range(0.0, view.y))
 			2:
-				spawn_pos = Vector2(randf_range(0.0, view.x), -40.0)
+				spawn_pos = Vector2(randf_range(0.0, view.x), -40.0 * spawn_distance_multiplier)
 			3:
-				spawn_pos = Vector2(randf_range(0.0, view.x), view.y + 40.0)
+				spawn_pos = Vector2(randf_range(0.0, view.x), view.y + 40.0 * spawn_distance_multiplier)
 		_final_angle = (spawn_pos - black_hole.global_position).angle()
 	else:
 		var angle_deg = rad_to_deg(suck_angle)
@@ -324,13 +359,13 @@ func spawn_asteroid(suck_angle: float = INF, type: String = "Regular"):
 			angle_deg += 360.0
 		
 		if angle_deg >= 315.0 or angle_deg < 45.0:
-			spawn_pos = Vector2(randf_range(0.0, view.x), -40.0)
+			spawn_pos = Vector2(randf_range(0.0, view.x), -40.0 * spawn_distance_multiplier)
 		elif angle_deg >= 45.0 and angle_deg < 135.0:
-			spawn_pos = Vector2(view.x + 40.0, randf_range(0.0, view.y))
+			spawn_pos = Vector2(view.x + 40.0 * spawn_distance_multiplier, randf_range(0.0, view.y))
 		elif angle_deg >= 135.0 and angle_deg < 225.0:
-			spawn_pos = Vector2(randf_range(0.0, view.x), view.y + 40.0)
+			spawn_pos = Vector2(randf_range(0.0, view.x), view.y + 40.0 * spawn_distance_multiplier)
 		else:
-			spawn_pos = Vector2(-40.0, randf_range(0.0, view.y))
+			spawn_pos = Vector2(-40.0 * spawn_distance_multiplier, randf_range(0.0, view.y))
 		
 		var distance = (spawn_pos - black_hole.global_position).length()
 		var suck_dir = Vector2(cos(suck_angle), sin(suck_angle))
@@ -349,7 +384,8 @@ func spawn_asteroid(suck_angle: float = INF, type: String = "Regular"):
 	if suck_angle == INF:
 		rock.set_meta("start_angle", offset.angle())
 	else:
-		rock.set_meta("start_angle", suck_angle - (spin * revolutions * TAU))
+		var current_revolutions = yellow_revolutions if is_yellow else revolutions
+		rock.set_meta("start_angle", suck_angle - (spin * current_revolutions * TAU))
 	
 	rock.modulate.a = 0.0
 	add_child(rock)
