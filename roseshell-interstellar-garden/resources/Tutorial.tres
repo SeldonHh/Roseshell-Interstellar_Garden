@@ -6,9 +6,11 @@
 [resource]
 script = ExtResource("1_1rfy5")
 song_name = "Tutorial"
+start_time = 0.5
 angles = Array[int]([0, 180])
 intervals = Array[Dictionary]([{
 "interval": 3.0,
 "until": 15.0
 }])
+asteroid_types = ["Regular", "Red"]
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"

@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bd5cs6s122gj2" path="res://Assets/ui/settings.png" id="9_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://d4alefqcbowc1" path="res://Assets/ui/credits.png" id="10_mwfav"]
 [ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/icon.png" id="12_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://bmpp7lxeugj2q" path="res://Assets/Sprites/image (2).png" id="13_mwfav"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
 particle_flag_disable_z = true
@@ -1199,7 +1200,7 @@ custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
 toggle_mode = true
-texture_normal = ExtResource("12_qmy6f")
+texture_normal = ExtResource("13_mwfav")
 stretch_mode = 5
 
 [node name="Label" type="RichTextLabel" parent="UI/Menu/Lvl_Holder/lvl1" unique_id=2014470321]
@@ -1230,7 +1231,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
-texture_normal = ExtResource("12_qmy6f")
+texture_normal = ExtResource("13_mwfav")
 stretch_mode = 5
 
 [node name="Label" type="RichTextLabel" parent="UI/Menu/Lvl_Holder/lvl2" unique_id=1242659967]
