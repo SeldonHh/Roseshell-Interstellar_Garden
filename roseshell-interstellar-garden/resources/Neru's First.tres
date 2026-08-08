@@ -7,7 +7,7 @@
 script = ExtResource("1_2rq32")
 song_name = "Oh My!"
 song_file = ExtResource("2_2rq32")
-decibel_reduction = 0
+decibel_reduction = -3
 start_time = 1.666
 angles = [0, 90, 120, 180, -120, -60, 10, -180, 90, -90]
 intervals = Array[Dictionary]([{

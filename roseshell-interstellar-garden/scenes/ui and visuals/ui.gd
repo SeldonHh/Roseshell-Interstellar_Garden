@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var combo: RichTextLabel = $combo
 @onready var notes: Node2D = $"../Notes"
 @onready var chart = $"../Chart"
+@onready var menu: Control = $Menu
+@onready var recap_screen: RichTextLabel = $recap_screen
 
 var combo_stable := false
 var previous_combo := 0
@@ -90,13 +92,13 @@ func _on_combo_break():
 
 func _on_song_ended():
 	song_ended = true
-	combo.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	combo.scale = Vector2.ONE
+	recap_screen.show()
+	recap_screen.scale = Vector2.ONE
 	combo_stable = false
 	
 	var viewport_size = get_viewport().get_visible_rect().size
-	combo.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
-	combo.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	recap_screen.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
+	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	
 	var percentage = ((float(hit_notes) / total_notes) * 100) if total_notes > 0 else 0.0
 	
@@ -122,7 +124,7 @@ func _on_song_ended():
 	elif percentage >= 60:
 		rating = "D"
 	
-	combo.text = """[center][color=#FFFFFF]
+	recap_screen.text = """[center][color=#FFFFFF]
 MAX COMBO: %s
 MISSES: %s
 SCORE: %s
@@ -136,3 +138,31 @@ SCORE: %s
 		rating,
 		percentage
 	]
+	await get_tree().create_timer(3).timeout
+	combo_stable = false
+	previous_combo = 0
+	notes.combo = 0
+	song_ended = false
+	max_combo = 0
+	misses = 0
+	total_score = 0
+	max_possible_score = 0
+	total_notes = 0
+	hit_notes = 0
+	combo.modulate = Color(1.0,1.0,1.0,0.0)
+	combo.scale = Vector2.ONE
+	menu.show()
+	recap_screen.hide()
+
+
+func _on_lvl_2_pressed() -> void:
+	chart.song = preload("uid://et45168hj3r3")
+	menu.hide()
+	chart.play_song()
+	
+	
+
+func _on_lvl_1_pressed() -> void:
+	chart.song = preload("uid://bj4l508i6ovjs")
+	menu.hide()
+	chart.play_song()

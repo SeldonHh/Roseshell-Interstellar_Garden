@@ -6,7 +6,8 @@ signal song_ended
 @onready var music = $"Music"
 @export var song := preload("uid://bj4l508i6ovjs")
 
-func _ready():
+
+func play_song():
 	music.volume_db -= song.decibel_reduction
 	music.stream = song.song_file
 	music.play()
