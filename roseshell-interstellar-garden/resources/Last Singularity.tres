@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://dfitmdopxvif2"]
+
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_xo3t6"]
+[ext_resource type="AudioStream" uid="uid://c2eddnadnw05p" path="res://Assets/music/i was tired.mp3" id="2_xo3t6"]
+
+[resource]
+script = ExtResource("1_xo3t6")
+song_name = "Last Singularity"
+song_file = ExtResource("2_xo3t6")
+decibel_reduction = -3
+start_time = 11.0
+angles = Array[int]([0, 90, -180, -90, -45, 45, 135, -135])
+intervals = Array[Dictionary]([{
+"interval": 1.0,
+"until": 22.2
+}, {
+"interval": 0.5,
+"until": 122.45
+}, {
+"interval": 0.35,
+"until": 189.0
+}, {
+"interval": 1.05,
+"until": 221.85
+}, {
+"interval": 1.4,
+"until": 244.0
+}, {
+"interval": 0.7,
+"until": 288.0
+}, {
+"interval": 0.35,
+"until": 300.0
+}, {
+"interval": 0.7,
+"until": 305.0
+}, {
+"interval": 1.4,
+"until": 312.0
+}, {
+"interval": 20.0,
+"until": 332.0
+}])
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"

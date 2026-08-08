@@ -1030,9 +1030,9 @@ anchor_left = 0.44500002
 anchor_top = 0.1
 anchor_right = 0.555
 anchor_bottom = 0.1
-offset_left = -53.640015
+offset_left = -110.640015
 offset_top = -33.800003
-offset_right = 61.640015
+offset_right = 118.640015
 offset_bottom = 43.399994
 grow_horizontal = 2
 grow_vertical = 2
@@ -1149,9 +1149,9 @@ offset_top = 83.0
 offset_right = 19.0
 offset_bottom = 106.0
 grow_horizontal = 2
-text = "Roseshell Studio"
+text = "Purple's adventure"
 
-[node name="Lvl_Holder" type="GridContainer" parent="UI/Menu" unique_id=767009705]
+[node name="Purple\'s advenure" type="GridContainer" parent="UI/Menu" unique_id=767009705]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
@@ -1163,7 +1163,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="Tutorial" type="TextureButton" parent="UI/Menu/Lvl_Holder" unique_id=1754331138]
+[node name="Tutorial" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1754331138]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
@@ -1172,7 +1172,7 @@ toggle_mode = true
 texture_normal = ExtResource("12_qmy6f")
 stretch_mode = 5
 
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Lvl_Holder/Tutorial" unique_id=1318893708]
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Purple\'s advenure/Tutorial" unique_id=1318893708]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -1195,7 +1195,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="lvl1" type="TextureButton" parent="UI/Menu/Lvl_Holder" unique_id=1569913496]
+[node name="lvl1" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1569913496]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
@@ -1204,7 +1204,7 @@ toggle_mode = true
 texture_normal = ExtResource("13_mwfav")
 stretch_mode = 5
 
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Lvl_Holder/lvl1" unique_id=2014470321]
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Purple\'s advenure/lvl1" unique_id=2014470321]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -1227,7 +1227,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="lvl2" type="TextureButton" parent="UI/Menu/Lvl_Holder" unique_id=1013879592]
+[node name="lvl2" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1013879592]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
@@ -1235,7 +1235,7 @@ layout_mode = 2
 texture_normal = ExtResource("13_mwfav")
 stretch_mode = 5
 
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Lvl_Holder/lvl2" unique_id=1242659967]
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Purple\'s advenure/lvl2" unique_id=1242659967]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -1250,7 +1250,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("7_nxtc6")
 bbcode_enabled = true
-text = "Oh my !
+text = "Last Singularity
 Rank ???"
 fit_content = true
 scroll_active = false
@@ -1263,6 +1263,6 @@ script = ExtResource("8_jlsqs")
 
 [node name="Music" type="AudioStreamPlayer" parent="Chart" unique_id=748155325]
 
-[connection signal="pressed" from="UI/Menu/Lvl_Holder/Tutorial" to="UI" method="_on_tutorial_pressed"]
-[connection signal="pressed" from="UI/Menu/Lvl_Holder/lvl1" to="UI" method="_on_lvl_1_pressed"]
-[connection signal="pressed" from="UI/Menu/Lvl_Holder/lvl2" to="UI" method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="UI/Menu/Purple\'s advenure/Tutorial" to="UI" method="_on_tutorial_pressed"]
+[connection signal="pressed" from="UI/Menu/Purple\'s advenure/lvl1" to="UI" method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="UI/Menu/Purple\'s advenure/lvl2" to="UI" method="_on_lvl_2_pressed"]

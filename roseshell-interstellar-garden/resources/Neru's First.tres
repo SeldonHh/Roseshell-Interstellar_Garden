@@ -23,5 +23,5 @@ intervals = Array[Dictionary]([{
 "interval": 0.8,
 "until": 56.0
 }])
-asteroid_types = ["Regular", "Red"]
+asteroid_types = Array[String](["Regular", "Red"])
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"

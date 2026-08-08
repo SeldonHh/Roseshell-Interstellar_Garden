@@ -14,4 +14,4 @@ class_name SongChart
 		{"until": 10.0, "interval": 1.333},
 		{"until": 31.0, "interval": 0.66},
 	]
-@export var asteroid_types := ["Regular"]
+@export var asteroid_types :Array[String]= ["Regular"]

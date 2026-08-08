@@ -1,16 +1,17 @@
 [gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://cja8bn21mm8o"]
 
 [ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_1rfy5"]
-[ext_resource type="AudioStream" uid="uid://tuhk64r4l4us" path="res://Assets/music/Purple1.mp3" id="2_8gdo2"]
+[ext_resource type="AudioStream" uid="uid://c6olawpnyjt3c" path="res://Assets/music/Tutorial - gamee.mp3" id="2_1rfy5"]
 
 [resource]
 script = ExtResource("1_1rfy5")
 song_name = "Tutorial"
+song_file = ExtResource("2_1rfy5")
 start_time = 0.5
 angles = Array[int]([0, 180])
 intervals = Array[Dictionary]([{
-"interval": 3.0,
-"until": 15.0
+"interval": 3.58,
+"until": 43.0
 }])
-asteroid_types = ["Regular", "Red"]
+asteroid_types = ["Regular", "Regular", "Red", "Green", "Yellow"]
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"
