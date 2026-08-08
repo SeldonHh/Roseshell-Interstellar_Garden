@@ -9,6 +9,11 @@ extends CanvasLayer
 @onready var lvl_2: TextureButton = %lvl2
 @onready var tutorial: TextureButton = %Tutorial
 @onready var lvl_holder: Node = $"Menu/Purple's advenure"
+@onready var purple_s_advenure: Control = $"Menu/Purple's advenure"
+@onready var neru_s_kingdom: Control = $"Menu/Neru's kingdom"
+
+var current_level_selection_index := 0 
+var level_selections := [purple_s_advenure,neru_s_kingdom]
 
 var combo_stable := false
 var previous_combo := 0
@@ -189,13 +194,32 @@ func _on_tutorial_pressed() -> void:
 	var viewport_size = get_viewport().get_visible_rect().size
 	recap_screen.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
 	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	recap_screen.text= "oh an asteroid is approaching\nBlock it before it goes in the black hole!"
+	recap_screen.text= "Oh an asteroid is approaching\nblock it before it goes in the black hole!"
 	recap_screen.show()
 	await get_tree().create_timer(4).timeout
 	recap_screen.text = "If you miss an asteroid it will be absorbed by the black hole\n If it absorbs too much it will reach critical mass and you'll fail"
 	await get_tree().create_timer(4).timeout
-	recap_screen.text = "There are some special types of asteroids:\nred ones explode, you must avoid them they won't nourrish the black hole\ngreen ones bounce and dash\nyellow ones spins"
+	recap_screen.text = "There are some special types of asteroids:\nred ones explode, you must avoid them they won't nourrish the black hole\ngreen ones charge and dash\nyellow ones spins a lot"
 	await get_tree().create_timer(12).timeout
 	recap_screen.text = "Try to get high combo by deflecting all the asteroid and try to reach P rank for all levels, good luck"
 	await get_tree().create_timer(4).timeout
 	recap_screen.hide()
+
+
+func _on_rightarrow_pressed() -> void:
+	current_level_selection_index += 1
+	if current_level_selection_index > 1:
+		current_level_selection_index = 0
+	match current_level_selection_index:
+		0:
+			purple_s_advenure.show()
+			neru_s_kingdom.hide()
+		1:
+			purple_s_advenure.hide()
+			neru_s_kingdom.show()
+
+
+func _on_leftarrow_pressed() -> void:
+	current_level_selection_index -= 1
+	if current_level_selection_index < 0:
+		current_level_selection_index = 1

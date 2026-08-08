@@ -12,6 +12,7 @@
 [ext_resource type="Shader" uid="uid://732i5j48dd6p" path="res://scenes/MainBG.gdshader" id="8_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://bd5cs6s122gj2" path="res://Assets/ui/settings.png" id="9_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://d4alefqcbowc1" path="res://Assets/ui/credits.png" id="10_mwfav"]
+[ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/icon.png" id="12_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://bmpp7lxeugj2q" path="res://Assets/Sprites/image (2).png" id="13_mwfav"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
@@ -1140,18 +1141,6 @@ size_flags_vertical = 3
 texture_normal = ExtResource("10_mwfav")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/Menu" unique_id=1972863213]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -21.0
-offset_top = 83.0
-offset_right = 19.0
-offset_bottom = 106.0
-grow_horizontal = 2
-text = "Purple's adventure"
-
 [node name="Purple\'s advenure" type="Control" parent="UI/Menu" unique_id=179894255]
 layout_mode = 1
 anchor_left = 0.3
@@ -1163,6 +1152,47 @@ offset_right = 86.599976
 offset_bottom = -58.16803
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="right-arrow" type="Button" parent="UI/Menu/Purple\'s advenure" unique_id=1519928599]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5729167
+anchor_top = 0.07
+anchor_right = 0.61600006
+anchor_bottom = 0.18900001
+offset_left = 0.7854309
+offset_right = 0.2015686
+offset_bottom = 0.059993744
+text = "->"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="left-arrow" type="Button" parent="UI/Menu/Purple\'s advenure" unique_id=332541797]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21668723
+anchor_top = 0.06615385
+anchor_right = 0.25977063
+anchor_bottom = 0.18515386
+offset_left = 0.7854309
+offset_right = 0.2015686
+offset_bottom = 0.059993744
+text = "<-"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="UI/Menu/Purple\'s advenure" unique_id=1972863213]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41900003
+anchor_top = 0.07
+anchor_right = 0.41900003
+anchor_bottom = 0.07
+offset_left = -73.4606
+offset_right = 73.5394
+offset_bottom = 22.999996
+grow_horizontal = 2
+text = "Purple's Adventure"
 
 [node name="Tutorial" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1754331138]
 unique_name_in_owner = true
@@ -1294,11 +1324,196 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
+visible = false
+layout_mode = 1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.70000005
+anchor_bottom = 0.591
+offset_left = -3.0517578e-05
+offset_right = 86.599976
+offset_bottom = -58.16803
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="right-arrow" type="Button" parent="UI/Menu/Neru\'s kingdom" unique_id=1503908755]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5729167
+anchor_top = 0.07
+anchor_right = 0.61600006
+anchor_bottom = 0.18900001
+offset_left = 0.7854309
+offset_right = 0.2015686
+offset_bottom = 0.059993744
+text = "->"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="left-arrow" type="Button" parent="UI/Menu/Neru\'s kingdom" unique_id=919475119]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21668723
+anchor_top = 0.06615385
+anchor_right = 0.25977063
+anchor_bottom = 0.18515386
+offset_left = 0.7854309
+offset_right = 0.2015686
+offset_bottom = 0.059993744
+text = "<-"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="UI/Menu/Neru\'s kingdom" unique_id=962519669]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41900003
+anchor_top = 0.07
+anchor_right = 0.41900003
+anchor_bottom = 0.07
+offset_left = -73.4606
+offset_right = 73.5394
+offset_bottom = 22.999996
+grow_horizontal = 2
+text = "Neru's Kingdom"
+
+[node name="1" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=846237899]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.34
+anchor_right = 0.3
+anchor_bottom = 0.85
+offset_left = 0.25021744
+offset_top = 3.039978
+offset_right = 0.15859985
+offset_bottom = -3.0517578e-05
+toggle_mode = true
+texture_normal = ExtResource("12_qmy6f")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/1" unique_id=256812430]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.35
+anchor_right = 0.5
+anchor_bottom = 1.35
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 56.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("7_nxtc6")
+bbcode_enabled = true
+text = "Tutorial
+Rank ???"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1570024180]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.34
+anchor_right = 0.75
+anchor_bottom = 0.85
+offset_left = 0.03640747
+offset_top = 4.05999
+offset_right = -0.0552063
+offset_bottom = -0.020019531
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("12_qmy6f")
+stretch_mode = 5
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/2" unique_id=1978432974]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.35
+anchor_right = 0.5
+anchor_bottom = 1.35
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 56.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("7_nxtc6")
+bbcode_enabled = true
+text = "Stellar ballad
+Rank ???"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=508552933]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 1.2
+anchor_right = 0.75
+anchor_bottom = 1.73
+offset_left = 0.014984131
+offset_top = 7.080017
+offset_right = -0.07662964
+offset_bottom = -0.120025635
+size_flags_vertical = 0
+texture_normal = ExtResource("12_qmy6f")
+stretch_mode = 4
+flip_h = true
+flip_v = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/3" unique_id=748588008]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.35
+anchor_right = 0.5
+anchor_bottom = 1.35
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("7_nxtc6")
+bbcode_enabled = true
+text = "Last Singularity
+Rank ???"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Chart" type="Node2D" parent="." unique_id=359360928]
 script = ExtResource("8_jlsqs")
 
 [node name="Music" type="AudioStreamPlayer" parent="Chart" unique_id=748155325]
 
+[connection signal="pressed" from="UI/Menu/Purple\'s advenure/right-arrow" to="UI" method="_on_rightarrow_pressed"]
+[connection signal="pressed" from="UI/Menu/Purple\'s advenure/left-arrow" to="UI" method="_on_leftarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/Tutorial" to="UI" method="_on_tutorial_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/lvl1" to="UI" method="_on_lvl_1_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/lvl2" to="UI" method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/right-arrow" to="UI" method="_on_rightarrow_pressed"]
+[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/left-arrow" to="UI" method="_on_leftarrow_pressed"]
