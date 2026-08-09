@@ -41,6 +41,7 @@ func _ready():
 	notes.note_spawned.connect(_on_note_spawned)
 
 func _process(_delta: float) -> void:
+	
 	if song_ended:
 		return
 	
