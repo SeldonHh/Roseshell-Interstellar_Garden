@@ -1099,6 +1099,7 @@ offset_right = 40.18457
 offset_bottom = 5.60791
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Stars?" type="GPUParticles2D" parent="UI/Menu/Background" unique_id=880914782]
@@ -1122,6 +1123,7 @@ offset_right = 76.0
 offset_bottom = -179.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="second planet" type="ColorRect" parent="UI/Menu" unique_id=477740230]
 material = SubResource("ShaderMaterial_cvmbd")
@@ -1135,6 +1137,7 @@ offset_right = -864.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Button" type="Button" parent="UI/Menu" unique_id=248484021]
 layout_mode = 0
@@ -1292,7 +1295,7 @@ anchor_right = 2.611
 anchor_bottom = 0.623
 offset_right = -138.01843
 offset_bottom = -0.0039978027
-text = "Must complete tutorial"
+text = "Must complete Unknown"
 metadata/_edit_use_anchors_ = true
 
 [node name="lvl2" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1013879592]
@@ -1404,7 +1407,7 @@ anchor_right = 2.9390001
 anchor_bottom = 0.623
 offset_right = -180.00244
 offset_bottom = -0.0039978027
-text = "Must complete Spacetime Rift or Fallen Empire"
+text = "Must complete Spacetime Rift"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
@@ -1683,7 +1686,7 @@ anchor_right = 2.9155824
 anchor_bottom = 0.6388437
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete Spacetime Rift or Fallen Empire"
+text = "Must complete Cytoplasm"
 metadata/_edit_use_anchors_ = true
 
 [node name="Main" type="Control" parent="UI/Menu" unique_id=1614013344]
@@ -1694,6 +1697,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("17_fs0b5")
 
 [node name="ColorRect" type="ColorRect" parent="UI/Menu/Main" unique_id=1419954846]
@@ -1703,9 +1707,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="main" type="VBoxContainer" parent="UI/Menu/Main" unique_id=1315680419]
+[node name="Beginning" type="VBoxContainer" parent="UI/Menu/Main" unique_id=1315680419]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -1717,23 +1722,49 @@ grow_vertical = 2
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="play" type="TextureButton" parent="UI/Menu/Main/main" unique_id=2109571348]
+[node name="play" type="TextureButton" parent="UI/Menu/Main/Beginning" unique_id=2109571348]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("8_bjd11")
 stretch_mode = 5
 
-[node name="settings" type="TextureButton" parent="UI/Menu/Main/main" unique_id=1749595655]
+[node name="settings" type="TextureButton" parent="UI/Menu/Main/Beginning" unique_id=1749595655]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("9_qmy6f")
 stretch_mode = 5
 
-[node name="credits" type="TextureButton" parent="UI/Menu/Main/main" unique_id=2137069860]
+[node name="credits" type="TextureButton" parent="UI/Menu/Main/Beginning" unique_id=2137069860]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("10_mwfav")
 stretch_mode = 5
+
+[node name="Settings" type="Control" parent="UI/Menu/Main" unique_id=915272929]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="back_to_menu" type="Button" parent="UI/Menu/Main/Settings" unique_id=864123238]
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 31.0
+text = "Back to menu"
+flat = true
+
+[node name="Credits" type="Control" parent="UI/Menu/Main" unique_id=2111444796]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="back_to_menu" type="Button" parent="UI/Menu/Main/Credits" unique_id=654103639]
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 31.0
+text = "Back to menu"
+flat = true
 
 [node name="Chart" type="Node2D" parent="." unique_id=359360928]
 script = ExtResource("8_jlsqs")
@@ -1762,6 +1793,8 @@ position = Vector2(573, 362)
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru2" to="UI" method="_on_neru_2_pressed"]
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru3" to="UI" method="_on_neru_3_pressed"]
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru4" to="UI" method="_on_neru_4_pressed"]
-[connection signal="pressed" from="UI/Menu/Main/main/play" to="UI/Menu/Main/main" method="_on_play_pressed"]
-[connection signal="pressed" from="UI/Menu/Main/main/settings" to="UI/Menu/Main/main" method="_on_settings_pressed"]
-[connection signal="pressed" from="UI/Menu/Main/main/credits" to="UI/Menu/Main/main" method="_on_credits_pressed"]
+[connection signal="pressed" from="UI/Menu/Main/Beginning/play" to="UI/Menu/Main" method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Menu/Main/Beginning/settings" to="UI/Menu/Main" method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Menu/Main/Beginning/credits" to="UI/Menu/Main" method="_on_credits_pressed"]
+[connection signal="pressed" from="UI/Menu/Main/Settings/back_to_menu" to="UI/Menu/Main" method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="UI/Menu/Main/Credits/back_to_menu" to="UI/Menu/Main" method="_on_back_to_menu_pressed"]

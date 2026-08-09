@@ -123,22 +123,20 @@ func _on_combo_break():
 func _on_song_ended():
 	match chart.song.song_name:
 		"Tutorial":
-			for lvl in [lvl_1,neru_1,neru_2,neru_3]:
-				lvl.disabled = false
-				if lvl.get_child(1) != null:
-					lvl.get_child(1).queue_free()
-				lvl.self_modulate = Color(1.0,1.0,1.0,1.0)
+				neru_1.disabled = false
+				if neru_1.get_child(1) != null:
+					neru_1.get_child(1).queue_free()
+				neru_1.self_modulate = Color(1.0,1.0,1.0,1.0)
 		"Stellar ballad":
 			lvl_2.disabled = false
 			if lvl_2.get_child(1) != null:
 				lvl_2.get_child(1).queue_free()
 			lvl_2.self_modulate = Color(1.0,1.0,1.0,1.0)
 		"Spacetime Rift":
-			for lvl in [lvl_3,neru_4]:
-				lvl.disabled = false
-				if lvl.get_child(1) != null:
-					lvl.get_child(1).queue_free()
-				lvl.self_modulate = Color(1.0,1.0,1.0,1.0)
+			lvl_3.disabled = false
+			if lvl_3.get_child(1) != null:
+				lvl_3.get_child(1).queue_free()
+			lvl_3.self_modulate = Color(1.0,1.0,1.0,1.0)
 		"Oh My!":
 			neru_2.disabled = false
 			if neru_2.get_child(1) != null:
@@ -150,11 +148,15 @@ func _on_song_ended():
 				neru_3.get_child(1).queue_free()
 			neru_3.self_modulate = Color(1.0,1.0,1.0,1.0)
 		"Fallen Empire":
-			for lvl in [lvl_3,neru_4]:
-				lvl.disabled = false
-				if lvl.get_child(1) != null:
-					lvl.get_child(1).queue_free()
-				lvl.self_modulate = Color(1.0,1.0,1.0,1.0)
+			neru_4.disabled = false
+			if neru_4.get_child(1) != null:
+				neru_4.get_child(1).queue_free()
+			neru_4.self_modulate = Color(1.0,1.0,1.0,1.0)
+		"Unknown":
+			lvl_1.disabled = false
+			if lvl_1.get_child(1) != null:
+				lvl_1.get_child(1).queue_free()
+			lvl_1.self_modulate = Color(1.0,1.0,1.0,1.0)
 	song_ended = true
 	recap_screen.show()
 	recap_screen.scale = Vector2.ONE
@@ -202,7 +204,7 @@ SCORE: %s
 		rating,
 		percentage
 	]
-	for child in purple_s_advenure.get_children():
+	for child in purple_s_advenure.get_children() + neru_s_kingdom.get_children():
 		if child.has_meta("song"):
 			if child.get_meta("song") == chart.song:
 				if child.has_meta("percentage"):
