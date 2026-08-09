@@ -7,7 +7,7 @@
 script = ExtResource("1_xo3t6")
 song_name = "Last Singularity"
 song_file = ExtResource("2_xo3t6")
-decibel_reduction = -6
+decibel_reduction = 5
 start_time = 11.0
 angles = Array[int]([0, 135, -180, -90, -45, -135, 45, 90, 120, -30])
 intervals = Array[Dictionary]([{

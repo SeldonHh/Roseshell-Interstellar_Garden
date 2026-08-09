@@ -7,8 +7,7 @@ signal song_ended
 @export var song := preload("uid://bj4l508i6ovjs")
 
 func play_song():
-	music.volume_db = 1.0
-	music.volume_db -= song.decibel_reduction
+	music.volume_db = 1.0 - song.decibel_reduction
 	music.stream = song.song_file
 	music.play()
 	
