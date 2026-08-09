@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://bj4l508i6ovjs"]
+
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_l351u"]
+[ext_resource type="AudioStream" uid="uid://tuhk64r4l4us" path="res://Assets/music/Purple1.mp3" id="2_3jlfu"]
+
+[resource]
+script = ExtResource("1_l351u")
+song_name = "Stellar ballad"
+asteroid_types = Array[String](["Regular", "Yellow"])
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"

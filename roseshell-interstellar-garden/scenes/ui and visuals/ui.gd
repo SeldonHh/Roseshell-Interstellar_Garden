@@ -26,6 +26,9 @@ var total_notes := 0
 var hit_notes := 0
 
 func _ready():
+	if Global.IS_DEBUG:
+		lvl_1.disabled = false
+		lvl_2.disabled = false
 	tutorial.set_meta("song",preload("uid://cja8bn21mm8o"))
 	lvl_1.set_meta("song",preload("uid://bj4l508i6ovjs"))
 	lvl_2.set_meta("song",preload("uid://dfitmdopxvif2"))
@@ -103,6 +106,15 @@ func _on_combo_break():
 	misses += 1
 
 func _on_song_ended():
+	match chart.song.song_name:
+		"Tutorial":
+			lvl_1.disabled = false
+			lvl_1.texture_normal = preload("uid://bmpp7lxeugj2q")
+			lvl_1.get_child(1).queue_free()
+		"Stellar ballad":
+			lvl_2.disabled = false
+			lvl_2.texture_normal = preload("uid://bmpp7lxeugj2q")
+			lvl_2.get_child(1).queue_free()
 	song_ended = true
 	recap_screen.show()
 	recap_screen.scale = Vector2.ONE
@@ -153,7 +165,7 @@ SCORE: %s
 	for child in lvl_holder.get_children():
 		if child.has_meta("song"):
 			if child.get_meta("song") == chart.song:
-				child.get_child(0).text = "%s\n[color=%s]rank: %s[/color]"%[chart.song.song_name,color,rating]
+				child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
 				
 			
 	await get_tree().create_timer(3).timeout
@@ -196,13 +208,17 @@ func _on_tutorial_pressed() -> void:
 	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	recap_screen.text= "Oh an asteroid is approaching\nblock it before it goes in the black hole!"
 	recap_screen.show()
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(7.16).timeout
 	recap_screen.text = "If you miss an asteroid it will be absorbed by the black hole\n If it absorbs too much it will reach critical mass and you'll fail"
-	await get_tree().create_timer(4).timeout
-	recap_screen.text = "There are some special types of asteroids:\nred ones explode, you must avoid them they won't nourrish the black hole\ngreen ones charge and dash\nyellow ones spins a lot"
-	await get_tree().create_timer(12).timeout
+	await get_tree().create_timer(7.16).timeout
+	recap_screen.text = "There are some special types of asteroids:\nYellow ones spins a lot"
+	await get_tree().create_timer(7.16).timeout
+	recap_screen.text = "Green ones charge and dash"
+	await get_tree().create_timer(7.16).timeout
+	recap_screen.text = "Red ones explode, you must avoid them they won't nourrish the black hole"
+	await get_tree().create_timer(7.16).timeout
 	recap_screen.text = "Try to get high combo by deflecting all the asteroid and try to reach P rank for all levels, good luck"
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(7.16).timeout
 	recap_screen.hide()
 
 

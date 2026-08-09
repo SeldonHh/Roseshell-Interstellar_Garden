@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bd5cs6s122gj2" path="res://Assets/ui/settings.png" id="9_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://d4alefqcbowc1" path="res://Assets/ui/credits.png" id="10_mwfav"]
 [ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/icon.png" id="12_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://rm5ssuwoxaji" path="res://Assets/Sprites/Purple_campaign_blocked.png" id="13_3p2gp"]
 [ext_resource type="Texture2D" uid="uid://bmpp7lxeugj2q" path="res://Assets/Sprites/image (2).png" id="13_mwfav"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
@@ -1251,8 +1252,9 @@ offset_top = 4.05999
 offset_right = -0.0552063
 offset_bottom = -0.020019531
 size_flags_vertical = 0
+disabled = true
 toggle_mode = true
-texture_normal = ExtResource("13_mwfav")
+texture_normal = ExtResource("13_3p2gp")
 stretch_mode = 5
 flip_h = true
 metadata/_edit_use_anchors_ = true
@@ -1280,6 +1282,18 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="UI/Menu/Purple\'s advenure/lvl1" unique_id=1973303248]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.220231
+anchor_top = 0.4432813
+anchor_right = 2.611
+anchor_bottom = 0.623
+offset_right = -138.01843
+offset_bottom = -0.0039978027
+text = "Must complete tutorial"
+metadata/_edit_use_anchors_ = true
+
 [node name="lvl2" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1013879592]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
@@ -1295,7 +1309,8 @@ offset_top = 7.080017
 offset_right = -0.07662964
 offset_bottom = -0.120025635
 size_flags_vertical = 0
-texture_normal = ExtResource("13_mwfav")
+disabled = true
+texture_normal = ExtResource("13_3p2gp")
 stretch_mode = 4
 flip_h = true
 flip_v = true
@@ -1323,6 +1338,18 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/Menu/Purple\'s advenure/lvl2" unique_id=1855613710]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.220231
+anchor_top = 0.4432813
+anchor_right = 2.9390001
+anchor_bottom = 0.623
+offset_right = -180.00244
+offset_bottom = -0.0039978027
+text = "Must complete Stellar ballad"
+metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
 visible = false

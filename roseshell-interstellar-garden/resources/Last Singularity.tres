@@ -9,7 +9,7 @@ song_name = "Last Singularity"
 song_file = ExtResource("2_xo3t6")
 decibel_reduction = -3
 start_time = 11.0
-angles = Array[int]([0, 90, -180, -90, -45, 45, 135, -135])
+angles = Array[int]([0, 135, -180, -90, -45, -135, 45, 90, 120, -30])
 intervals = Array[Dictionary]([{
 "interval": 1.0,
 "until": 22.2
@@ -41,4 +41,5 @@ intervals = Array[Dictionary]([{
 "interval": 20.0,
 "until": 332.0
 }])
+asteroid_types = Array[String](["Regular", "Red"])
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"

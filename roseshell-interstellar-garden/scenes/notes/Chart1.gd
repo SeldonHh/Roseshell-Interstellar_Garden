@@ -8,6 +8,7 @@ signal song_ended
 
 
 func play_song():
+	music.volume_db = 1.0
 	music.volume_db -= song.decibel_reduction
 	music.stream = song.song_file
 	music.play()
