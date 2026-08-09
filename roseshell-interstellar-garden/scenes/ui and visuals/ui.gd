@@ -322,3 +322,7 @@ func _on_neru_4_pressed() -> void:
 	chart.song = neru_4.get_meta("song")
 	menu.hide()
 	chart.play_song()
+
+
+func _on_button_pressed() -> void:
+	$Menu/Main.show()

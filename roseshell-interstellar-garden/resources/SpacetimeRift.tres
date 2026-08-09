@@ -14,7 +14,7 @@ intervals = Array[Dictionary]([{
 "interval": 2.0,
 "until": 50.0
 }, {
-"interval": 0.5,
+"interval": 1.0,
 "until": 176.0
 }])
 asteroid_types = Array[String](["Green", "Green"])

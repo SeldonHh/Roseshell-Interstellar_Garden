@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/Cover6.png" id="14_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/Cover8.png" id="15_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://bjbcui3pcrh17" path="res://Assets/Sprites/cursor1.png" id="17_1iba3"]
+[ext_resource type="Script" uid="uid://cgcagoioimiwb" path="res://scenes/main.gd" id="17_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://cw4qnxaldeoax" path="res://Assets/Sprites/Cover2.png" id="17_xa025"]
 [ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/Cover3.png" id="18_36rkl"]
 [ext_resource type="Texture2D" uid="uid://ka0u6drgxh8o" path="res://Assets/Sprites/cursor2.png" id="18_yxlcp"]
@@ -1135,43 +1136,14 @@ offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu" unique_id=1315680419]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.8
-anchor_bottom = 0.8
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 60
-alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="UI/Menu/VBoxContainer" unique_id=2109571348]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("8_bjd11")
-stretch_mode = 5
-
-[node name="TextureButton2" type="TextureButton" parent="UI/Menu/VBoxContainer" unique_id=1749595655]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("9_qmy6f")
-stretch_mode = 5
-
-[node name="TextureButton3" type="TextureButton" parent="UI/Menu/VBoxContainer" unique_id=2137069860]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("10_mwfav")
-stretch_mode = 5
+[node name="Button" type="Button" parent="UI/Menu" unique_id=248484021]
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 31.0
+text = "Back to menu"
+flat = true
 
 [node name="Purple\'s advenure" type="Control" parent="UI/Menu" unique_id=179894255]
-visible = false
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
@@ -1436,6 +1408,7 @@ text = "Must complete Spacetime Rift or Fallen Empire"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
+visible = false
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
@@ -1713,6 +1686,55 @@ offset_bottom = -0.03199005
 text = "Must complete Spacetime Rift or Fallen Empire"
 metadata/_edit_use_anchors_ = true
 
+[node name="Main" type="Control" parent="UI/Menu" unique_id=1614013344]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_fs0b5")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Menu/Main" unique_id=1419954846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="main" type="VBoxContainer" parent="UI/Menu/Main" unique_id=1315680419]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="play" type="TextureButton" parent="UI/Menu/Main/main" unique_id=2109571348]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("8_bjd11")
+stretch_mode = 5
+
+[node name="settings" type="TextureButton" parent="UI/Menu/Main/main" unique_id=1749595655]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("9_qmy6f")
+stretch_mode = 5
+
+[node name="credits" type="TextureButton" parent="UI/Menu/Main/main" unique_id=2137069860]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("10_mwfav")
+stretch_mode = 5
+
 [node name="Chart" type="Node2D" parent="." unique_id=359360928]
 script = ExtResource("8_jlsqs")
 
@@ -1727,6 +1749,7 @@ script = ExtResource("21_xa025")
 [node name="DustFogs" parent="." unique_id=2128655692 instance=ExtResource("22_yxlcp")]
 position = Vector2(573, 362)
 
+[connection signal="pressed" from="UI/Menu/Button" to="UI" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/right-arrow" to="UI" method="_on_rightarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/left-arrow" to="UI" method="_on_leftarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/Tutorial" to="UI" method="_on_tutorial_pressed"]
@@ -1739,3 +1762,6 @@ position = Vector2(573, 362)
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru2" to="UI" method="_on_neru_2_pressed"]
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru3" to="UI" method="_on_neru_3_pressed"]
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru4" to="UI" method="_on_neru_4_pressed"]
+[connection signal="pressed" from="UI/Menu/Main/main/play" to="UI/Menu/Main/main" method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Menu/Main/main/settings" to="UI/Menu/Main/main" method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Menu/Main/main/credits" to="UI/Menu/Main/main" method="_on_credits_pressed"]
