@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ceuownhdrok5m" path="res://Assets/Sprites/cursor3.png" id="19_ebg2g"]
 [ext_resource type="Texture2D" uid="uid://bh2lovuswy0c1" path="res://Assets/Sprites/cursor4.png" id="20_2ofn6"]
 [ext_resource type="Script" uid="uid://blpkpokykn85o" path="res://scenes/animated_sprite_2d.gd" id="21_xa025"]
+[ext_resource type="PackedScene" uid="uid://doaph78ntmae6" path="res://scenes/dust_fogs.tscn" id="22_yxlcp"]
 
 [sub_resource type="Gradient" id="Gradient_cvmbd"]
 offsets = PackedFloat32Array(0, 0.18627451, 0.4869281, 0.8006536, 1)
@@ -997,12 +998,12 @@ anchor_bottom = 4.559
 offset_left = -0.26391602
 offset_top = 0.23217773
 offset_right = 0.26464844
-offset_bottom = -0.2319336
+offset_bottom = 0.2319336
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Stars?" type="GPUParticles2D" parent="Background" unique_id=1245376643]
+[node name="Stars" type="GPUParticles2D" parent="Background" unique_id=1245376643]
 position = Vector2(3569.9202, 2521.8398)
 amount = 900
 texture = ExtResource("1_q8u5g")
@@ -1622,6 +1623,9 @@ position = Vector2(-1944, -1570)
 scale = Vector2(4, 4)
 texture = SubResource("AnimatedTexture_lv1af")
 script = ExtResource("21_xa025")
+
+[node name="DustFogs" parent="." unique_id=2128655692 instance=ExtResource("22_yxlcp")]
+position = Vector2(573, 362)
 
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/right-arrow" to="UI" method="_on_rightarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/left-arrow" to="UI" method="_on_leftarrow_pressed"]

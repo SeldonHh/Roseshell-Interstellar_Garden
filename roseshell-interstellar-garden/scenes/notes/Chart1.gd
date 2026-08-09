@@ -4,6 +4,7 @@ signal song_ended
 
 @onready var spawner = $"../Notes"
 @onready var music = $"Music"
+@onready var dust_fogs = $"../DustFogs"
 @export var song := preload("uid://bj4l508i6ovjs")
 
 func play_song():
@@ -13,6 +14,11 @@ func play_song():
 	
 	if Global.black_hole:
 		Global.black_hole.set_blackhole_index(song.black_hole_index)
+	
+	if dust_fogs:
+		dust_fogs.set_dust_fog_index(song.dust_fog_index)
+	else:
+		print("DustFogs node not found!")
 
 	var start_time = song.start_time
 	var angles = song.angles

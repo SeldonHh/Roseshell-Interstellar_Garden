@@ -16,3 +16,4 @@ class_name SongChart
 	]
 @export var asteroid_types :Array[String]= ["Regular"]
 @export var black_hole_index : int = 1
+@export var dust_fog_index : int = 0
