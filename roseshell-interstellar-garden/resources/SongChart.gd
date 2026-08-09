@@ -15,3 +15,4 @@ class_name SongChart
 		{"until": 31.0, "interval": 0.66},
 	]
 @export var asteroid_types :Array[String]= ["Regular"]
+@export var black_hole_index : int = 1
