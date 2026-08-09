@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var recap_screen: RichTextLabel = $recap_screen
 @onready var lvl_1: TextureButton = %lvl1
 @onready var lvl_2: TextureButton = %lvl2
+@onready var lvl_3: TextureButton = %lvl3
 @onready var tutorial: TextureButton = %Tutorial
 @onready var lvl_holder: Node = $"Menu/Purple's advenure"
 @onready var purple_s_advenure: Control = $"Menu/Purple's advenure"
@@ -29,9 +30,11 @@ func _ready():
 	if Global.IS_DEBUG:
 		lvl_1.disabled = false
 		lvl_2.disabled = false
+		lvl_3.disabled = false
 	tutorial.set_meta("song",preload("uid://cja8bn21mm8o"))
 	lvl_1.set_meta("song",preload("uid://bj4l508i6ovjs"))
-	lvl_2.set_meta("song",preload("uid://dfitmdopxvif2"))
+	lvl_2.set_meta("song",preload("uid://5yaur3b2grrd"))
+	lvl_3.set_meta("song",preload("uid://dfitmdopxvif2"))
 	chart.song_ended.connect(_on_song_ended)
 	notes.combo_success.connect(_on_combo_success)
 	notes.combo_break.connect(_on_combo_break)
@@ -109,12 +112,19 @@ func _on_song_ended():
 	match chart.song.song_name:
 		"Tutorial":
 			lvl_1.disabled = false
-			lvl_1.texture_normal = preload("uid://bmpp7lxeugj2q")
-			lvl_1.get_child(1).queue_free()
+			if lvl_1.get_child(1) != null:
+				lvl_1.get_child(1).queue_free()
+			lvl_1.self_modulate = Color(1.0,1.0,1.0,1.0)
 		"Stellar ballad":
 			lvl_2.disabled = false
-			lvl_2.texture_normal = preload("uid://bmpp7lxeugj2q")
-			lvl_2.get_child(1).queue_free()
+			if lvl_2.get_child(1) != null:
+				lvl_2.get_child(1).queue_free()
+			lvl_2.self_modulate = Color(1.0,1.0,1.0,1.0)
+		"Spacetime Rift":
+			lvl_3.disabled = false
+			if lvl_3.get_child(1) != null:
+				lvl_3.get_child(1).queue_free()
+			lvl_3.self_modulate = Color(1.0,1.0,1.0,1.0)
 	song_ended = true
 	recap_screen.show()
 	recap_screen.scale = Vector2.ONE
@@ -165,7 +175,14 @@ SCORE: %s
 	for child in lvl_holder.get_children():
 		if child.has_meta("song"):
 			if child.get_meta("song") == chart.song:
-				child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
+				if child.has_meta("percentage"):
+					if child.get_meta("percentage") < percentage:
+						child.set_meta("percentage",percentage)
+						child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
+				
+				else:
+					child.set_meta("percentage",percentage)
+					child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
 				
 			
 	await get_tree().create_timer(3).timeout
@@ -239,3 +256,16 @@ func _on_leftarrow_pressed() -> void:
 	current_level_selection_index -= 1
 	if current_level_selection_index < 0:
 		current_level_selection_index = 1
+	match current_level_selection_index:
+		0:
+			purple_s_advenure.show()
+			neru_s_kingdom.hide()
+		1:
+			purple_s_advenure.hide()
+			neru_s_kingdom.show()
+
+
+func _on_lvl_3_pressed() -> void:
+	chart.song = lvl_2.get_meta("song")
+	menu.hide()
+	chart.play_song()

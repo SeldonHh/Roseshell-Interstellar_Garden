@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://5yaur3b2grrd"]
+
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_cjxqa"]
+[ext_resource type="AudioStream" uid="uid://cwsg33egl8y1t" path="res://Assets/music/Cumulo do Espaço Tempo.mp3" id="2_cjxqa"]
+
+[resource]
+script = ExtResource("1_cjxqa")
+song_name = "Spacetime Rift"
+song_file = ExtResource("2_cjxqa")
+decibel_reduction = -3
+start_time = 13.0
+angles = Array[int]([90, -30, 0, 120, -180, -90, -135, 45, -45, 135])
+intervals = Array[Dictionary]([{
+"interval": 2.0,
+"until": 50.0
+}, {
+"interval": 0.5,
+"until": 176.0
+}])
+asteroid_types = Array[String](["Green", "Regular"])
+black_hole_index = 3
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"
