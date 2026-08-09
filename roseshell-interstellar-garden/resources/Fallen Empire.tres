@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://b6eddy0eewpxb"]
 
-[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_se1si"]
-[ext_resource type="AudioStream" uid="uid://b3748q3hf2ks7" path="res://Assets/music/Fallen Empire.mp3" id="2_se1si"]
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_5pm0e"]
+[ext_resource type="AudioStream" uid="uid://b3748q3hf2ks7" path="res://Assets/music/Fallen Empire.mp3" id="2_6mmt3"]
 
 [resource]
-script = ExtResource("1_se1si")
+script = ExtResource("1_5pm0e")
 song_name = "Fallen Empire"
-song_file = ExtResource("2_se1si")
+song_file = ExtResource("2_6mmt3")
 decibel_reduction = 5
 start_time = 1.666
 angles = Array[int]([0, 90, 120, 180, -120, -60, 10, -180, 90, -90])
@@ -24,5 +24,5 @@ intervals = Array[Dictionary]([{
 "until": 56.0
 }])
 asteroid_types = Array[String](["Regular", "Red"])
-black_hole_index = 2
+black_hole_index = 9
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"

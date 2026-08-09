@@ -24,5 +24,5 @@ intervals = Array[Dictionary]([{
 "until": 56.0
 }])
 asteroid_types = Array[String](["Regular", "Red"])
-black_hole_index = 2
+black_hole_index = 8
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"

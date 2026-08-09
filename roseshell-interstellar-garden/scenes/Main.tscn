@@ -18,8 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/Cover6.png" id="14_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/Cover8.png" id="15_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://bjbcui3pcrh17" path="res://Assets/Sprites/cursor1.png" id="17_1iba3"]
+[ext_resource type="Texture2D" uid="uid://cw4qnxaldeoax" path="res://Assets/Sprites/Cover2.png" id="17_xa025"]
+[ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/Cover3.png" id="18_36rkl"]
 [ext_resource type="Texture2D" uid="uid://ka0u6drgxh8o" path="res://Assets/Sprites/cursor2.png" id="18_yxlcp"]
 [ext_resource type="Texture2D" uid="uid://ceuownhdrok5m" path="res://Assets/Sprites/cursor3.png" id="19_ebg2g"]
+[ext_resource type="Texture2D" uid="uid://duhi71uc3f8jn" path="res://Assets/Sprites/Cover4.png" id="19_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://bh2lovuswy0c1" path="res://Assets/Sprites/cursor4.png" id="20_2ofn6"]
 [ext_resource type="Script" uid="uid://blpkpokykn85o" path="res://scenes/animated_sprite_2d.gd" id="21_xa025"]
 
@@ -1167,6 +1170,7 @@ texture_normal = ExtResource("10_mwfav")
 stretch_mode = 5
 
 [node name="Purple\'s advenure" type="Control" parent="UI/Menu" unique_id=179894255]
+visible = false
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
@@ -1431,7 +1435,6 @@ text = "Must complete Spacetime Rift or Fallen Empire"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
-visible = false
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
@@ -1556,7 +1559,7 @@ offset_bottom = -0.020019531
 size_flags_vertical = 0
 disabled = true
 toggle_mode = true
-texture_normal = ExtResource("13_mwfav")
+texture_normal = ExtResource("17_xa025")
 stretch_mode = 5
 flip_h = true
 metadata/_edit_use_anchors_ = true
@@ -1612,7 +1615,7 @@ offset_right = 2.1129608
 offset_bottom = -2.7200012
 size_flags_vertical = 0
 disabled = true
-texture_normal = ExtResource("13_mwfav")
+texture_normal = ExtResource("18_36rkl")
 stretch_mode = 4
 flip_v = true
 metadata/_edit_use_anchors_ = true
@@ -1668,7 +1671,7 @@ offset_right = -0.07662964
 offset_bottom = -0.120025635
 size_flags_vertical = 0
 disabled = true
-texture_normal = ExtResource("13_mwfav")
+texture_normal = ExtResource("19_fs0b5")
 stretch_mode = 4
 flip_h = true
 flip_v = true
