@@ -204,24 +204,23 @@ func _on_tutorial_pressed() -> void:
 	chart.play_song()
 	
 	var viewport_size = get_viewport().get_visible_rect().size
-	recap_screen.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
-	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	recap_screen.text= "Oh an asteroid is approaching\nblock it before it goes in the black hole!"
+	recap_screen.position = Vector2(viewport_size.x * 0.05, viewport_size.y * 0.3) 
+	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	recap_screen.text = "Oh an asteroid is approaching\nblock it before it goes in the black hole!"
 	recap_screen.show()
 	await get_tree().create_timer(7.16).timeout
-	recap_screen.text = "If you miss an asteroid it will be absorbed by the black hole\n If it absorbs too much it will reach critical mass and you'll fail"
+	recap_screen.text = "If you [color=#FF0000]miss[/color] an asteroid it will be absorbed by the black hole\nIf it absorbs too much it will reach [color=#FF0000]critical mass[/color] and you'll fail"
 	await get_tree().create_timer(7.16).timeout
-	recap_screen.text = "There are some special types of asteroids:\nYellow ones spins a lot"
+	recap_screen.text = "There are some special types of asteroids:\n[color=#FFD700]Yellow[/color] ones spin a lot"  
 	await get_tree().create_timer(7.16).timeout
-	recap_screen.text = "Green ones charge and dash"
+	recap_screen.text = "[color=#00FF00]Green[/color] ones charge and dash"  
 	await get_tree().create_timer(7.16).timeout
-	recap_screen.text = "Red ones explode, you must avoid them they won't nourrish the black hole"
+	recap_screen.text = "[color=#FF0000]Red[/color] ones explode, you must avoid them and they won't nourrish the black hole"  
 	await get_tree().create_timer(7.16).timeout
 	recap_screen.text = "Try to get high combo by deflecting all the asteroid and try to reach P rank for all levels, good luck"
 	await get_tree().create_timer(7.16).timeout
 	recap_screen.hide()
-
-
+	
 func _on_rightarrow_pressed() -> void:
 	current_level_selection_index += 1
 	if current_level_selection_index > 1:
