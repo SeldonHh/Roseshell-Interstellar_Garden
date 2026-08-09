@@ -139,6 +139,22 @@ func _on_song_ended():
 				if lvl.get_child(1) != null:
 					lvl.get_child(1).queue_free()
 				lvl.self_modulate = Color(1.0,1.0,1.0,1.0)
+		"Oh My!":
+			neru_2.disabled = false
+			if neru_2.get_child(1) != null:
+				neru_2.get_child(1).queue_free()
+			neru_2.self_modulate = Color(1.0,1.0,1.0,1.0)
+		"Cytoplasm":
+			neru_3.disabled = false
+			if neru_3.get_child(1) != null:
+				neru_3.get_child(1).queue_free()
+			neru_3.self_modulate = Color(1.0,1.0,1.0,1.0)
+		"Fallen Empire":
+			for lvl in [lvl_3,neru_4]:
+				lvl.disabled = false
+				if lvl.get_child(1) != null:
+					lvl.get_child(1).queue_free()
+				lvl.self_modulate = Color(1.0,1.0,1.0,1.0)
 	song_ended = true
 	recap_screen.show()
 	recap_screen.scale = Vector2.ONE

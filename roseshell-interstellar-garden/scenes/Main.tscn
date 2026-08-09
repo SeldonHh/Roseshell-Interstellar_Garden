@@ -1428,7 +1428,7 @@ anchor_right = 2.9390001
 anchor_bottom = 0.623
 offset_right = -180.00244
 offset_bottom = -0.0039978027
-text = "Must complete Spacetime Rift"
+text = "Must complete Spacetime Rift or Fallen Empire"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
@@ -1593,7 +1593,7 @@ anchor_right = 2.9155824
 anchor_bottom = 0.6388437
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete tutorial"
+text = "Must complete Oh My!"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru3" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1453003345]
@@ -1649,7 +1649,7 @@ anchor_right = -0.476
 anchor_bottom = 0.634
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete tutorial"
+text = "Must complete Cytoplasm"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru4" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=508552933]
@@ -1706,7 +1706,7 @@ anchor_right = 2.9155824
 anchor_bottom = 0.6388437
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete Spacetime Rift"
+text = "Must complete Spacetime Rift or Fallen Empire"
 metadata/_edit_use_anchors_ = true
 
 [node name="Chart" type="Node2D" parent="." unique_id=359360928]
