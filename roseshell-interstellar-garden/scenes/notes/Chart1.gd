@@ -1,11 +1,24 @@
 extends Node2D
 
 signal song_ended
+@onready var ui: CanvasLayer = $"../UI"
+@onready var notes: Node2D = $"../Notes"
 
 @onready var spawner = $"../Notes"
 @onready var music = $"Music"
 @onready var dust_fogs = $"../DustFogs"
 @export var song := preload("uid://bj4l508i6ovjs")
+
+func _process(_delta: float) -> void:
+	music.volume_linear = Global.music_volume
+	if Input.is_action_just_pressed("leave"):
+		for asteroid in notes.get_children():
+			if asteroid is Node2D:
+				asteroid.queue_free()
+		notes.scheduled_asteroids = []
+		ui.hit_notes = 0
+		music.stop()
+		music_ended()
 
 func play_song():
 	music.volume_db = 1.0 - song.decibel_reduction

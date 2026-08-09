@@ -10,6 +10,7 @@ signal note_spawned
 @onready var break_sound = $Break1
 @onready var absorb_sound = $Absorb1
 @onready var bad_boom_sound = $BadBoom
+@onready var green: AudioStreamPlayer = $Green
 
 @export var spawn_interval: float = 2
 @export var lifetime: float = 3
@@ -38,6 +39,10 @@ func _ready():
 	bad_boom_sound.volume_db = -3.0
 
 func _process(delta):
+	break_sound.volume_linear = Global.sfx_volume
+	absorb_sound.volume_linear = Global.sfx_volume
+	bad_boom_sound.volume_linear = Global.sfx_volume
+	green.volume_linear = Global.sfx_volume
 	var i = scheduled_asteroids.size() - 1
 	while i >= 0:
 		var entry = scheduled_asteroids[i]

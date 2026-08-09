@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d0lw6l31mkdk5"]
+
+[ext_resource type="Script" uid="uid://b0bwjdqe3cwjc" path="res://scenes/Singleton/global.gd" id="1_htmsy"]
+
+[node name="Global" type="Node" unique_id=615659871]
+process_mode = 3
+script = ExtResource("1_htmsy")
