@@ -16,6 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://gkjfli0vsq4o" path="res://Assets/Sprites/Cover7.png" id="13_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/Cover6.png" id="14_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/Cover8.png" id="15_cvmbd"]
+[ext_resource type="Texture2D" uid="uid://bjbcui3pcrh17" path="res://Assets/Sprites/cursor1.png" id="17_1iba3"]
+[ext_resource type="Texture2D" uid="uid://ka0u6drgxh8o" path="res://Assets/Sprites/cursor2.png" id="18_yxlcp"]
+[ext_resource type="Texture2D" uid="uid://ceuownhdrok5m" path="res://Assets/Sprites/cursor3.png" id="19_ebg2g"]
+[ext_resource type="Texture2D" uid="uid://bh2lovuswy0c1" path="res://Assets/Sprites/cursor4.png" id="20_2ofn6"]
+[ext_resource type="Script" uid="uid://blpkpokykn85o" path="res://scenes/animated_sprite_2d.gd" id="21_xa025"]
 
 [sub_resource type="Gradient" id="Gradient_cvmbd"]
 offsets = PackedFloat32Array(0, 0.18627451, 0.4869281, 0.8006536, 1)
@@ -970,6 +975,17 @@ shader_parameter/shading_noise_cell_amount = 40
 shader_parameter/shading_noise_strength = 0.3
 shader_parameter/shading_noise_period = Vector3(9.5, 9.5, 9.5)
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lv1af"]
+frames = 4
+frame_0/texture = ExtResource("17_1iba3")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("18_yxlcp")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("19_ebg2g")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("20_2ofn6")
+frame_3/duration = 0.1
+
 [node name="Main" type="Node" unique_id=319315482]
 
 [node name="Background" type="ColorRect" parent="." unique_id=1502370919]
@@ -1600,6 +1616,12 @@ vertical_alignment = 1
 script = ExtResource("8_jlsqs")
 
 [node name="Music" type="AudioStreamPlayer" parent="Chart" unique_id=748155325]
+
+[node name="cursor" type="Sprite2D" parent="." unique_id=1541986173]
+position = Vector2(-1944, -1570)
+scale = Vector2(4, 4)
+texture = SubResource("AnimatedTexture_lv1af")
+script = ExtResource("21_xa025")
 
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/right-arrow" to="UI" method="_on_rightarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/left-arrow" to="UI" method="_on_leftarrow_pressed"]
