@@ -8,11 +8,20 @@ script = ExtResource("1_1rfy5")
 song_name = "Tutorial"
 song_file = ExtResource("2_1rfy5")
 start_time = 0.5
-angles = Array[int]([0, 180])
+angles = Array[int]([0, 90, 180, -90])
 intervals = Array[Dictionary]([{
 "interval": 3.58,
-"until": 43.0
+"until": 17.0
+}, {
+"interval": 3.58,
+"until": 21.0
+}, {
+"interval": 3.58,
+"until": 28.0
+}, {
+"interval": 3.58,
+"until": 38.0
 }])
-asteroid_types = Array[String](["Regular", "Regular", "Regular", "Regular", "Yellow", "Yellow", "Green", "Green", "Red", "Red"])
-black_hole_index = 4
+asteroid_types = Array[String](["Regular", "Yellow", "Green", "Red"])
+black_hole_index = 2
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"
