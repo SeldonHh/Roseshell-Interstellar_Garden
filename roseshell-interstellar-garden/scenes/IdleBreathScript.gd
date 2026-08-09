@@ -170,3 +170,7 @@ func update_comet_colors(comet_color: Color) -> void:
 	for comet in comets:
 		if comet.has_method("set_comet_color"):
 			comet.set_comet_color(comet_color)
+
+
+func _on_neru_1_pressed() -> void:
+	pass # Replace with function body.

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://rcxiw3bhmpqn"]
+
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_yhwpc"]
+[ext_resource type="AudioStream" uid="uid://sa76tmjx67b6" path="res://Assets/music/Cytoplasm.mp3" id="2_yhwpc"]
+
+[resource]
+script = ExtResource("1_yhwpc")
+song_name = "Cytoplasm"
+song_file = ExtResource("2_yhwpc")
+decibel_reduction = 5
+start_time = 1.666
+angles = Array[int]([0, 90, 120, 180, -120, -60, 10, -180, 90, -90])
+intervals = Array[Dictionary]([{
+"interval": 0.8,
+"until": 3.52
+}, {
+"interval": 1.83,
+"until": 5.35
+}, {
+"interval": 0.8,
+"until": 23.11
+}, {
+"interval": 0.8,
+"until": 56.0
+}])
+asteroid_types = Array[String](["Regular", "Red"])
+black_hole_index = 2
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"

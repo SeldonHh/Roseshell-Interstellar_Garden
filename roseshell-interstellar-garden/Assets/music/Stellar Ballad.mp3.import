@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1adeqlqryaqa"
+path="res://.godot/imported/Stellar Ballad.mp3-c19f4f76675799bac39251aeb7a561e5.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/Stellar Ballad.mp3"
+dest_files=["res://.godot/imported/Stellar Ballad.mp3-c19f4f76675799bac39251aeb7a561e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
