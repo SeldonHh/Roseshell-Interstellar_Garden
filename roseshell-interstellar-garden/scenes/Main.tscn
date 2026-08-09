@@ -17,16 +17,24 @@
 [ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/Cover6.png" id="14_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/Cover8.png" id="15_cvmbd"]
 
+[sub_resource type="Gradient" id="Gradient_cvmbd"]
+offsets = PackedFloat32Array(0, 0.18627451, 0.4869281, 0.8006536, 1)
+colors = PackedColorArray(0.96862745, 0.972549, 0.972549, 0, 1, 1, 1, 1, 1, 1, 1, 0.5176471, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1rfy5"]
+gradient = SubResource("Gradient_cvmbd")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5dxq"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(2000, 1000, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
-initial_velocity_min = -3.0
-initial_velocity_max = 3.0
+initial_velocity_min = -4.5
+initial_velocity_max = 4.5
 gravity = Vector3(0, 0, 0)
 scale_min = 0.19999999
 scale_max = 0.29999998
+color_ramp = SubResource("GradientTexture1D_1rfy5")
 turbulence_noise_scale = 0.0
 
 [sub_resource type="Gradient" id="Gradient_qmy6f"]
@@ -980,10 +988,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Stars?" type="GPUParticles2D" parent="Background" unique_id=1245376643]
 position = Vector2(3569.9202, 2521.8398)
-amount = 300
+amount = 900
 texture = ExtResource("1_q8u5g")
-lifetime = 100.0
-explosiveness = 1.0
+lifetime = 10.0
+explosiveness = 0.5
 trail_lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_e5dxq")
 

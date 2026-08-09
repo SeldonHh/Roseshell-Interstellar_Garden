@@ -23,9 +23,12 @@ func play_song():
 	var time = start_time
 	var note_index = 0
 	var interval_index = 0
+	var music_duration = song.song_file.get_length()
+	var max_until = intervals[-1]["until"] if intervals.size() > 0 else music_duration
+	var last_interval = intervals[-1]["interval"] if intervals.size() > 0 else 1.0
 	
-	while time < intervals[-1]["until"]:
-		var interval = 1
+	while time < music_duration and time < max_until + last_interval:
+		var interval = last_interval
 		for i in range(intervals.size()):
 			if time < intervals[i]["until"]:
 				interval = intervals[i]["interval"]
@@ -38,7 +41,7 @@ func play_song():
 		spawner.request_asteroid(time, deg_to_rad(angle), type)
 		note_index += 1
 	
-	await get_tree().create_timer(intervals[-1]["until"] + 2).timeout
+	await music.finished
 	music_ended()
 
 func music_ended():

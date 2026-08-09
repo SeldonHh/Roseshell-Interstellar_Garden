@@ -7,7 +7,7 @@
 script = ExtResource("1_xo3t6")
 song_name = "Last Singularity"
 song_file = ExtResource("2_xo3t6")
-decibel_reduction = -3
+decibel_reduction = -6
 start_time = 11.0
 angles = Array[int]([0, 135, -180, -90, -45, -135, 45, 90, 120, -30])
 intervals = Array[Dictionary]([{
@@ -41,4 +41,6 @@ intervals = Array[Dictionary]([{
 "interval": 20.0,
 "until": 332.0
 }])
+asteroid_types = Array[String]([])
+black_hole_index = 5
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"

@@ -142,11 +142,12 @@ func apply_blackhole_index(index: int) -> void:
 		disk.process_material = material
 		var gradient = Gradient.new()
 		gradient.colors = PackedColorArray([
+			Color(variant["color_a"], 0.0),
 			variant["color_a"],
 			variant["color_b"],
 			Color(variant["color_b"], 0.0)
 		])
-		gradient.offsets = PackedFloat32Array([0.0, 0.45, 1.0])
+		gradient.offsets = PackedFloat32Array([0.0, 0.3, 0.7, 1.0])
 		var gradient_texture = GradientTexture1D.new()
 		gradient_texture.gradient = gradient
 		material.color_ramp = gradient_texture
