@@ -9,7 +9,10 @@ extends CanvasLayer
 @onready var lvl_2: TextureButton = %lvl2
 @onready var lvl_3: TextureButton = %lvl3
 @onready var tutorial: TextureButton = %Tutorial
-@onready var lvl_holder: Node = $"Menu/Purple's advenure"
+@onready var neru_1: TextureButton = $"Menu/Neru's kingdom/Neru1"
+@onready var neru_2: TextureButton = $"Menu/Neru's kingdom/Neru2"
+@onready var neru_3: TextureButton = $"Menu/Neru's kingdom/Neru3"
+@onready var neru_4: TextureButton = $"Menu/Neru's kingdom/Neru4"
 @onready var purple_s_advenure: Control = $"Menu/Purple's advenure"
 @onready var neru_s_kingdom: Control = $"Menu/Neru's kingdom"
 
@@ -31,10 +34,18 @@ func _ready():
 		lvl_1.disabled = false
 		lvl_2.disabled = false
 		lvl_3.disabled = false
+		neru_1.disabled = false
+		neru_2.disabled = false
+		neru_3.disabled = false
+		neru_4.disabled = false
 	tutorial.set_meta("song",preload("uid://cja8bn21mm8o"))
 	lvl_1.set_meta("song",preload("uid://bj4l508i6ovjs"))
 	lvl_2.set_meta("song",preload("uid://5yaur3b2grrd"))
 	lvl_3.set_meta("song",preload("uid://dfitmdopxvif2"))
+	neru_1.set_meta("song",preload("uid://et45168hj3r3"))
+	neru_2.set_meta("song",preload("uid://rcxiw3bhmpqn"))
+	neru_3.set_meta("song",preload("uid://b6eddy0eewpxb"))
+	neru_4.set_meta("song",preload("uid://brlpjmmoxfmni"))
 	chart.song_ended.connect(_on_song_ended)
 	notes.combo_success.connect(_on_combo_success)
 	notes.combo_break.connect(_on_combo_break)
@@ -112,20 +123,38 @@ func _on_combo_break():
 func _on_song_ended():
 	match chart.song.song_name:
 		"Tutorial":
-			lvl_1.disabled = false
-			if lvl_1.get_child(1) != null:
-				lvl_1.get_child(1).queue_free()
-			lvl_1.self_modulate = Color(1.0,1.0,1.0,1.0)
+			for lvl in [lvl_1,neru_1,neru_2,neru_3]:
+				lvl.disabled = false
+				if lvl.get_child(1) != null:
+					lvl.get_child(1).queue_free()
+				lvl.self_modulate = Color(1.0,1.0,1.0,1.0)
 		"Stellar ballad":
 			lvl_2.disabled = false
 			if lvl_2.get_child(1) != null:
 				lvl_2.get_child(1).queue_free()
 			lvl_2.self_modulate = Color(1.0,1.0,1.0,1.0)
 		"Spacetime Rift":
-			lvl_3.disabled = false
-			if lvl_3.get_child(1) != null:
-				lvl_3.get_child(1).queue_free()
-			lvl_3.self_modulate = Color(1.0,1.0,1.0,1.0)
+			for lvl in [lvl_3,neru_4]:
+				lvl.disabled = false
+				if lvl.get_child(1) != null:
+					lvl.get_child(1).queue_free()
+				lvl.self_modulate = Color(1.0,1.0,1.0,1.0)
+		"Oh My!":
+			neru_2.disabled = false
+			if neru_2.get_child(1) != null:
+				neru_2.get_child(1).queue_free()
+			neru_2.self_modulate = Color(1.0,1.0,1.0,1.0)
+		"Cytoplasm":
+			neru_3.disabled = false
+			if neru_3.get_child(1) != null:
+				neru_3.get_child(1).queue_free()
+			neru_3.self_modulate = Color(1.0,1.0,1.0,1.0)
+		"Fallen Empire":
+			for lvl in [lvl_3,neru_4]:
+				lvl.disabled = false
+				if lvl.get_child(1) != null:
+					lvl.get_child(1).queue_free()
+				lvl.self_modulate = Color(1.0,1.0,1.0,1.0)
 	song_ended = true
 	recap_screen.show()
 	recap_screen.scale = Vector2.ONE
@@ -173,7 +202,7 @@ SCORE: %s
 		rating,
 		percentage
 	]
-	for child in lvl_holder.get_children():
+	for child in purple_s_advenure.get_children():
 		if child.has_meta("song"):
 			if child.get_meta("song") == chart.song:
 				if child.has_meta("percentage"):
@@ -267,5 +296,29 @@ func _on_leftarrow_pressed() -> void:
 
 func _on_lvl_3_pressed() -> void:
 	chart.song = lvl_2.get_meta("song")
+	menu.hide()
+	chart.play_song()
+
+
+func _on_neru_2_pressed() -> void:
+	chart.song = neru_2.get_meta("song")
+	menu.hide()
+	chart.play_song()
+
+
+func _on_neru_1_pressed() -> void:
+	chart.song = neru_1.get_meta("song")
+	menu.hide()
+	chart.play_song()
+
+
+func _on_neru_3_pressed() -> void:
+	chart.song = neru_3.get_meta("song")
+	menu.hide()
+	chart.play_song()
+
+
+func _on_neru_4_pressed() -> void:
+	chart.song = neru_4.get_meta("song")
 	menu.hide()
 	chart.play_song()

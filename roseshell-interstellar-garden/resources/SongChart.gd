@@ -15,5 +15,6 @@ class_name SongChart
 		{"until": 31.0, "interval": 0.66},
 	]
 @export var asteroid_types :Array[String]= ["Regular"]
+## 1 = Orange 2 = Blue 3 = Purple 4 = Green 5 = Red 6 = Yellow 7 = Cyan 8 = Pink 9 = Lime 10 = White
 @export var black_hole_index : int = 1
 @export var dust_fog_index : int = 0

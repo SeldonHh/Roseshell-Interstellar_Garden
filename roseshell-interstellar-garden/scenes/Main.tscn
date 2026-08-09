@@ -14,11 +14,15 @@
 [ext_resource type="Texture2D" uid="uid://d4alefqcbowc1" path="res://Assets/ui/credits.png" id="10_mwfav"]
 [ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/icon.png" id="12_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://gkjfli0vsq4o" path="res://Assets/Sprites/Cover7.png" id="13_cvmbd"]
+[ext_resource type="Texture2D" uid="uid://bmpp7lxeugj2q" path="res://Assets/Sprites/image (2).png" id="13_mwfav"]
 [ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/Cover6.png" id="14_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/Cover8.png" id="15_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://bjbcui3pcrh17" path="res://Assets/Sprites/cursor1.png" id="17_1iba3"]
+[ext_resource type="Texture2D" uid="uid://cw4qnxaldeoax" path="res://Assets/Sprites/Cover2.png" id="17_xa025"]
+[ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/Cover3.png" id="18_36rkl"]
 [ext_resource type="Texture2D" uid="uid://ka0u6drgxh8o" path="res://Assets/Sprites/cursor2.png" id="18_yxlcp"]
 [ext_resource type="Texture2D" uid="uid://ceuownhdrok5m" path="res://Assets/Sprites/cursor3.png" id="19_ebg2g"]
+[ext_resource type="Texture2D" uid="uid://duhi71uc3f8jn" path="res://Assets/Sprites/Cover4.png" id="19_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://bh2lovuswy0c1" path="res://Assets/Sprites/cursor4.png" id="20_2ofn6"]
 [ext_resource type="Script" uid="uid://blpkpokykn85o" path="res://scenes/animated_sprite_2d.gd" id="21_xa025"]
 [ext_resource type="PackedScene" uid="uid://doaph78ntmae6" path="res://scenes/dust_fogs.tscn" id="22_yxlcp"]
@@ -1106,21 +1110,19 @@ trail_lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_e5dxq")
 
 [node name="first planet" type="ColorRect" parent="UI/Menu" unique_id=134270359]
-visible = false
 material = SubResource("ShaderMaterial_bjd11")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 444.0
-offset_top = 22.0
-offset_right = -78.0
-offset_bottom = -100.0
+offset_left = 598.0
+offset_top = -57.0
+offset_right = 76.0
+offset_bottom = -179.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="second planet" type="ColorRect" parent="UI/Menu" unique_id=477740230]
-visible = false
 material = SubResource("ShaderMaterial_cvmbd")
 layout_mode = 1
 anchors_preset = 15
@@ -1169,6 +1171,7 @@ texture_normal = ExtResource("10_mwfav")
 stretch_mode = 5
 
 [node name="Purple\'s advenure" type="Control" parent="UI/Menu" unique_id=179894255]
+visible = false
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
@@ -1429,11 +1432,10 @@ anchor_right = 2.9390001
 anchor_bottom = 0.623
 offset_right = -180.00244
 offset_bottom = -0.0039978027
-text = "Must complete Spacetime Rift"
+text = "Must complete Spacetime Rift or Fallen Empire"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
-visible = false
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
@@ -1486,7 +1488,8 @@ offset_bottom = 22.999996
 grow_horizontal = 2
 text = "Neru's Kingdom"
 
-[node name="1" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=846237899]
+[node name="Neru1" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=846237899]
+self_modulate = Color(1, 1, 1, 0.37254903)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 1
@@ -1499,12 +1502,13 @@ offset_left = 0.25021744
 offset_top = 3.039978
 offset_right = 0.15859985
 offset_bottom = -3.0517578e-05
+disabled = true
 toggle_mode = true
-texture_normal = ExtResource("12_qmy6f")
+texture_normal = ExtResource("13_mwfav")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/1" unique_id=256812430]
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/Neru1" unique_id=256812430]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -1519,7 +1523,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("7_nxtc6")
 bbcode_enabled = true
-text = "Tutorial
+text = "Oh My!
 Rank ???"
 fit_content = true
 scroll_active = false
@@ -1527,7 +1531,20 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="2" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1570024180]
+[node name="Label2" type="Label" parent="UI/Menu/Neru\'s kingdom/Neru1" unique_id=479390100]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2026014
+anchor_top = 0.45406258
+anchor_right = -0.476
+anchor_bottom = 0.634
+offset_right = -0.0049819946
+offset_bottom = -0.03199005
+text = "Must complete tutorial"
+metadata/_edit_use_anchors_ = true
+
+[node name="Neru2" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1570024180]
+self_modulate = Color(1, 1, 1, 0.37254903)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 1
@@ -1541,13 +1558,14 @@ offset_top = 4.05999
 offset_right = -0.0552063
 offset_bottom = -0.020019531
 size_flags_vertical = 0
+disabled = true
 toggle_mode = true
-texture_normal = ExtResource("12_qmy6f")
+texture_normal = ExtResource("17_xa025")
 stretch_mode = 5
 flip_h = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/2" unique_id=1978432974]
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/Neru2" unique_id=1978432974]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -1562,7 +1580,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("7_nxtc6")
 bbcode_enabled = true
-text = "Stellar ballad
+text = "Cytoplasm
 Rank ???"
 fit_content = true
 scroll_active = false
@@ -1570,27 +1588,40 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="3" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=508552933]
+[node name="Label2" type="Label" parent="UI/Menu/Neru\'s kingdom/Neru2" unique_id=1406152137]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.188981
+anchor_top = 0.4589063
+anchor_right = 2.9155824
+anchor_bottom = 0.6388437
+offset_right = -0.0049819946
+offset_bottom = -0.03199005
+text = "Must complete Oh My!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Neru3" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1453003345]
+self_modulate = Color(1, 1, 1, 0.37254903)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.51
+anchor_left = 0.07
 anchor_top = 1.2
-anchor_right = 0.75
+anchor_right = 0.3
 anchor_bottom = 1.73
-offset_left = 0.014984131
+offset_left = 0.014976501
 offset_top = 7.080017
-offset_right = -0.07662964
-offset_bottom = -0.120025635
+offset_right = 2.1129608
+offset_bottom = -2.7200012
 size_flags_vertical = 0
-texture_normal = ExtResource("12_qmy6f")
+disabled = true
+texture_normal = ExtResource("18_36rkl")
 stretch_mode = 4
-flip_h = true
 flip_v = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/3" unique_id=748588008]
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/Neru3" unique_id=1051719298]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -1605,13 +1636,82 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("7_nxtc6")
 bbcode_enabled = true
-text = "Last Singularity
+text = "Fallen Empire
 Rank ???"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/Menu/Neru\'s kingdom/Neru3" unique_id=1457942272]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2026014
+anchor_top = 0.45406258
+anchor_right = -0.476
+anchor_bottom = 0.634
+offset_right = -0.0049819946
+offset_bottom = -0.03199005
+text = "Must complete Cytoplasm"
+metadata/_edit_use_anchors_ = true
+
+[node name="Neru4" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=508552933]
+self_modulate = Color(1, 1, 1, 0.37254903)
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 1.2
+anchor_right = 0.75
+anchor_bottom = 1.73
+offset_left = 0.014984131
+offset_top = 7.080017
+offset_right = -0.07662964
+offset_bottom = -0.120025635
+size_flags_vertical = 0
+disabled = true
+texture_normal = ExtResource("19_fs0b5")
+stretch_mode = 4
+flip_h = true
+flip_v = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/Neru4" unique_id=748588008]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.35
+anchor_right = 0.5
+anchor_bottom = 1.35
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("7_nxtc6")
+bbcode_enabled = true
+text = "Unknown
+Rank ???"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/Menu/Neru\'s kingdom/Neru4" unique_id=2004424425]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.188981
+anchor_top = 0.4589063
+anchor_right = 2.9155824
+anchor_bottom = 0.6388437
+offset_right = -0.0049819946
+offset_bottom = -0.03199005
+text = "Must complete Spacetime Rift or Fallen Empire"
+metadata/_edit_use_anchors_ = true
 
 [node name="Chart" type="Node2D" parent="." unique_id=359360928]
 script = ExtResource("8_jlsqs")
@@ -1635,3 +1735,7 @@ position = Vector2(573, 362)
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/lvl3" to="UI" method="_on_lvl_3_pressed"]
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/right-arrow" to="UI" method="_on_rightarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/left-arrow" to="UI" method="_on_leftarrow_pressed"]
+[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru1" to="UI" method="_on_neru_1_pressed"]
+[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru2" to="UI" method="_on_neru_2_pressed"]
+[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru3" to="UI" method="_on_neru_3_pressed"]
+[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru4" to="UI" method="_on_neru_4_pressed"]
