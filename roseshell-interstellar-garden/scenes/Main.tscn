@@ -1167,7 +1167,6 @@ texture_normal = ExtResource("10_mwfav")
 stretch_mode = 5
 
 [node name="Purple\'s advenure" type="Control" parent="UI/Menu" unique_id=179894255]
-visible = false
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
@@ -1432,6 +1431,7 @@ text = "Must complete Spacetime Rift or Fallen Empire"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
+visible = false
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
