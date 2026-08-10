@@ -31,6 +31,13 @@ var max_possible_score := 0
 var total_notes := 0
 var hit_notes := 0
 
+var critical_mass_active := false
+var critical_mass_stabilized_timer := 0.0
+var critical_mass_stabilized := false
+var critical_mass_label: RichTextLabel
+var was_in_danger_zone := false
+var game_over := false
+
 func _ready():
 	if Global.IS_DEBUG:
 		lvl_1.disabled = false
@@ -52,18 +59,30 @@ func _ready():
 	notes.combo_success.connect(_on_combo_success)
 	notes.combo_break.connect(_on_combo_break)
 	notes.note_spawned.connect(_on_note_spawned)
+	
+	critical_mass_label = RichTextLabel.new()
+	add_child(critical_mass_label)
+	critical_mass_label.hide()
+	critical_mass_label.bbcode_enabled = true
+	critical_mass_label.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	critical_mass_label.position = Vector2(
+		get_viewport().get_visible_rect().size.x * 0.645,
+		get_viewport().get_visible_rect().size.y * 0.88
+	)
+	critical_mass_label.size = Vector2(400, 80)
+	critical_mass_label.add_theme_font_size_override("normal_font_size", 22)
+	critical_mass_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	critical_mass_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 
 func _process(_delta: float) -> void:
-	
-	menu_music.volume_linear = Global.menu_music_volume
-	menu_music.volume_db -= 5
-	if song_ended:
+	menu_music.volume_linear = Global.music_volume
+	if song_ended or game_over:
 		return
 	
-	if critical_mass_mistakes >= 7:
-		pass #TODO: Big bang boom
-	elif critical_mass_mistakes >= 4:
-		pass #TODO: Countdown
+	_update_critical_mass_ui(_delta)
+	
+	if critical_mass_mistakes >= 10:
+		_fail_game()
 	
 	if notes.combo > 0:
 		if !combo_stable:
@@ -117,6 +136,100 @@ func _process(_delta: float) -> void:
 			previous_combo = 0
 			combo.scale = Vector2.ONE
 
+func _update_critical_mass_ui(delta: float):
+	if song_ended or game_over:
+		critical_mass_label.hide()
+		return
+	
+	var in_danger_zone = critical_mass_mistakes >= 5 and critical_mass_mistakes < 10
+	var mistakes_left = 10 - critical_mass_mistakes
+
+	if in_danger_zone:
+		if not was_in_danger_zone:
+			critical_mass_active = true
+			critical_mass_stabilized = false
+			critical_mass_stabilized_timer = 0.0
+			was_in_danger_zone = true
+
+		critical_mass_label.show()
+
+		var shake_rate := 0
+		var shake_level := 0
+
+		if mistakes_left <= 3:
+			shake_rate = 40 + (3 - mistakes_left) * 30
+			shake_level = 8 + (3 - mistakes_left) * 8
+
+		var text = "[center][color=#FF0000]"
+
+		if shake_level > 0:
+			text += "[shake rate=%d level=%d]" % [shake_rate, shake_level]
+
+		text += "APPROACHING CRITICAL MASS: %d" % mistakes_left
+
+		if shake_level > 0:
+			text += "[/shake]"
+
+		text += "[/color][/center]"
+
+		critical_mass_label.text = text
+		critical_mass_label.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+	else:
+		if was_in_danger_zone:
+			if not critical_mass_stabilized:
+				critical_mass_stabilized = true
+				critical_mass_stabilized_timer = 0.0
+				critical_mass_label.text = "[center][color=#00FF00]CRITICAL MASS STABILIZED[/color][/center]"
+				critical_mass_label.modulate = Color(1.0, 1.0, 1.0, 1.0)
+				critical_mass_label.show()
+
+			critical_mass_stabilized_timer += delta
+
+			if critical_mass_stabilized_timer > 1.5:
+				var alpha = 1.0 - ((critical_mass_stabilized_timer - 1.5) / 0.5)
+				critical_mass_label.modulate = Color(1.0, 1.0, 1.0, alpha)
+
+			if critical_mass_stabilized_timer >= 2.0:
+				critical_mass_label.hide()
+				critical_mass_active = false
+				critical_mass_stabilized = false
+				critical_mass_stabilized_timer = 0.0
+				was_in_danger_zone = false
+
+func _fail_game():
+	game_over = true
+	song_ended = true
+	critical_mass_label.hide()
+	chart.force_stop()
+	
+	var viewport_size = get_viewport().get_visible_rect().size
+	recap_screen.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
+	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	
+	var percentage = ((float(hit_notes) / total_notes) * 100) if total_notes > 0 else 0.0
+	
+	recap_screen.text = """[center][color=#FF0000]CRITICAL MASS REACHED - GAME OVER[/color]
+[color=#FFFFFF]
+MAX COMBO: %s
+MISSES: %s
+SCORE: %s
+[color=#FFFFFF]RATING: F[/color]
+%.1f%%
+[/color][/center]""" % [
+		max_combo,
+		misses,
+		total_score,
+		percentage
+	]
+	
+	recap_screen.show()
+	recap_screen.scale = Vector2.ONE
+	combo_stable = false
+	
+	await get_tree().create_timer(3).timeout
+	_reset_game()
+
 func _on_note_spawned():
 	total_notes += 1
 
@@ -130,11 +243,36 @@ func _on_combo_break():
 	misses += 1
 	critical_mass_mistakes += 1
 
+func _reset_game():
+	combo_stable = false
+	critical_mass_mistakes = 0
+	previous_combo = 0
+	notes.combo = 0
+	song_ended = false
+	game_over = false
+	max_combo = 0
+	misses = 0
+	total_score = 0
+	max_possible_score = 0
+	total_notes = 0
+	hit_notes = 0
+	combo.modulate = Color(1.0,1.0,1.0,0.0)
+	combo.scale = Vector2.ONE
+	critical_mass_label.hide()
+	critical_mass_active = false
+	critical_mass_stabilized = false
+	critical_mass_stabilized_timer = 0.0
+	was_in_danger_zone = false
+	chart.music.stop()
+	menu.show()
+	recap_screen.hide()
+	menu_music.play()
+
 func _on_song_ended():
-	
 	recap_screen.show()
 	recap_screen.scale = Vector2.ONE
 	combo_stable = false
+	critical_mass_label.hide()
 	
 	var viewport_size = get_viewport().get_visible_rect().size
 	recap_screen.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
@@ -165,13 +303,13 @@ func _on_song_ended():
 	elif percentage >= 40:
 		rating = "D"
 		color = "#007FD8"
-	if rating != "F":
+	if rating > "F":
 		match chart.song.song_name:
 			"Tutorial":
-				neru_1.disabled = false
-				if neru_1.get_child(1) != null:
-					neru_1.get_child(1).queue_free()
-				neru_1.self_modulate = Color(1.0,1.0,1.0,1.0)
+					neru_1.disabled = false
+					if neru_1.get_child(1) != null:
+						neru_1.get_child(1).queue_free()
+					neru_1.self_modulate = Color(1.0,1.0,1.0,1.0)
 			"Stellar ballad":
 				lvl_2.disabled = false
 				if lvl_2.get_child(1) != null:
@@ -227,26 +365,9 @@ SCORE: %s
 				else:
 					child.set_meta("percentage",percentage)
 					child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
-				
-			
+	
 	await get_tree().create_timer(3).timeout
-	combo_stable = false
-	critical_mass_mistakes = 0
-	previous_combo = 0
-	notes.combo = 0
-	song_ended = false
-	max_combo = 0
-	misses = 0
-	total_score = 0
-	max_possible_score = 0
-	total_notes = 0
-	hit_notes = 0
-	combo.modulate = Color(1.0,1.0,1.0,0.0)
-	combo.scale = Vector2.ONE
-	chart.music.stop()
-	menu.show()
-	recap_screen.hide()
-	menu_music.play()
+	_reset_game()
 
 
 func _on_lvl_2_pressed() -> void:
