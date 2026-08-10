@@ -37,6 +37,9 @@
 [ext_resource type="PackedScene" uid="uid://doaph78ntmae6" path="res://scenes/dust_fogs.tscn" id="22_yxlcp"]
 [ext_resource type="Texture2D" uid="uid://cu2o83eonxn4c" path="res://Assets/Sprites/Cover3_hover.png" id="24_vua0o"]
 [ext_resource type="Texture2D" uid="uid://cix1nswnlr7lw" path="res://Assets/Sprites/Cover4_hover.png" id="26_t70y2"]
+[ext_resource type="Texture2D" uid="uid://d3100veg5eiul" path="res://Assets/ui/playbutton_hover.png" id="29_8cp6k"]
+[ext_resource type="Texture2D" uid="uid://befoiaadfq6jb" path="res://Assets/ui/settings_hover.png" id="31_8b871"]
+[ext_resource type="Texture2D" uid="uid://pyqd5tilnwx5" path="res://Assets/ui/credits_hover.png" id="33_pdwbg"]
 
 [sub_resource type="Gradient" id="Gradient_cvmbd"]
 offsets = PackedFloat32Array(0, 0.18627451, 0.4869281, 0.8006536, 1)
@@ -1192,7 +1195,7 @@ flip_h = true
 metadata/_edit_use_anchors_ = true
 
 [node name="left-arrow" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1871543125]
-custom_minimum_size = Vector2(32, 40)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.21303359
@@ -1462,7 +1465,7 @@ flip_h = true
 metadata/_edit_use_anchors_ = true
 
 [node name="left-arrow" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1772451809]
-custom_minimum_size = Vector2(32, 40)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.21303359
@@ -1755,18 +1758,21 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("8_bjd11")
+texture_hover = ExtResource("29_8cp6k")
 stretch_mode = 5
 
 [node name="settings" type="TextureButton" parent="UI/Menu/Main/Beginning" unique_id=1749595655]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("9_qmy6f")
+texture_hover = ExtResource("31_8b871")
 stretch_mode = 5
 
 [node name="credits" type="TextureButton" parent="UI/Menu/Main/Beginning" unique_id=2137069860]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("10_mwfav")
+texture_hover = ExtResource("33_pdwbg")
 stretch_mode = 5
 
 [node name="Settings" type="Control" parent="UI/Menu/Main" unique_id=915272929]
