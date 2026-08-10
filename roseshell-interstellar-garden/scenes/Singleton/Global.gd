@@ -5,7 +5,7 @@ var black_hole : Node2D
 var keyboard := false
 @onready var IS_DEBUG = "debug" in OS.get_cmdline_args()
 var main_menu : Control
-var sfx_volume := -10
+var sfx_volume := -8.5
 var music_volume := 1.0
 
 func _process(_delta: float) -> void:
