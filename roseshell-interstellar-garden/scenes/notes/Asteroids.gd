@@ -40,11 +40,14 @@ func _ready():
 
 func _process(delta):
 	# Use volume_db instead of volume_linear
-	break_sound.volume_db = Global.sfx_volume
-	absorb_sound.volume_db = Global.sfx_volume
-	bad_boom_sound.volume_db = Global.sfx_volume
-	green.volume_db = Global.sfx_volume
-	
+	break_sound.volume_linear = Global.sfx_volume
+	break_sound.volume_db -= 8.5
+	absorb_sound.volume_linear = Global.sfx_volume
+	absorb_sound.volume_db -= 8.5
+	bad_boom_sound.volume_linear = Global.sfx_volume
+	bad_boom_sound.volume_db -= 8.5
+	green.volume_linear = Global.sfx_volume
+	green.volume_db -= 8.5
 	var i = scheduled_asteroids.size() - 1
 	while i >= 0:
 		var entry = scheduled_asteroids[i]

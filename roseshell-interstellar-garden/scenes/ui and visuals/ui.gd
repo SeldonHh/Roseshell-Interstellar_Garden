@@ -278,7 +278,7 @@ func _on_tutorial_pressed() -> void:
 	await get_tree().create_timer(7.16).timeout
 	if song_ended:
 		return
-	recap_screen.text = "Try to get high combo by deflecting all the asteroid and try to reach P rank for all levels, good luck"
+	recap_screen.text = "Try to get high combo by deflecting all the asteroid and try to reach P rank for all levels, good luck, you can zoom in and out with mouse wheel"
 	await get_tree().create_timer(7.16).timeout
 	if song_ended:
 		return
