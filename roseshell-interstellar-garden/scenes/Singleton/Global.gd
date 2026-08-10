@@ -27,6 +27,8 @@ func _ready() -> void:
 	load_game()
 
 func save_game():
+	if OS.get_name() == "Web":
+		return
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
@@ -53,6 +55,8 @@ func save_game():
 
 
 func load_game():
+	if OS.get_name() == "Web":
+		return
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
 
