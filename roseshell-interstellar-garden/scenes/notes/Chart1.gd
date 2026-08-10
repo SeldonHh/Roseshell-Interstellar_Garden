@@ -8,8 +8,10 @@ signal song_ended
 @onready var music = $"Music"
 @onready var dust_fogs = $"../DustFogs"
 @export var song := preload("uid://bj4l508i6ovjs")
+@onready var menu_music: AudioStreamPlayer = $"../UI/menu_music"
 
 func _process(_delta: float) -> void:
+	
 	music.volume_linear = Global.music_volume
 	music.volume_db -= song.decibel_reduction
 	if Input.is_action_just_pressed("leave"):
@@ -22,6 +24,7 @@ func _process(_delta: float) -> void:
 		music_ended()
 
 func play_song():
+	menu_music.stop()
 	music.volume_db = 1.0 - song.decibel_reduction
 	music.stream = song.song_file
 	music.play()

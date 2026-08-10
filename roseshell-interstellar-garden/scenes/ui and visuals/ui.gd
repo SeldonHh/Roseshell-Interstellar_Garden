@@ -15,6 +15,7 @@ extends CanvasLayer
 @onready var neru_4: TextureButton = $"Menu/Neru's kingdom/Neru4"
 @onready var purple_s_advenure: Control = $"Menu/Purple's advenure"
 @onready var neru_s_kingdom: Control = $"Menu/Neru's kingdom"
+@onready var menu_music: AudioStreamPlayer = $menu_music
 
 var current_level_selection_index := 0 
 var level_selections := [purple_s_advenure,neru_s_kingdom]
@@ -52,7 +53,7 @@ func _ready():
 	notes.note_spawned.connect(_on_note_spawned)
 
 func _process(_delta: float) -> void:
-	
+	menu_music.volume_linear = Global.music_volume
 	if song_ended:
 		return
 	
@@ -233,6 +234,7 @@ SCORE: %s
 	chart.music.stop()
 	menu.show()
 	recap_screen.hide()
+	menu_music.play()
 
 
 func _on_lvl_2_pressed() -> void:

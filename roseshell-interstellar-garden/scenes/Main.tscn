@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://celrucoq6w7rx" path="res://scenes/notes/notes.tscn" id="4_vcsgt"]
 [ext_resource type="Script" uid="uid://b0pew4hrhr1a0" path="res://scenes/ui and visuals/camera_2d.gd" id="5_vcsgt"]
 [ext_resource type="Script" uid="uid://c7hol7juep6re" path="res://scenes/ui and visuals/ui.gd" id="6_nxtc6"]
+[ext_resource type="AudioStream" uid="uid://c2omxk6qky6vn" path="res://Assets/music/Main Menu.mp3" id="7_8b871"]
 [ext_resource type="FontFile" uid="uid://4wh2nbypg2" path="res://Assets/font/IBMPlexSans-VariableFont_wdth,wght.ttf" id="7_nxtc6"]
 [ext_resource type="Texture2D" uid="uid://dg5n55nivpvjc" path="res://Assets/ui/playbutton.png" id="8_bjd11"]
 [ext_resource type="Script" uid="uid://de5j23ysicdd5" path="res://scenes/notes/Chart1.gd" id="8_jlsqs"]
@@ -1045,6 +1046,10 @@ script = ExtResource("5_vcsgt")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1991981816]
 script = ExtResource("6_nxtc6")
+
+[node name="menu_music" type="AudioStreamPlayer" parent="UI" unique_id=643854300]
+stream = ExtResource("7_8b871")
+autoplay = true
 
 [node name="Label" type="Label" parent="UI" unique_id=1044558571]
 anchors_preset = 1
