@@ -7,22 +7,31 @@
 script = ExtResource("1_5pm0e")
 song_name = "Fallen Empire"
 song_file = ExtResource("2_6mmt3")
-decibel_reduction = 5
 start_time = 1.666
-angles = Array[int]([0, 90, 120, 180, -120, -60, 10, -180, 90, -90])
+angles = Array[int]([55, -55, 155, -155, 200, -200, 20, -20, 90, -90])
 intervals = Array[Dictionary]([{
-"interval": 0.8,
-"until": 3.52
+"interval": 1.75,
+"until": 5.0
 }, {
-"interval": 1.83,
-"until": 5.35
+"interval": 1.75,
+"until": 10.0
 }, {
-"interval": 0.8,
-"until": 23.11
+"interval": 0.875,
+"until": 20.0
 }, {
-"interval": 0.8,
-"until": 53.0
+"interval": 1.75,
+"until": 30.0
+}, {
+"interval": 0.875,
+"until": 37.0
+}, {
+"interval": 1.75,
+"until": 41.0
+}, {
+"interval": 0.433,
+"until": 50.0
 }])
-asteroid_types = Array[String](["Regular", "Red"])
+asteroid_types = Array[String](["Green", "Yellow", "Green", "Yellow", "Green", "Yellow", "Regular"])
 black_hole_index = 9
+dust_fog_index = 1
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"
