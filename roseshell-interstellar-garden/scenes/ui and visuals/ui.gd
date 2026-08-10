@@ -76,7 +76,7 @@ func _ready():
 	critical_mass_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 
 func _process(_delta: float) -> void:
-	menu_music.volume_linear = Global.music_volume
+	menu_music.volume_linear = Global.menu_music_volume
 	if song_ended or game_over:
 		return
 	

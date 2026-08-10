@@ -3,7 +3,7 @@ extends Node
 var player : Node2D
 var black_hole : Node2D
 var keyboard := false
-@onready var IS_DEBUG = "debug" in OS.get_cmdline_args() or true 
+@onready var IS_DEBUG = "debug" in OS.get_cmdline_args() 
 var main_menu : Control
 var sfx_volume := .9
 var music_volume := .9
