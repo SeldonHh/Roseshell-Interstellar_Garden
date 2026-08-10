@@ -10,6 +10,7 @@ extends Node2D
 # 8 = Pink
 # 9 = Lime
 # 10 = White
+# 11 = More blue
 
 @export var breathe_speed := 1.2
 @export var breathe_amount := 0.015
@@ -106,7 +107,15 @@ var variants = {
 		"breathe_speed": 0.85,
 		"breathe_amount": 0.028,
 		"comet_color": Color("#ffffff")
-	}
+	},
+	11: {
+		"color_a": Color("004cffff"),
+		"color_b": Color("6679ffff"),
+		"size": 0.94,
+		"breathe_speed": 1.35,
+		"breathe_amount": 0.018,
+		"comet_color": Color("007cffff")
+	},
 }
 
 func _ready() -> void:
