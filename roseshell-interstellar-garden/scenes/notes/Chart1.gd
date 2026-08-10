@@ -11,6 +11,7 @@ signal song_ended
 
 func _process(_delta: float) -> void:
 	music.volume_linear = Global.music_volume
+	music.volume_db -= song.decibel_reduction
 	if Input.is_action_just_pressed("leave"):
 		for asteroid in notes.get_children():
 			if asteroid is Node2D:
