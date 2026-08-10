@@ -9,20 +9,39 @@ song_name = "Cytoplasm"
 song_file = ExtResource("2_yhwpc")
 decibel_reduction = 5
 start_time = 1.666
-angles = Array[int]([0, 90, 120, 180, -120, -60, 10, -180, 90, -90])
+angles = Array[int]([0, 90, 180, -90, 0, 180, 90, -90, 45, 135])
 intervals = Array[Dictionary]([{
-"interval": 0.8,
-"until": 3.52
+"interval": 2.08,
+"until": 5.0
 }, {
-"interval": 1.83,
-"until": 5.35
+"interval": 2.08,
+"until": 10.0
 }, {
-"interval": 0.8,
-"until": 23.11
+"interval": 1.04,
+"until": 20.0
 }, {
-"interval": 0.8,
-"until": 63.0
+"interval": 1.04,
+"until": 23.0
+}, {
+"interval": 1.04,
+"until": 30.0
+}, {
+"interval": 1.04,
+"until": 33.0
+}, {
+"interval": 1.04,
+"until": 40.0
+}, {
+"interval": 1.04,
+"until": 45.0
+}, {
+"interval": 1.04,
+"until": 55.0
+}, {
+"interval": 1.04,
+"until": 61.0
 }])
-asteroid_types = Array[String](["Regular", "Red"])
+asteroid_types = Array[String](["Regular", "Red", "Regular", "Red", "Regular", "Red", "Regular", "Red", "Regular", "Green"])
 black_hole_index = 8
+dust_fog_index = 2
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"
