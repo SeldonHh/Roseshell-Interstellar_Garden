@@ -14,21 +14,29 @@
 [ext_resource type="Texture2D" uid="uid://bd5cs6s122gj2" path="res://Assets/ui/settings.png" id="9_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://chr30pd3ic7ch" path="res://Assets/ui/gr_optionarrow_hover.png" id="10_gsxep"]
 [ext_resource type="Texture2D" uid="uid://d4alefqcbowc1" path="res://Assets/ui/credits.png" id="10_mwfav"]
+[ext_resource type="Texture2D" uid="uid://byny436ocghhh" path="res://Assets/Sprites/icon_hover.png" id="12_kxyth"]
 [ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/icon.png" id="12_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://gkjfli0vsq4o" path="res://Assets/Sprites/Cover7.png" id="13_cvmbd"]
-[ext_resource type="Texture2D" uid="uid://bmpp7lxeugj2q" path="res://Assets/Sprites/image (2).png" id="13_mwfav"]
+[ext_resource type="Texture2D" uid="uid://r0le3bhu62n2" path="res://Assets/Sprites/Cover7_hover.png" id="14_cobve"]
 [ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/Cover6.png" id="14_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/Cover8.png" id="15_cvmbd"]
+[ext_resource type="Texture2D" uid="uid://dp2iqa0fvtrdi" path="res://Assets/Sprites/Cover6_hover.png" id="16_cmqll"]
 [ext_resource type="Texture2D" uid="uid://bjbcui3pcrh17" path="res://Assets/Sprites/cursor1.png" id="17_1iba3"]
 [ext_resource type="Script" uid="uid://cgcagoioimiwb" path="res://scenes/main.gd" id="17_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://cw4qnxaldeoax" path="res://Assets/Sprites/Cover2.png" id="17_xa025"]
+[ext_resource type="Texture2D" uid="uid://bd0dk3uvwmg4f" path="res://Assets/Sprites/Cover8_hover.png" id="18_8cp6k"]
 [ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/Cover3.png" id="18_36rkl"]
 [ext_resource type="Texture2D" uid="uid://ka0u6drgxh8o" path="res://Assets/Sprites/cursor2.png" id="18_yxlcp"]
+[ext_resource type="Texture2D" uid="uid://ndlgkxwxg54a" path="res://Assets/Sprites/Cover1.png" id="19_8b871"]
 [ext_resource type="Texture2D" uid="uid://ceuownhdrok5m" path="res://Assets/Sprites/cursor3.png" id="19_ebg2g"]
 [ext_resource type="Texture2D" uid="uid://duhi71uc3f8jn" path="res://Assets/Sprites/Cover4.png" id="19_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://bh2lovuswy0c1" path="res://Assets/Sprites/cursor4.png" id="20_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://d075ssde2e8dg" path="res://Assets/Sprites/Cover1_hover.png" id="20_pdwbg"]
 [ext_resource type="Script" uid="uid://blpkpokykn85o" path="res://scenes/animated_sprite_2d.gd" id="21_xa025"]
+[ext_resource type="Texture2D" uid="uid://tcq8hy7eweao" path="res://Assets/Sprites/Cover2_hover.png" id="22_5grtr"]
 [ext_resource type="PackedScene" uid="uid://doaph78ntmae6" path="res://scenes/dust_fogs.tscn" id="22_yxlcp"]
+[ext_resource type="Texture2D" uid="uid://cu2o83eonxn4c" path="res://Assets/Sprites/Cover3_hover.png" id="24_vua0o"]
+[ext_resource type="Texture2D" uid="uid://cix1nswnlr7lw" path="res://Assets/Sprites/Cover4_hover.png" id="26_t70y2"]
 
 [sub_resource type="Gradient" id="Gradient_cvmbd"]
 offsets = PackedFloat32Array(0, 0.18627451, 0.4869281, 0.8006536, 1)
@@ -1225,6 +1233,7 @@ offset_right = 0.15859985
 offset_bottom = -3.0517578e-05
 toggle_mode = true
 texture_normal = ExtResource("12_qmy6f")
+texture_hover = ExtResource("12_kxyth")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
@@ -1270,6 +1279,7 @@ size_flags_vertical = 0
 disabled = true
 toggle_mode = true
 texture_normal = ExtResource("13_cvmbd")
+texture_hover = ExtResource("14_cobve")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
@@ -1326,6 +1336,7 @@ offset_bottom = -0.120025635
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource("14_ft6cd")
+texture_hover = ExtResource("16_cmqll")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
@@ -1382,6 +1393,7 @@ offset_bottom = -0.120025635
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource("15_cvmbd")
+texture_hover = ExtResource("18_8cp6k")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
@@ -1492,7 +1504,8 @@ offset_right = 0.15859985
 offset_bottom = -3.0517578e-05
 disabled = true
 toggle_mode = true
-texture_normal = ExtResource("13_mwfav")
+texture_normal = ExtResource("19_8b871")
+texture_hover = ExtResource("20_pdwbg")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
@@ -1549,6 +1562,7 @@ size_flags_vertical = 0
 disabled = true
 toggle_mode = true
 texture_normal = ExtResource("17_xa025")
+texture_hover = ExtResource("22_5grtr")
 stretch_mode = 5
 flip_h = true
 metadata/_edit_use_anchors_ = true
@@ -1605,6 +1619,7 @@ offset_bottom = -2.7200012
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource("18_36rkl")
+texture_hover = ExtResource("24_vua0o")
 stretch_mode = 4
 flip_v = true
 metadata/_edit_use_anchors_ = true
@@ -1661,6 +1676,7 @@ offset_bottom = -0.120025635
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource("19_fs0b5")
+texture_hover = ExtResource("26_t70y2")
 stretch_mode = 4
 flip_h = true
 flip_v = true
