@@ -121,42 +121,7 @@ func _on_combo_break():
 	misses += 1
 
 func _on_song_ended():
-	match chart.song.song_name:
-		"Tutorial":
-				neru_1.disabled = false
-				if neru_1.get_child(1) != null:
-					neru_1.get_child(1).queue_free()
-				neru_1.self_modulate = Color(1.0,1.0,1.0,1.0)
-		"Stellar ballad":
-			lvl_2.disabled = false
-			if lvl_2.get_child(1) != null:
-				lvl_2.get_child(1).queue_free()
-			lvl_2.self_modulate = Color(1.0,1.0,1.0,1.0)
-		"Spacetime Rift":
-			lvl_3.disabled = false
-			if lvl_3.get_child(1) != null:
-				lvl_3.get_child(1).queue_free()
-			lvl_3.self_modulate = Color(1.0,1.0,1.0,1.0)
-		"Oh My!":
-			neru_2.disabled = false
-			if neru_2.get_child(1) != null:
-				neru_2.get_child(1).queue_free()
-			neru_2.self_modulate = Color(1.0,1.0,1.0,1.0)
-		"Cytoplasm":
-			neru_3.disabled = false
-			if neru_3.get_child(1) != null:
-				neru_3.get_child(1).queue_free()
-			neru_3.self_modulate = Color(1.0,1.0,1.0,1.0)
-		"Fallen Empire":
-			neru_4.disabled = false
-			if neru_4.get_child(1) != null:
-				neru_4.get_child(1).queue_free()
-			neru_4.self_modulate = Color(1.0,1.0,1.0,1.0)
-		"Unknown":
-			lvl_1.disabled = false
-			if lvl_1.get_child(1) != null:
-				lvl_1.get_child(1).queue_free()
-			lvl_1.self_modulate = Color(1.0,1.0,1.0,1.0)
+	
 	recap_screen.show()
 	recap_screen.scale = Vector2.ONE
 	combo_stable = false
@@ -188,7 +153,43 @@ func _on_song_ended():
 		rating = "C"
 	elif percentage >= 50:
 		rating = "D"
-	
+	if rating > "F":
+		match chart.song.song_name:
+			"Tutorial":
+					neru_1.disabled = false
+					if neru_1.get_child(1) != null:
+						neru_1.get_child(1).queue_free()
+					neru_1.self_modulate = Color(1.0,1.0,1.0,1.0)
+			"Stellar ballad":
+				lvl_2.disabled = false
+				if lvl_2.get_child(1) != null:
+					lvl_2.get_child(1).queue_free()
+				lvl_2.self_modulate = Color(1.0,1.0,1.0,1.0)
+			"Spacetime Rift":
+				lvl_3.disabled = false
+				if lvl_3.get_child(1) != null:
+					lvl_3.get_child(1).queue_free()
+				lvl_3.self_modulate = Color(1.0,1.0,1.0,1.0)
+			"Oh My!":
+				neru_2.disabled = false
+				if neru_2.get_child(1) != null:
+					neru_2.get_child(1).queue_free()
+				neru_2.self_modulate = Color(1.0,1.0,1.0,1.0)
+			"Cytoplasm":
+				neru_3.disabled = false
+				if neru_3.get_child(1) != null:
+					neru_3.get_child(1).queue_free()
+				neru_3.self_modulate = Color(1.0,1.0,1.0,1.0)
+			"Fallen Empire":
+				neru_4.disabled = false
+				if neru_4.get_child(1) != null:
+					neru_4.get_child(1).queue_free()
+				neru_4.self_modulate = Color(1.0,1.0,1.0,1.0)
+			"Sticky Eyes":
+				lvl_1.disabled = false
+				if lvl_1.get_child(1) != null:
+					lvl_1.get_child(1).queue_free()
+				lvl_1.self_modulate = Color(1.0,1.0,1.0,1.0)
 	recap_screen.text = """[center][color=#FFFFFF]
 MAX COMBO: %s
 MISSES: %s
@@ -277,7 +278,7 @@ func _on_tutorial_pressed() -> void:
 	await get_tree().create_timer(7.16).timeout
 	if song_ended:
 		return
-	recap_screen.text = "Try to get high combo by deflecting all the asteroid and try to reach P rank for all levels, good luck"
+	recap_screen.text = "Try to get high combo by deflecting all the asteroid and try to reach P rank for all levels, good luck, you can zoom in and out with mouse wheel"
 	await get_tree().create_timer(7.16).timeout
 	if song_ended:
 		return
@@ -310,7 +311,7 @@ func _on_leftarrow_pressed() -> void:
 
 
 func _on_lvl_3_pressed() -> void:
-	chart.song = lvl_2.get_meta("song")
+	chart.song = lvl_3.get_meta("song")
 	menu.hide()
 	chart.play_song()
 

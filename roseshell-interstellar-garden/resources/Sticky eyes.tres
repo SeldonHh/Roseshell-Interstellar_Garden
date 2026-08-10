@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://brlpjmmoxfmni"]
 
-[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_k2w8g"]
-[ext_resource type="AudioStream" uid="uid://b3748q3hf2ks7" path="res://Assets/music/Fallen Empire.mp3" id="2_m5jr6"]
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/SongChart.gd" id="1_thvor"]
+[ext_resource type="AudioStream" uid="uid://bxpc7ffxh016r" path="res://Assets/music/Sticky Eyes.mp3" id="2_thvor"]
 
 [resource]
-script = ExtResource("1_k2w8g")
-song_name = "Unknown"
-song_file = ExtResource("2_m5jr6")
+script = ExtResource("1_thvor")
+song_name = "Sticky Eyes"
+song_file = ExtResource("2_thvor")
 decibel_reduction = 5
 start_time = 1.666
 angles = Array[int]([0, 90, 120, 180, -120, -60, 10, -180, 90, -90])
@@ -21,7 +21,7 @@ intervals = Array[Dictionary]([{
 "until": 23.11
 }, {
 "interval": 0.8,
-"until": 56.0
+"until": 62.0
 }])
 asteroid_types = Array[String](["Regular", "Red"])
 black_hole_index = 7

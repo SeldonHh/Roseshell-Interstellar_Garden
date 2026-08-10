@@ -10,23 +10,33 @@
 [ext_resource type="Texture2D" uid="uid://dg5n55nivpvjc" path="res://Assets/ui/playbutton.png" id="8_bjd11"]
 [ext_resource type="Script" uid="uid://de5j23ysicdd5" path="res://scenes/notes/Chart1.gd" id="8_jlsqs"]
 [ext_resource type="Shader" uid="uid://732i5j48dd6p" path="res://scenes/MainBG.gdshader" id="8_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://dkj5dlljvquup" path="res://Assets/ui/gr_optionarrow.png" id="9_e2s0e"]
 [ext_resource type="Texture2D" uid="uid://bd5cs6s122gj2" path="res://Assets/ui/settings.png" id="9_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://chr30pd3ic7ch" path="res://Assets/ui/gr_optionarrow_hover.png" id="10_gsxep"]
 [ext_resource type="Texture2D" uid="uid://d4alefqcbowc1" path="res://Assets/ui/credits.png" id="10_mwfav"]
+[ext_resource type="Texture2D" uid="uid://byny436ocghhh" path="res://Assets/Sprites/icon_hover.png" id="12_kxyth"]
 [ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/icon.png" id="12_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://gkjfli0vsq4o" path="res://Assets/Sprites/Cover7.png" id="13_cvmbd"]
-[ext_resource type="Texture2D" uid="uid://bmpp7lxeugj2q" path="res://Assets/Sprites/image (2).png" id="13_mwfav"]
+[ext_resource type="Texture2D" uid="uid://r0le3bhu62n2" path="res://Assets/Sprites/Cover7_hover.png" id="14_cobve"]
 [ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/Cover6.png" id="14_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/Cover8.png" id="15_cvmbd"]
+[ext_resource type="Texture2D" uid="uid://dp2iqa0fvtrdi" path="res://Assets/Sprites/Cover6_hover.png" id="16_cmqll"]
 [ext_resource type="Texture2D" uid="uid://bjbcui3pcrh17" path="res://Assets/Sprites/cursor1.png" id="17_1iba3"]
 [ext_resource type="Script" uid="uid://cgcagoioimiwb" path="res://scenes/main.gd" id="17_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://cw4qnxaldeoax" path="res://Assets/Sprites/Cover2.png" id="17_xa025"]
+[ext_resource type="Texture2D" uid="uid://bd0dk3uvwmg4f" path="res://Assets/Sprites/Cover8_hover.png" id="18_8cp6k"]
 [ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/Cover3.png" id="18_36rkl"]
 [ext_resource type="Texture2D" uid="uid://ka0u6drgxh8o" path="res://Assets/Sprites/cursor2.png" id="18_yxlcp"]
+[ext_resource type="Texture2D" uid="uid://ndlgkxwxg54a" path="res://Assets/Sprites/Cover1.png" id="19_8b871"]
 [ext_resource type="Texture2D" uid="uid://ceuownhdrok5m" path="res://Assets/Sprites/cursor3.png" id="19_ebg2g"]
 [ext_resource type="Texture2D" uid="uid://duhi71uc3f8jn" path="res://Assets/Sprites/Cover4.png" id="19_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://bh2lovuswy0c1" path="res://Assets/Sprites/cursor4.png" id="20_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://d075ssde2e8dg" path="res://Assets/Sprites/Cover1_hover.png" id="20_pdwbg"]
 [ext_resource type="Script" uid="uid://blpkpokykn85o" path="res://scenes/animated_sprite_2d.gd" id="21_xa025"]
+[ext_resource type="Texture2D" uid="uid://tcq8hy7eweao" path="res://Assets/Sprites/Cover2_hover.png" id="22_5grtr"]
 [ext_resource type="PackedScene" uid="uid://doaph78ntmae6" path="res://scenes/dust_fogs.tscn" id="22_yxlcp"]
+[ext_resource type="Texture2D" uid="uid://cu2o83eonxn4c" path="res://Assets/Sprites/Cover3_hover.png" id="24_vua0o"]
+[ext_resource type="Texture2D" uid="uid://cix1nswnlr7lw" path="res://Assets/Sprites/Cover4_hover.png" id="26_t70y2"]
 
 [sub_resource type="Gradient" id="Gradient_cvmbd"]
 offsets = PackedFloat32Array(0, 0.18627451, 0.4869281, 0.8006536, 1)
@@ -1167,32 +1177,31 @@ offset_bottom = -58.16803
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="right-arrow" type="Button" parent="UI/Menu/Purple\'s advenure" unique_id=1519928599]
+[node name="right-arrow" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1166018054]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5729167
-anchor_top = 0.07
-anchor_right = 0.61600006
-anchor_bottom = 0.18900001
-offset_left = 0.7854309
-offset_right = 0.2015686
-offset_bottom = 0.059993744
-text = "->"
-flat = true
+anchor_left = 0.5583021
+anchor_top = 0.039
+anchor_right = 0.63244146
+anchor_bottom = 0.193
+texture_normal = ExtResource("9_e2s0e")
+texture_hover = ExtResource("10_gsxep")
+stretch_mode = 5
+flip_h = true
 metadata/_edit_use_anchors_ = true
 
-[node name="left-arrow" type="Button" parent="UI/Menu/Purple\'s advenure" unique_id=332541797]
+[node name="left-arrow" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1871543125]
+custom_minimum_size = Vector2(32, 40)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.21668723
-anchor_top = 0.06615385
-anchor_right = 0.25977063
-anchor_bottom = 0.18515386
-offset_left = 0.7854309
-offset_right = 0.2015686
-offset_bottom = 0.059993744
-text = "<-"
-flat = true
+anchor_left = 0.21303359
+anchor_top = 0.03923077
+anchor_right = 0.27255836
+anchor_bottom = 0.19284616
+texture_normal = ExtResource("9_e2s0e")
+texture_hover = ExtResource("10_gsxep")
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="UI/Menu/Purple\'s advenure" unique_id=1972863213]
@@ -1224,6 +1233,7 @@ offset_right = 0.15859985
 offset_bottom = -3.0517578e-05
 toggle_mode = true
 texture_normal = ExtResource("12_qmy6f")
+texture_hover = ExtResource("12_kxyth")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
@@ -1269,6 +1279,7 @@ size_flags_vertical = 0
 disabled = true
 toggle_mode = true
 texture_normal = ExtResource("13_cvmbd")
+texture_hover = ExtResource("14_cobve")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
@@ -1304,7 +1315,7 @@ anchor_right = 2.611
 anchor_bottom = 0.623
 offset_right = -138.01843
 offset_bottom = -0.0039978027
-text = "Must complete Unknown"
+text = "Must get D or higher in Sticky Eyes"
 metadata/_edit_use_anchors_ = true
 
 [node name="lvl2" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1013879592]
@@ -1325,6 +1336,7 @@ offset_bottom = -0.120025635
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource("14_ft6cd")
+texture_hover = ExtResource("16_cmqll")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
@@ -1360,7 +1372,7 @@ anchor_right = -0.476
 anchor_bottom = 0.634
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete Stellar ballad"
+text = "Must get D or higher in Stellar ballad"
 metadata/_edit_use_anchors_ = true
 
 [node name="lvl3" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1586063355]
@@ -1381,6 +1393,7 @@ offset_bottom = -0.120025635
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource("15_cvmbd")
+texture_hover = ExtResource("18_8cp6k")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
@@ -1416,7 +1429,7 @@ anchor_right = 2.9390001
 anchor_bottom = 0.623
 offset_right = -180.00244
 offset_bottom = -0.0039978027
-text = "Must complete Spacetime Rift"
+text = "Must get D or higher in Spacetime Rift"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
@@ -1432,32 +1445,34 @@ offset_bottom = -58.16803
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="right-arrow" type="Button" parent="UI/Menu/Neru\'s kingdom" unique_id=1503908755]
+[node name="right-arrow" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=810322967]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5729167
-anchor_top = 0.07
-anchor_right = 0.61600006
-anchor_bottom = 0.18900001
-offset_left = 0.7854309
-offset_right = 0.2015686
-offset_bottom = 0.059993744
-text = "->"
-flat = true
+anchor_left = 0.5583021
+anchor_top = 0.039
+anchor_right = 0.63244146
+anchor_bottom = 0.193
+offset_left = 3.0517578e-05
+offset_right = 3.0517578e-05
+texture_normal = ExtResource("9_e2s0e")
+texture_hover = ExtResource("10_gsxep")
+stretch_mode = 5
+flip_h = true
 metadata/_edit_use_anchors_ = true
 
-[node name="left-arrow" type="Button" parent="UI/Menu/Neru\'s kingdom" unique_id=919475119]
+[node name="left-arrow" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1772451809]
+custom_minimum_size = Vector2(32, 40)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.21668723
-anchor_top = 0.06615385
-anchor_right = 0.25977063
-anchor_bottom = 0.18515386
-offset_left = 0.7854309
-offset_right = 0.2015686
+anchor_left = 0.21303359
+anchor_top = 0.03923077
+anchor_right = 0.27255836
+anchor_bottom = 0.19284616
 offset_bottom = 0.059993744
-text = "<-"
-flat = true
+texture_normal = ExtResource("9_e2s0e")
+texture_hover = ExtResource("10_gsxep")
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="UI/Menu/Neru\'s kingdom" unique_id=962519669]
@@ -1489,7 +1504,8 @@ offset_right = 0.15859985
 offset_bottom = -3.0517578e-05
 disabled = true
 toggle_mode = true
-texture_normal = ExtResource("13_mwfav")
+texture_normal = ExtResource("19_8b871")
+texture_hover = ExtResource("20_pdwbg")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
@@ -1525,7 +1541,7 @@ anchor_right = -0.476
 anchor_bottom = 0.634
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete tutorial"
+text = "Must get D or higher in tutorial"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru2" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1570024180]
@@ -1546,6 +1562,7 @@ size_flags_vertical = 0
 disabled = true
 toggle_mode = true
 texture_normal = ExtResource("17_xa025")
+texture_hover = ExtResource("22_5grtr")
 stretch_mode = 5
 flip_h = true
 metadata/_edit_use_anchors_ = true
@@ -1582,7 +1599,7 @@ anchor_right = 2.9155824
 anchor_bottom = 0.6388437
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete Oh My!"
+text = "Must get D or higher in Oh My!"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru3" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1453003345]
@@ -1602,6 +1619,7 @@ offset_bottom = -2.7200012
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource("18_36rkl")
+texture_hover = ExtResource("24_vua0o")
 stretch_mode = 4
 flip_v = true
 metadata/_edit_use_anchors_ = true
@@ -1638,7 +1656,7 @@ anchor_right = -0.476
 anchor_bottom = 0.634
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete Cytoplasm"
+text = "Must get D or higher in Cytoplasm"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru4" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=508552933]
@@ -1658,6 +1676,7 @@ offset_bottom = -0.120025635
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource("19_fs0b5")
+texture_hover = ExtResource("26_t70y2")
 stretch_mode = 4
 flip_h = true
 flip_v = true
@@ -1678,7 +1697,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("7_nxtc6")
 bbcode_enabled = true
-text = "Unknown
+text = "Sticky Eyes
 Rank ???"
 fit_content = true
 scroll_active = false
@@ -1695,11 +1714,12 @@ anchor_right = 2.9155824
 anchor_bottom = 0.6388437
 offset_right = -0.0049819946
 offset_bottom = -0.03199005
-text = "Must complete Cytoplasm"
+text = "Must get D or higher in Fallen Empire"
 metadata/_edit_use_anchors_ = true
 
 [node name="Main" type="Control" parent="UI/Menu" unique_id=1614013344]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
