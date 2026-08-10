@@ -15,9 +15,18 @@ intervals = Array[Dictionary]([{
 "until": 50.0
 }, {
 "interval": 1.0,
-"until": 176.0
+"until": 85.0
+}, {
+"interval": 1.0,
+"until": 129.0
+}, {
+"interval": 2.0,
+"until": 156.0
+}, {
+"interval": 2.0,
+"until": 173.0
 }])
-asteroid_types = Array[String](["Green", "Green"])
+asteroid_types = Array[String](["Green", "Green", "Yellow", "Green", "Green"])
 black_hole_index = 4
 dust_fog_index = 1
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"

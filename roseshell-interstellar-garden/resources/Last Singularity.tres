@@ -15,31 +15,51 @@ intervals = Array[Dictionary]([{
 "until": 22.2
 }, {
 "interval": 0.5,
-"until": 122.45
+"until": 66.0
+}, {
+"interval": 0.5,
+"until": 90.0
+}, {
+"interval": 0.5,
+"until": 121.0
 }, {
 "interval": 0.35,
+"until": 138.0
+}, {
+"interval": 0.75,
 "until": 189.0
 }, {
-"interval": 1.05,
-"until": 221.85
+"interval": 0.45,
+"until": 200.0
 }, {
-"interval": 1.4,
+"interval": 0.3,
+"until": 221.0
+}, {
+"interval": 0.23,
 "until": 244.0
 }, {
-"interval": 0.7,
+"interval": 0.35,
+"until": 254.0
+}, {
+"interval": 0.45,
+"until": 266.0
+}, {
+"interval": 0.75,
 "until": 288.0
 }, {
-"interval": 0.35,
+"interval": 0.65,
 "until": 300.0
 }, {
-"interval": 0.7,
-"until": 305.0
+"interval": 1.0,
+"until": 310.0
 }, {
-"interval": 1.4,
-"until": 312.0
+"interval": 0.75,
+"until": 322.0
 }, {
-"interval": 20.0,
-"until": 332.0
+"interval": 0.55,
+"until": 330.0
 }])
-black_hole_index = 5
+asteroid_types = Array[String](["Regular", "Regular", "Yellow", "Regular", "Regular", "Green", "Yellow", "Red", "Red", "Regular", "Yellow", "Green", "Green", "Regular", "Yellow", "Red"])
+black_hole_index = 30
+dust_fog_index = 10
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"
