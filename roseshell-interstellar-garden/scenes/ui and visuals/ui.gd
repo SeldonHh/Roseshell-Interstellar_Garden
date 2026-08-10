@@ -16,6 +16,7 @@ extends CanvasLayer
 @onready var purple_s_advenure: Control = $"Menu/Purple's advenure"
 @onready var neru_s_kingdom: Control = $"Menu/Neru's kingdom"
 @onready var menu_music: AudioStreamPlayer = $menu_music
+@export var critical_mass_mistakes := 0
 
 var current_level_selection_index := 0 
 var level_selections := [purple_s_advenure,neru_s_kingdom]
@@ -53,9 +54,15 @@ func _ready():
 	notes.note_spawned.connect(_on_note_spawned)
 
 func _process(_delta: float) -> void:
+	
 	menu_music.volume_linear = Global.music_volume
 	if song_ended:
 		return
+	
+	if critical_mass_mistakes >= 7:
+		pass #TODO: Big bang boom
+	elif critical_mass_mistakes >= 4:
+		pass #TODO: Countdown
 	
 	if notes.combo > 0:
 		if !combo_stable:
@@ -120,6 +127,7 @@ func _on_combo_success():
 
 func _on_combo_break():
 	misses += 1
+	critical_mass_mistakes += 1
 
 func _on_song_ended():
 	
@@ -141,19 +149,21 @@ func _on_song_ended():
 	elif percentage >= 97:
 		rating = "SS"
 		color = "#E40000"
-	elif percentage >= 94:
+	elif percentage >= 92:
 		rating = "S"
 		color = "#E40000"
-	elif percentage >= 90:
+	elif percentage >= 85:
 		rating = "A"
 		color = "#EA9700"
-	elif percentage >= 80:
+	elif percentage >= 75:
 		rating = "B"
 		color = "#EBEB00"
-	elif percentage >= 65:
+	elif percentage >= 60:
 		rating = "C"
-	elif percentage >= 50:
+		color = "#00FF00"
+	elif percentage >= 40:
 		rating = "D"
+		color = "#007FD8"
 	if rating > "F":
 		match chart.song.song_name:
 			"Tutorial":
@@ -220,6 +230,7 @@ SCORE: %s
 			
 	await get_tree().create_timer(3).timeout
 	combo_stable = false
+	critical_mass_mistakes = 0
 	previous_combo = 0
 	notes.combo = 0
 	song_ended = false
@@ -344,3 +355,7 @@ func _on_neru_4_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	$Menu/Main.show()
+
+
+func _on_critical_mass_recovery_timeout() -> void:
+	critical_mass_mistakes = max(0,critical_mass_mistakes-1)

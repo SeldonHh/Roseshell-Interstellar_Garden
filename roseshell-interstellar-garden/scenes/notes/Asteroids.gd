@@ -27,7 +27,6 @@ signal note_spawned
 @export var sync_radius: float = 120.0
 @export var green_final_suck_curve: float = 6
 @export var yellow_spawn_distance_multiplier: float = 1.35
-
 var timer: float = 0.0
 var combo: int = 0
 var combo_active: bool = false
@@ -39,7 +38,6 @@ func _ready():
 	bad_boom_sound.volume_db = -3.0
 
 func _process(delta):
-	# Use volume_db instead of volume_linear
 	break_sound.volume_linear = Global.sfx_volume
 	break_sound.volume_db -= 8.5
 	absorb_sound.volume_linear = Global.sfx_volume
