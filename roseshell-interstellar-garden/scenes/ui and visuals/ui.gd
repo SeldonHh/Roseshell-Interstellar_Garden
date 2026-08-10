@@ -55,7 +55,8 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	
-	menu_music.volume_linear = Global.music_volume
+	menu_music.volume_linear = Global.menu_music_volume
+	menu_music.volume_db -= 5
 	if song_ended:
 		return
 	
@@ -164,13 +165,13 @@ func _on_song_ended():
 	elif percentage >= 40:
 		rating = "D"
 		color = "#007FD8"
-	if rating > "F":
+	if rating != "F":
 		match chart.song.song_name:
 			"Tutorial":
-					neru_1.disabled = false
-					if neru_1.get_child(1) != null:
-						neru_1.get_child(1).queue_free()
-					neru_1.self_modulate = Color(1.0,1.0,1.0,1.0)
+				neru_1.disabled = false
+				if neru_1.get_child(1) != null:
+					neru_1.get_child(1).queue_free()
+				neru_1.self_modulate = Color(1.0,1.0,1.0,1.0)
 			"Stellar ballad":
 				lvl_2.disabled = false
 				if lvl_2.get_child(1) != null:

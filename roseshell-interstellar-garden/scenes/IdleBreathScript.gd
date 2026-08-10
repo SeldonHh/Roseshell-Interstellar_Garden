@@ -435,6 +435,7 @@ func update_color_transition() -> void:
 	update_comet_colors(comet_color)
 
 func apply_disk_colors(color_a: Color, color_b: Color) -> void:
+	@warning_ignore("shadowed_variable_base_class")
 	var material = disk.process_material
 
 	if material == null:

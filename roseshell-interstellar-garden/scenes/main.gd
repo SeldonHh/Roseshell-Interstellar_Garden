@@ -48,3 +48,7 @@ func _on_sfx_volume_value_changed(value: float) -> void:
 
 func _on_music_volume_value_changed(value: float) -> void:
 	Global.music_volume = value
+
+
+func _on_menu_music_volume_value_changed(value: float) -> void:
+	Global.menu_music_volume =value

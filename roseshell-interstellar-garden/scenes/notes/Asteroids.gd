@@ -93,6 +93,7 @@ func _process(delta):
 						
 						var explosion_color = Color(0.9, 0.1, 0.05)
 						spawn_dust(piece_global, explosion_color, particle_count, particle_size_mult * 1.5, piece_direction, target.length())
+						@warning_ignore("integer_division")
 						spawn_dust(piece_global, Color(1.0, 0.6, 0.0), particle_count / 2, particle_size_mult * 0.8, piece_direction, target.length() * 0.7)
 						
 						var tween = create_tween()
