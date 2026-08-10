@@ -3,6 +3,9 @@ extends Control
 @onready var beginning: VBoxContainer = $Beginning
 @onready var settings: Control = $Settings
 @onready var credits: Control = $Credits
+@onready var music_volume: HSlider = %music_volume
+@onready var menu_music_volume: HSlider = %menu_music_volume
+@onready var sfx_volume: HSlider = %sfx_volume
 func _ready() -> void:
 	Global.main_menu = self
 
@@ -40,7 +43,7 @@ func _on_back_to_menu_pressed() -> void:
 	beginning.show()
 	credits.hide()
 	settings.hide()
-
+	Global.save_game()
 
 func _on_sfx_volume_value_changed(value: float) -> void:
 	Global.sfx_volume = value

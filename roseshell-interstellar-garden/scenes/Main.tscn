@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://d3100veg5eiul" path="res://Assets/ui/playbutton_hover.png" id="29_8cp6k"]
 [ext_resource type="Texture2D" uid="uid://befoiaadfq6jb" path="res://Assets/ui/settings_hover.png" id="31_8b871"]
 [ext_resource type="Texture2D" uid="uid://pyqd5tilnwx5" path="res://Assets/ui/credits_hover.png" id="33_pdwbg"]
+[ext_resource type="PackedScene" uid="uid://dgwh12sjbpwmg" path="res://scenes/save_stuff.tscn" id="42_pdwbg"]
 
 [sub_resource type="Gradient" id="Gradient_cvmbd"]
 offsets = PackedFloat32Array(0, 0.18627451, 0.4869281, 0.8006536, 1)
@@ -1178,6 +1179,7 @@ text = "Back to menu"
 flat = true
 
 [node name="Purple\'s advenure" type="Control" parent="UI/Menu" unique_id=179894255]
+unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.1
@@ -1445,6 +1447,7 @@ text = "Must get D or higher in Spacetime Rift"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchor_left = 0.3
@@ -1501,6 +1504,7 @@ grow_horizontal = 2
 text = "Neru's Kingdom"
 
 [node name="Neru1" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=846237899]
+unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.37254903)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
@@ -1557,6 +1561,7 @@ text = "Must get D or higher in tutorial"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru2" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1570024180]
+unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.37254903)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
@@ -1615,6 +1620,7 @@ text = "Must get D or higher in Oh My!"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru3" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1453003345]
+unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.37254903)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
@@ -1672,6 +1678,7 @@ text = "Must get D or higher in Cytoplasm"
 metadata/_edit_use_anchors_ = true
 
 [node name="Neru4" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=508552933]
+unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.37254903)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(128, 128)
@@ -1832,6 +1839,7 @@ grow_vertical = 2
 text = "Music Volume"
 
 [node name="music_volume" type="HSlider" parent="UI/Menu/Main/Settings" unique_id=2048442472]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 1
 anchors_preset = -1
@@ -1866,6 +1874,7 @@ grow_vertical = 2
 text = "Menu Music Volume"
 
 [node name="menu_music_volume" type="HSlider" parent="UI/Menu/Main/Settings" unique_id=1893548565]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 1
 anchors_preset = -1
@@ -1885,6 +1894,7 @@ value = 0.7
 metadata/_edit_use_anchors_ = true
 
 [node name="sfx_volume" type="HSlider" parent="UI/Menu/Main/Settings" unique_id=2102392153]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 1
 anchors_preset = -1
@@ -1960,6 +1970,8 @@ script = ExtResource("21_xa025")
 
 [node name="DustFogs" parent="." unique_id=2128655692 instance=ExtResource("22_yxlcp")]
 position = Vector2(573, 362)
+
+[node name="SaveStuff" parent="." unique_id=155425733 instance=ExtResource("42_pdwbg")]
 
 [connection signal="timeout" from="UI/critical_mass_recovery" to="UI" method="_on_critical_mass_recovery_timeout"]
 [connection signal="pressed" from="UI/Menu/Button" to="UI" method="_on_button_pressed"]

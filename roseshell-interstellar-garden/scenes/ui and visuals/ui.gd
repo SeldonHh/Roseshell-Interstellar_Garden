@@ -32,6 +32,7 @@ var total_notes := 0
 var hit_notes := 0
 
 func _ready():
+	Global.ui = self
 	if Global.IS_DEBUG:
 		lvl_1.disabled = false
 		lvl_2.disabled = false
@@ -159,12 +160,13 @@ func _on_song_ended():
 	elif percentage >= 75:
 		rating = "B"
 		color = "#EBEB00"
-	elif percentage >= 60:
+	elif percentage >= 50:
 		rating = "C"
 		color = "#00FF00"
-	elif percentage >= 40:
+	elif percentage >= 10:
 		rating = "D"
 		color = "#007FD8"
+	
 	if rating != "F":
 		match chart.song.song_name:
 			"Tutorial":
@@ -221,10 +223,12 @@ SCORE: %s
 			if child.get_meta("song") == chart.song:
 				if child.has_meta("percentage"):
 					if child.get_meta("percentage") < percentage:
+						child.set__meta("rank",rating)
 						child.set_meta("percentage",percentage)
 						child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
 				
 				else:
+					child.set_meta("rank",rating)
 					child.set_meta("percentage",percentage)
 					child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
 				
@@ -247,6 +251,7 @@ SCORE: %s
 	menu.show()
 	recap_screen.hide()
 	menu_music.play()
+	Global.save_game()
 
 
 func _on_lvl_2_pressed() -> void:
@@ -288,7 +293,7 @@ func _on_tutorial_pressed() -> void:
 	await get_tree().create_timer(7.16).timeout
 	if song_ended:
 		return
-	recap_screen.text = "[color=#FF0000]Red[/color] ones explode, you must avoid them and they won't nourrish the black hole"  
+	recap_screen.text = "[color=#FF0000]Red[/color] ones explode, you must avoid them and they won't feed the black hole"  
 	await get_tree().create_timer(7.16).timeout
 	if song_ended:
 		return
