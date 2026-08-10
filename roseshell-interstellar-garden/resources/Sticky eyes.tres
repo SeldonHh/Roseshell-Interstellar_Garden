@@ -11,18 +11,31 @@ decibel_reduction = 6
 start_time = 1.666
 angles = Array[int]([0, 90, 120, 180, -120, -60, 10, -180, 90, -90])
 intervals = Array[Dictionary]([{
-"interval": 0.8,
-"until": 3.52
+"interval": 1.29,
+"until": 10.0
 }, {
-"interval": 1.83,
-"until": 5.35
+"interval": 0.645,
+"until": 15.0
 }, {
-"interval": 0.8,
-"until": 23.11
+"interval": 0.645,
+"until": 30.0
 }, {
-"interval": 0.8,
+"interval": 0.323,
+"until": 38.0
+}, {
+"interval": 0.645,
+"until": 45.0
+}, {
+"interval": 0.323,
+"until": 48.0
+}, {
+"interval": 0.645,
+"until": 59.0
+}, {
+"interval": 1.29,
 "until": 62.0
 }])
-asteroid_types = Array[String](["Regular", "Red"])
+asteroid_types = Array[String](["Green", "Regular", "Green", "Red", "Regular", "Regular", "Green", "Yellow"])
 black_hole_index = 7
+dust_fog_index = 3
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"
