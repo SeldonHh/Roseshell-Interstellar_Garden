@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxpc7ffxh016r"
+path="res://.godot/imported/Sticky Eyes.mp3-d3574eb59b0e72937d02d782623bc385.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/Sticky Eyes.mp3"
+dest_files=["res://.godot/imported/Sticky Eyes.mp3-d3574eb59b0e72937d02d782623bc385.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
