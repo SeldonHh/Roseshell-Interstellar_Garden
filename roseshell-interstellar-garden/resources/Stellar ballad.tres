@@ -7,7 +7,7 @@
 script = ExtResource("1_l351u")
 song_name = "Stellar ballad"
 song_file = ExtResource("2_l351u")
-decibel_reduction = 5
+decibel_reduction = 0
 asteroid_types = Array[String](["Red", "Regular"])
 black_hole_index = 3
 metadata/_custom_type_script = "uid://rtkqh03xgiqy"

@@ -7,7 +7,7 @@
 script = ExtResource("1_cjxqa")
 song_name = "Spacetime Rift"
 song_file = ExtResource("2_cjxqa")
-decibel_reduction = 5
+decibel_reduction = 0
 start_time = 13.0
 angles = Array[int]([90, -30, 0, 120, -180, -90, -135, 45, -45, 135])
 intervals = Array[Dictionary]([{
