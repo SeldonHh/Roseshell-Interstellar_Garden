@@ -12,5 +12,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if song_music.playing or get_tree().paused == true:
 			get_tree().paused = !get_tree().paused
-		#main_menu.show()
-		#main_menu.show_settings()
+			if get_tree().paused == true:
+				main_menu.show()
+				main_menu.show_settings()
+			else:
+				main_menu.hide()
+				main_menu.hide_settings()
