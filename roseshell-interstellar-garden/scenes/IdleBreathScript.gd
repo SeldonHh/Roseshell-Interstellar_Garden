@@ -195,7 +195,7 @@ func setup_fallback_data() -> void:
 			{"until": 330.0}
 		],
 		"asteroid_types": [
-			"Green",
+			"Regular",
 			"Regular",
 			"Yellow",
 			"Regular",
