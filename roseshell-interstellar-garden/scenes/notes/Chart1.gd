@@ -10,6 +10,9 @@ signal song_ended
 @export var song := preload("uid://bj4l508i6ovjs")
 @onready var menu_music: AudioStreamPlayer = $"../UI/menu_music"
 
+func _ready() -> void:
+	Global.song_music = music
+
 func _process(_delta: float) -> void:
 	
 	music.volume_linear = Global.music_volume

@@ -7,9 +7,10 @@ var keyboard := false
 var main_menu : Control
 var sfx_volume := 1.0
 var music_volume := 1.0
-
+var song_music : AudioStreamPlayer
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		get_tree().paused = !get_tree().paused
+		if song_music.playing or get_tree().paused == true:
+			get_tree().paused = !get_tree().paused
 		#main_menu.show()
 		#main_menu.show_settings()
