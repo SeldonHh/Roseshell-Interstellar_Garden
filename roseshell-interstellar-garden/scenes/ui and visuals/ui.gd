@@ -2,17 +2,9 @@ extends CanvasLayer
 
 @onready var combo: RichTextLabel = $combo
 @onready var notes: Node2D = $"../Notes"
-@onready var chart = $"../Chart"
+@onready var music_control = %MusicControl
 @onready var menu: Control = $Menu
 @onready var recap_screen: RichTextLabel = $recap_screen
-@onready var lvl_1: TextureButton = %lvl1
-@onready var lvl_2: TextureButton = %lvl2
-@onready var lvl_3: TextureButton = %lvl3
-@onready var tutorial: TextureButton = %Tutorial
-@onready var neru_1: TextureButton = $"Menu/Neru's kingdom/Neru1"
-@onready var neru_2: TextureButton = $"Menu/Neru's kingdom/Neru2"
-@onready var neru_3: TextureButton = $"Menu/Neru's kingdom/Neru3"
-@onready var neru_4: TextureButton = $"Menu/Neru's kingdom/Neru4"
 @onready var purple_s_advenure: Control = $"Menu/Purple's advenure"
 @onready var neru_s_kingdom: Control = $"Menu/Neru's kingdom"
 @onready var menu_music: AudioStreamPlayer = $menu_music
@@ -40,23 +32,7 @@ var game_over := false
 
 func _ready():
 	Global.ui = self
-	if Global.IS_DEBUG:
-		lvl_1.disabled = false
-		lvl_2.disabled = false
-		lvl_3.disabled = false
-		neru_1.disabled = false
-		neru_2.disabled = false
-		neru_3.disabled = false
-		neru_4.disabled = false
-	tutorial.set_meta("song",preload("uid://cja8bn21mm8o"))
-	lvl_1.set_meta("song",preload("uid://bj4l508i6ovjs"))
-	lvl_2.set_meta("song",preload("uid://5yaur3b2grrd"))
-	lvl_3.set_meta("song",preload("uid://dfitmdopxvif2"))
-	neru_1.set_meta("song",preload("uid://et45168hj3r3"))
-	neru_2.set_meta("song",preload("uid://rcxiw3bhmpqn"))
-	neru_3.set_meta("song",preload("uid://b6eddy0eewpxb"))
-	neru_4.set_meta("song",preload("uid://brlpjmmoxfmni"))
-	chart.song_ended.connect(_on_song_ended)
+	music_control.song_ended.connect(_on_song_ended)
 	notes.combo_success.connect(_on_combo_success)
 	notes.combo_break.connect(_on_combo_break)
 	notes.note_spawned.connect(_on_note_spawned)
@@ -202,7 +178,7 @@ func _fail_game():
 	game_over = true
 	song_ended = true
 	critical_mass_label.hide()
-	chart.force_stop()
+	music_control.force_stop()
 	
 	var viewport_size = get_viewport().get_visible_rect().size
 	recap_screen.position = Vector2(viewport_size.x * 0.15, viewport_size.y * 0.4)
@@ -264,10 +240,11 @@ func _reset_game():
 	critical_mass_stabilized = false
 	critical_mass_stabilized_timer = 0.0
 	was_in_danger_zone = false
-	chart.music.stop()
+	music_control.music.stop()
 	menu.show()
 	recap_screen.hide()
 	menu_music.play()
+	Global.save_game()
 
 func _on_song_ended():
 	recap_screen.show()
@@ -304,44 +281,6 @@ func _on_song_ended():
 	elif percentage >= 10:
 		rating = "D"
 		color = "#007FD8"
-	
-	if rating != "F":
-		match chart.song.song_name:
-			"Tutorial":
-					neru_1.disabled = false
-					if neru_1.get_child(1) != null:
-						neru_1.get_child(1).queue_free()
-					neru_1.self_modulate = Color(1.0,1.0,1.0,1.0)
-			"Stellar ballad":
-				lvl_2.disabled = false
-				if lvl_2.get_child(1) != null:
-					lvl_2.get_child(1).queue_free()
-				lvl_2.self_modulate = Color(1.0,1.0,1.0,1.0)
-			"Spacetime Rift":
-				lvl_3.disabled = false
-				if lvl_3.get_child(1) != null:
-					lvl_3.get_child(1).queue_free()
-				lvl_3.self_modulate = Color(1.0,1.0,1.0,1.0)
-			"Oh My!":
-				neru_2.disabled = false
-				if neru_2.get_child(1) != null:
-					neru_2.get_child(1).queue_free()
-				neru_2.self_modulate = Color(1.0,1.0,1.0,1.0)
-			"Cytoplasm":
-				neru_3.disabled = false
-				if neru_3.get_child(1) != null:
-					neru_3.get_child(1).queue_free()
-				neru_3.self_modulate = Color(1.0,1.0,1.0,1.0)
-			"Fallen Empire":
-				neru_4.disabled = false
-				if neru_4.get_child(1) != null:
-					neru_4.get_child(1).queue_free()
-				neru_4.self_modulate = Color(1.0,1.0,1.0,1.0)
-			"Sticky Eyes":
-				lvl_1.disabled = false
-				if lvl_1.get_child(1) != null:
-					lvl_1.get_child(1).queue_free()
-				lvl_1.self_modulate = Color(1.0,1.0,1.0,1.0)
 	recap_screen.text = """[center][color=#FFFFFF]
 MAX COMBO: %s
 MISSES: %s
@@ -356,58 +295,15 @@ SCORE: %s
 		rating,
 		percentage
 	]
-	for child in purple_s_advenure.get_children() + neru_s_kingdom.get_children():
-		if child.has_meta("song"):
-			if child.get_meta("song") == chart.song:
-				if child.has_meta("percentage"):
-					if child.get_meta("percentage") < percentage:
-						child.set__meta("rank",rating)
-						child.set_meta("percentage",percentage)
-						child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
-				
-				else:
-					child.set_meta("rank",rating)
-					child.set_meta("percentage",percentage)
-					child.get_child(0).text = "%s\n[color=%s]Rank: %s[/color]"%[chart.song.song_name,color,rating]
-	
+	music_control.song.update(rating,percentage)
 	await get_tree().create_timer(3).timeout
-	combo_stable = false
-	critical_mass_mistakes = 0
-	previous_combo = 0
-	notes.combo = 0
-	song_ended = false
-	max_combo = 0
-	misses = 0
-	total_score = 0
-	max_possible_score = 0
-	total_notes = 0
-	hit_notes = 0
-	combo.modulate = Color(1.0,1.0,1.0,0.0)
-	combo.scale = Vector2.ONE
-	chart.music.stop()
-	menu.show()
-	recap_screen.hide()
-	menu_music.play()
-	Global.save_game()
+	_reset_game()
 
 
-func _on_lvl_2_pressed() -> void:
-	chart.song = lvl_2.get_meta("song")
-	menu.hide()
-	chart.play_song()
-
-
-func _on_lvl_1_pressed() -> void:
-	chart.song = lvl_1.get_meta("song")
-	menu.hide()
-	chart.play_song()
 
 
 func _on_tutorial_pressed() -> void:
-	chart.song = tutorial.get_meta("song")
-	menu.hide()
-	chart.play_song()
-	
+	menu.hide()	
 	var viewport_size = get_viewport().get_visible_rect().size
 	recap_screen.position = Vector2(viewport_size.x * 0.05, viewport_size.y * 0.3) 
 	recap_screen.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -464,37 +360,6 @@ func _on_leftarrow_pressed() -> void:
 		1:
 			purple_s_advenure.hide()
 			neru_s_kingdom.show()
-
-
-func _on_lvl_3_pressed() -> void:
-	chart.song = lvl_3.get_meta("song")
-	menu.hide()
-	chart.play_song()
-
-
-func _on_neru_2_pressed() -> void:
-	chart.song = neru_2.get_meta("song")
-	menu.hide()
-	chart.play_song()
-
-
-func _on_neru_1_pressed() -> void:
-	chart.song = neru_1.get_meta("song")
-	menu.hide()
-	chart.play_song()
-
-
-func _on_neru_3_pressed() -> void:
-	chart.song = neru_3.get_meta("song")
-	menu.hide()
-	chart.play_song()
-
-
-func _on_neru_4_pressed() -> void:
-	chart.song = neru_4.get_meta("song")
-	menu.hide()
-	chart.play_song()
-
 
 func _on_button_pressed() -> void:
 	$Menu/Main.show()

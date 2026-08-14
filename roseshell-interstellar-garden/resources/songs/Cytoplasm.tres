@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://rcxiw3bhmpqn"]
+
+[ext_resource type="Texture2D" uid="uid://cw4qnxaldeoax" path="res://Assets/Sprites/covers/Cover2.png" id="1_u70bq"]
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/songs/SongChart.gd" id="1_yhwpc"]
+[ext_resource type="Texture2D" uid="uid://tcq8hy7eweao" path="res://Assets/Sprites/covers/Cover2_hover.png" id="2_71du7"]
+[ext_resource type="AudioStream" uid="uid://sa76tmjx67b6" path="res://Assets/music/Cytoplasm.mp3" id="2_yhwpc"]
+[ext_resource type="Resource" uid="uid://cja8bn21mm8o" path="res://resources/songs/Tutorial.tres" id="4_71du7"]
+
+[resource]
+script = ExtResource("1_yhwpc")
+song_name = "Cytoplasm"
+cover = ExtResource("1_u70bq")
+cover_hover = ExtResource("2_71du7")
+requirement = Array[ExtResource("1_yhwpc")]([ExtResource("4_71du7")])
+requirement_rank = "C"
+song_file = ExtResource("2_yhwpc")
+decibel_reduction = 0
+start_time = 1.666
+angles = Array[int]([0, 90, 180, -90, 0, 180, 90, -90, 45, 135])
+intervals = Array[Dictionary]([{
+"interval": 2.08,
+"until": 5.0
+}, {
+"interval": 2.08,
+"until": 10.0
+}, {
+"interval": 1.04,
+"until": 20.0
+}, {
+"interval": 1.04,
+"until": 23.0
+}, {
+"interval": 1.04,
+"until": 30.0
+}, {
+"interval": 1.04,
+"until": 33.0
+}, {
+"interval": 1.04,
+"until": 40.0
+}, {
+"interval": 1.04,
+"until": 45.0
+}, {
+"interval": 1.04,
+"until": 55.0
+}, {
+"interval": 1.04,
+"until": 61.0
+}])
+asteroid_types = Array[String](["Regular", "Red", "Regular", "Red", "Regular", "Red", "Regular", "Red", "Regular", "Green"])
+black_hole_index = 8
+dust_fog_index = 2
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"

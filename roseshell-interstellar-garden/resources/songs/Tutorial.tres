@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://cja8bn21mm8o"]
+
+[ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/covers/icon.png" id="1_7bara"]
+[ext_resource type="Texture2D" uid="uid://byny436ocghhh" path="res://Assets/Sprites/covers/icon_hover.png" id="2_t2i07"]
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/songs/SongChart.gd" id="3_q2lf8"]
+[ext_resource type="AudioStream" uid="uid://c6olawpnyjt3c" path="res://Assets/music/Tutorial - gamee.mp3" id="4_dv3t7"]
+
+[resource]
+script = ExtResource("3_q2lf8")
+song_name = "Tutorial"
+cover = ExtResource("1_7bara")
+cover_hover = ExtResource("2_t2i07")
+song_file = ExtResource("4_dv3t7")
+decibel_reduction = 0
+start_time = 0.5
+angles = Array[int]([0, 90, 180, -90])
+intervals = Array[Dictionary]([{
+"interval": 3.58,
+"until": 17.0
+}, {
+"interval": 3.58,
+"until": 21.0
+}, {
+"interval": 3.58,
+"until": 28.0
+}, {
+"interval": 3.58,
+"until": 35.0
+}])
+asteroid_types = Array[String](["Regular", "Yellow", "Green", "Red"])
+black_hole_index = 2
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"

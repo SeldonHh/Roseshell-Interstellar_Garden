@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://jg6xu7axrwp"]
 
-[ext_resource type="Script" uid="uid://cp1im3lui0pxp" path="res://scenes/IdleBreathScript.gd" id="1_nk4ys"]
-[ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/WhiteCircle.png" id="2_gdg7e"]
-[ext_resource type="Texture2D" uid="uid://uixnhr0ywa06" path="res://Assets/BlackCircle.png" id="3_4ouyt"]
+[ext_resource type="Script" uid="uid://cp1im3lui0pxp" path="res://scenes/vfx/IdleBreathScript.gd" id="1_nk4ys"]
+[ext_resource type="Texture2D" uid="uid://dkw3ua84bmwif" path="res://Assets/special effects/WhiteCircle.png" id="2_gdg7e"]
+[ext_resource type="Texture2D" uid="uid://uixnhr0ywa06" path="res://Assets/special effects/BlackCircle.png" id="3_4ouyt"]
 
 [sub_resource type="Gradient" id="Gradient_epypp"]
 offsets = PackedFloat32Array(0, 0.14705883, 0.50653595, 0.872549, 1)

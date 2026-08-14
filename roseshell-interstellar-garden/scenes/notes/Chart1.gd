@@ -7,13 +7,14 @@ signal song_ended
 @onready var spawner = $"../Notes"
 @onready var music = $"Music"
 @onready var dust_fogs = $"../DustFogs"
-@export var song := preload("uid://bj4l508i6ovjs")
+@export var song := preload("uid://cja8bn21mm8o")
 @onready var menu_music: AudioStreamPlayer = $"../UI/menu_music"
 
 var manual_stop := false
 var is_playing := false
 
 func _ready() -> void:
+	Global.music_control = self
 	Global.song_music = music
 
 func _process(_delta: float) -> void:

@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://dfitmdopxvif2"]
+
+[ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/covers/Cover8.png" id="1_74c4x"]
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/songs/SongChart.gd" id="1_xo3t6"]
+[ext_resource type="Texture2D" uid="uid://bd0dk3uvwmg4f" path="res://Assets/Sprites/covers/Cover8_hover.png" id="2_ld32m"]
+[ext_resource type="AudioStream" uid="uid://c2eddnadnw05p" path="res://Assets/music/i was tired.mp3" id="2_xo3t6"]
+[ext_resource type="Resource" uid="uid://brlpjmmoxfmni" path="res://resources/songs/Sticky eyes.tres" id="4_2f7c2"]
+[ext_resource type="Resource" uid="uid://5yaur3b2grrd" path="res://resources/songs/SpacetimeRift.tres" id="5_kjexy"]
+
+[resource]
+script = ExtResource("1_xo3t6")
+difficulty = 9
+requirement = Array[ExtResource("1_xo3t6")]([ExtResource("4_2f7c2"), ExtResource("5_kjexy")])
+requirement_rank = "A"
+song_file = ExtResource("2_xo3t6")
+decibel_reduction = 0
+start_time = 11.0
+angles = Array[int]([0, 135, -180, -90, -45, -135, 45, 90, 120, -30])
+intervals = Array[Dictionary]([{
+"interval": 1.0,
+"until": 22.2
+}, {
+"interval": 0.5,
+"until": 66.0
+}, {
+"interval": 0.5,
+"until": 90.0
+}, {
+"interval": 0.5,
+"until": 121.0
+}, {
+"interval": 0.35,
+"until": 138.0
+}, {
+"interval": 0.75,
+"until": 189.0
+}, {
+"interval": 0.45,
+"until": 200.0
+}, {
+"interval": 0.3,
+"until": 221.0
+}, {
+"interval": 0.23,
+"until": 244.0
+}, {
+"interval": 0.35,
+"until": 254.0
+}, {
+"interval": 0.45,
+"until": 266.0
+}, {
+"interval": 0.75,
+"until": 288.0
+}, {
+"interval": 0.65,
+"until": 300.0
+}, {
+"interval": 1.0,
+"until": 310.0
+}, {
+"interval": 0.75,
+"until": 322.0
+}, {
+"interval": 0.55,
+"until": 330.0
+}])
+asteroid_types = Array[String](["Regular", "Regular", "Yellow", "Regular", "Regular", "Green", "Yellow", "Red", "Red", "Regular", "Yellow", "Green", "Green", "Regular", "Yellow", "Red"])
+black_hole_index = 30
+dust_fog_index = 10
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://d0vlgagekl3sa"]
+
+[ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/covers/icon.png" id="1_6cjw3"]
+[ext_resource type="Texture2D" uid="uid://byny436ocghhh" path="res://Assets/Sprites/covers/icon_hover.png" id="2_dje0g"]
+[ext_resource type="FontFile" uid="uid://4wh2nbypg2" path="res://Assets/font/IBMPlexSans-VariableFont_wdth,wght.ttf" id="3_6cjw3"]
+[ext_resource type="Script" uid="uid://da44288t44rbk" path="res://scenes/levels/level_base.gd" id="3_d61h5"]
+[ext_resource type="Texture2D" uid="uid://5xkkyio5jiic" path="res://Assets/Sprites/icons/difficulty_empty.png" id="5_6cjw3"]
+
+[node name="LevelBase" type="TextureButton" unique_id=369980723]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(128, 128)
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.34
+anchor_right = 0.62100005
+anchor_bottom = 0.544
+offset_left = 0.03640747
+offset_top = 4.05999
+offset_right = 148.55273
+offset_bottom = 198.26794
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("1_6cjw3")
+texture_hover = ExtResource("2_dje0g")
+stretch_mode = 5
+script = ExtResource("3_d61h5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Level Info" type="RichTextLabel" parent="." unique_id=1444719349]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.163
+anchor_top = 1.1
+anchor_right = 1.1750001
+anchor_bottom = 1.62
+offset_left = -0.043592453
+offset_right = 0.04359436
+offset_bottom = -0.04800415
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_6cjw3")
+bbcode_enabled = true
+text = "Stellar ballad
+Rank ???
+Percentage: 0%"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Requirement" type="Label" parent="." unique_id=699690590]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.220231
+anchor_top = 0.4432813
+anchor_right = 3.298
+anchor_bottom = 0.623
+offset_left = -6.189575
+offset_top = -6.7400055
+offset_right = -6.1440125
+offset_bottom = -6.7400055
+text = "Must get D or higher in Sticky Eyes"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="difficulty_texture" type="TextureRect" parent="." unique_id=279132915]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.7
+anchor_right = 1.0
+anchor_bottom = 1.9
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_6cjw3")
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

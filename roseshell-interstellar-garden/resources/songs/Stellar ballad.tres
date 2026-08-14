@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://bj4l508i6ovjs"]
+
+[ext_resource type="Texture2D" uid="uid://duhi71uc3f8jn" path="res://Assets/Sprites/covers/Cover4.png" id="1_e0ldu"]
+[ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/songs/SongChart.gd" id="1_l351u"]
+[ext_resource type="Texture2D" uid="uid://cix1nswnlr7lw" path="res://Assets/Sprites/covers/Cover4_hover.png" id="2_27har"]
+[ext_resource type="AudioStream" uid="uid://d1adeqlqryaqa" path="res://Assets/music/Stellar Ballad.mp3" id="2_l351u"]
+[ext_resource type="Resource" uid="uid://et45168hj3r3" path="res://resources/songs/Oh My!.tres" id="4_51ex1"]
+[ext_resource type="Resource" uid="uid://rcxiw3bhmpqn" path="res://resources/songs/Cytoplasm.tres" id="5_kwvsr"]
+[ext_resource type="Resource" uid="uid://b6eddy0eewpxb" path="res://resources/songs/Fallen Empire.tres" id="6_sxriq"]
+
+[resource]
+script = ExtResource("1_l351u")
+song_name = "Stellar ballad"
+cover = ExtResource("1_e0ldu")
+cover_hover = ExtResource("2_27har")
+requirement = Array[ExtResource("1_l351u")]([ExtResource("4_51ex1"), ExtResource("5_kwvsr"), ExtResource("6_sxriq")])
+requirement_rank = "A"
+song_file = ExtResource("2_l351u")
+decibel_reduction = 0
+angles = Array[int]([0, 180, 90, -90, 180, -90, 90])
+intervals = Array[Dictionary]([{
+"interval": 1.5,
+"until": 5.0
+}, {
+"interval": 0.75,
+"until": 11.0
+}, {
+"interval": 0.75,
+"until": 21.0
+}, {
+"interval": 0.75,
+"until": 27.0
+}, {
+"interval": 0.75,
+"until": 32.0
+}, {
+"interval": 0.75,
+"until": 40.0
+}, {
+"interval": 0.75,
+"until": 52.0
+}, {
+"interval": 0.75,
+"until": 58.0
+}, {
+"interval": 0.75,
+"until": 64.0
+}, {
+"interval": 0.75,
+"until": 68.0
+}, {
+"interval": 0.75,
+"until": 75.0
+}, {
+"interval": 0.75,
+"until": 85.0
+}, {
+"interval": 0.75,
+"until": 95.0
+}, {
+"interval": 0.75,
+"until": 106.0
+}, {
+"interval": 0.75,
+"until": 112.0
+}, {
+"interval": 0.75,
+"until": 118.0
+}, {
+"interval": 0.75,
+"until": 128.0
+}, {
+"interval": 0.75,
+"until": 139.0
+}, {
+"interval": 0.75,
+"until": 170.0
+}, {
+"interval": 0.75,
+"until": 182.0
+}, {
+"interval": 1.5,
+"until": 192.0
+}, {
+"interval": 0.75,
+"until": 202.0
+}])
+asteroid_types = Array[String](["Regular", "Regular", "Green", "Regular", "Green", "Red", "Green", "Yellow", "Green", "Yellow", "Regular", "Red", "Green", "Yellow", "Green", "Yellow", "Green", "Yellow", "Regular", "Red", "Yellow", "Red"])
+black_hole_index = 3
+metadata/_custom_type_script = "uid://rtkqh03xgiqy"

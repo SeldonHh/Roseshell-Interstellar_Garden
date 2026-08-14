@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cricdh2ww2f11"]
 
-[ext_resource type="Texture2D" uid="uid://cvhsmx3hlrhr6" path="res://Assets/WhiteCircle_1_1.png" id="1_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://cvhsmx3hlrhr6" path="res://Assets/special effects/WhiteCircle_1_1.png" id="1_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://jg6xu7axrwp" path="res://scenes/black_hole/black_hole.tscn" id="2_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://phayocmpwem2" path="res://scenes/player/player.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://celrucoq6w7rx" path="res://scenes/notes/notes.tscn" id="4_vcsgt"]
@@ -10,38 +10,32 @@
 [ext_resource type="FontFile" uid="uid://4wh2nbypg2" path="res://Assets/font/IBMPlexSans-VariableFont_wdth,wght.ttf" id="7_nxtc6"]
 [ext_resource type="Texture2D" uid="uid://dg5n55nivpvjc" path="res://Assets/ui/playbutton.png" id="8_bjd11"]
 [ext_resource type="Script" uid="uid://de5j23ysicdd5" path="res://scenes/notes/Chart1.gd" id="8_jlsqs"]
-[ext_resource type="Shader" uid="uid://732i5j48dd6p" path="res://scenes/MainBG.gdshader" id="8_qmy6f"]
+[ext_resource type="Shader" uid="uid://732i5j48dd6p" path="res://scenes/ui and visuals/MainBG.gdshader" id="8_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://dkj5dlljvquup" path="res://Assets/ui/gr_optionarrow.png" id="9_e2s0e"]
 [ext_resource type="Texture2D" uid="uid://bd5cs6s122gj2" path="res://Assets/ui/settings.png" id="9_qmy6f"]
 [ext_resource type="Texture2D" uid="uid://chr30pd3ic7ch" path="res://Assets/ui/gr_optionarrow_hover.png" id="10_gsxep"]
 [ext_resource type="Texture2D" uid="uid://d4alefqcbowc1" path="res://Assets/ui/credits.png" id="10_mwfav"]
-[ext_resource type="Texture2D" uid="uid://byny436ocghhh" path="res://Assets/Sprites/icon_hover.png" id="12_kxyth"]
-[ext_resource type="Texture2D" uid="uid://y2dv3ieymjek" path="res://Assets/Sprites/icon.png" id="12_qmy6f"]
-[ext_resource type="Texture2D" uid="uid://gkjfli0vsq4o" path="res://Assets/Sprites/Cover7.png" id="13_cvmbd"]
-[ext_resource type="Texture2D" uid="uid://r0le3bhu62n2" path="res://Assets/Sprites/Cover7_hover.png" id="14_cobve"]
-[ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/Cover6.png" id="14_ft6cd"]
-[ext_resource type="Texture2D" uid="uid://d1yh473tbni7g" path="res://Assets/Sprites/Cover8.png" id="15_cvmbd"]
-[ext_resource type="Texture2D" uid="uid://dp2iqa0fvtrdi" path="res://Assets/Sprites/Cover6_hover.png" id="16_cmqll"]
+[ext_resource type="PackedScene" uid="uid://d0vlgagekl3sa" path="res://scenes/levels/level_base.tscn" id="12_fs0b5"]
+[ext_resource type="Texture2D" uid="uid://ndlgkxwxg54a" path="res://Assets/Sprites/covers/Cover1.png" id="13_hq6as"]
+[ext_resource type="Resource" uid="uid://et45168hj3r3" path="res://resources/songs/Oh My!.tres" id="13_ma7h6"]
+[ext_resource type="Resource" uid="uid://rcxiw3bhmpqn" path="res://resources/songs/Cytoplasm.tres" id="14_gsxep"]
+[ext_resource type="Texture2D" uid="uid://d075ssde2e8dg" path="res://Assets/Sprites/covers/Cover1_hover.png" id="14_kxyth"]
+[ext_resource type="Resource" uid="uid://b6eddy0eewpxb" path="res://resources/songs/Fallen Empire.tres" id="15_v0vrg"]
+[ext_resource type="Texture2D" uid="uid://cw4qnxaldeoax" path="res://Assets/Sprites/covers/Cover2.png" id="16_cobve"]
 [ext_resource type="Texture2D" uid="uid://bjbcui3pcrh17" path="res://Assets/Sprites/cursor1.png" id="17_1iba3"]
-[ext_resource type="Script" uid="uid://cgcagoioimiwb" path="res://scenes/main.gd" id="17_fs0b5"]
-[ext_resource type="Texture2D" uid="uid://cw4qnxaldeoax" path="res://Assets/Sprites/Cover2.png" id="17_xa025"]
-[ext_resource type="Texture2D" uid="uid://bd0dk3uvwmg4f" path="res://Assets/Sprites/Cover8_hover.png" id="18_8cp6k"]
-[ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/Cover3.png" id="18_36rkl"]
+[ext_resource type="Texture2D" uid="uid://tcq8hy7eweao" path="res://Assets/Sprites/covers/Cover2_hover.png" id="17_cmqll"]
+[ext_resource type="Script" uid="uid://cgcagoioimiwb" path="res://scenes/ui and visuals/main_menu.gd" id="17_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://ka0u6drgxh8o" path="res://Assets/Sprites/cursor2.png" id="18_yxlcp"]
-[ext_resource type="Texture2D" uid="uid://ndlgkxwxg54a" path="res://Assets/Sprites/Cover1.png" id="19_8b871"]
+[ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/covers/Cover3.png" id="19_8cp6k"]
 [ext_resource type="Texture2D" uid="uid://ceuownhdrok5m" path="res://Assets/Sprites/cursor3.png" id="19_ebg2g"]
-[ext_resource type="Texture2D" uid="uid://duhi71uc3f8jn" path="res://Assets/Sprites/Cover4.png" id="19_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://bh2lovuswy0c1" path="res://Assets/Sprites/cursor4.png" id="20_2ofn6"]
-[ext_resource type="Texture2D" uid="uid://d075ssde2e8dg" path="res://Assets/Sprites/Cover1_hover.png" id="20_pdwbg"]
-[ext_resource type="Script" uid="uid://blpkpokykn85o" path="res://scenes/animated_sprite_2d.gd" id="21_xa025"]
-[ext_resource type="Texture2D" uid="uid://tcq8hy7eweao" path="res://Assets/Sprites/Cover2_hover.png" id="22_5grtr"]
-[ext_resource type="PackedScene" uid="uid://doaph78ntmae6" path="res://scenes/dust_fogs.tscn" id="22_yxlcp"]
-[ext_resource type="Texture2D" uid="uid://cu2o83eonxn4c" path="res://Assets/Sprites/Cover3_hover.png" id="24_vua0o"]
-[ext_resource type="Texture2D" uid="uid://cix1nswnlr7lw" path="res://Assets/Sprites/Cover4_hover.png" id="26_t70y2"]
+[ext_resource type="Texture2D" uid="uid://cu2o83eonxn4c" path="res://Assets/Sprites/covers/Cover3_hover.png" id="20_8b871"]
+[ext_resource type="Script" uid="uid://blpkpokykn85o" path="res://scenes/player/animated_sprite_2d.gd" id="21_xa025"]
+[ext_resource type="PackedScene" uid="uid://doaph78ntmae6" path="res://scenes/vfx/dust_fogs.tscn" id="22_yxlcp"]
 [ext_resource type="Texture2D" uid="uid://d3100veg5eiul" path="res://Assets/ui/playbutton_hover.png" id="29_8cp6k"]
 [ext_resource type="Texture2D" uid="uid://befoiaadfq6jb" path="res://Assets/ui/settings_hover.png" id="31_8b871"]
 [ext_resource type="Texture2D" uid="uid://pyqd5tilnwx5" path="res://Assets/ui/credits_hover.png" id="33_pdwbg"]
-[ext_resource type="PackedScene" uid="uid://dgwh12sjbpwmg" path="res://scenes/save_stuff.tscn" id="42_pdwbg"]
+[ext_resource type="PackedScene" uid="uid://dgwh12sjbpwmg" path="res://scenes/save_system/save_stuff.tscn" id="42_pdwbg"]
 
 [sub_resource type="Gradient" id="Gradient_cvmbd"]
 offsets = PackedFloat32Array(0, 0.18627451, 0.4869281, 0.8006536, 1)
@@ -1054,7 +1048,6 @@ autostart = true
 
 [node name="menu_music" type="AudioStreamPlayer" parent="UI" unique_id=643854300]
 stream = ExtResource("7_8b871")
-autoplay = true
 parameters/looping = true
 
 [node name="Label" type="Label" parent="UI" unique_id=1044558571]
@@ -1232,220 +1225,54 @@ offset_bottom = 22.999996
 grow_horizontal = 2
 text = "Purple's Adventure"
 
-[node name="Tutorial" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1754331138]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(128, 128)
+[node name="Tutorial" parent="UI/Menu/Purple\'s advenure" unique_id=369980723 instance=ExtResource("12_fs0b5")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.07
-anchor_top = 0.34
-anchor_right = 0.3
-anchor_bottom = 0.85
-offset_left = 0.25021744
-offset_top = 3.039978
-offset_right = 0.15859985
-offset_bottom = -3.0517578e-05
-toggle_mode = true
-texture_normal = ExtResource("12_qmy6f")
-texture_hover = ExtResource("12_kxyth")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
+anchor_left = -0.27511868
+anchor_top = 0.2930769
+anchor_right = -0.04111867
+anchor_bottom = 0.7850769
+offset_left = 0.0
+offset_top = 0.0
+offset_right = -0.09161377
+offset_bottom = 0.0799942
+left = true
 
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Purple\'s advenure/Tutorial" unique_id=1318893708]
+[node name="LevelBase" parent="UI/Menu/Purple\'s advenure" unique_id=1710373079 instance=ExtResource("12_fs0b5")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.35
-anchor_right = 0.5
-anchor_bottom = 1.35
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 56.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("7_nxtc6")
-bbcode_enabled = true
-text = "Tutorial
-Rank ???"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
+anchor_left = 0.44275406
+anchor_top = 0.28130773
+anchor_right = 0.67643005
+anchor_bottom = 0.78923076
+offset_right = 0.122161865
+offset_bottom = 0.0
+texture_normal = ExtResource("13_hq6as")
+texture_hover = ExtResource("14_kxyth")
+song = ExtResource("13_ma7h6")
 
-[node name="lvl1" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1569913496]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.37254903)
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(128, 128)
+[node name="LevelBase2" parent="UI/Menu/Purple\'s advenure" unique_id=1665444683 instance=ExtResource("12_fs0b5")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51
-anchor_top = 0.34
-anchor_right = 0.75
-anchor_bottom = 0.85
-offset_left = 0.03640747
-offset_top = 4.05999
-offset_right = -0.0552063
-offset_bottom = -0.020019531
-size_flags_vertical = 0
-disabled = true
-toggle_mode = true
-texture_normal = ExtResource("13_cvmbd")
-texture_hover = ExtResource("14_cobve")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.06825651
+anchor_top = 1.2505385
+anchor_right = 0.3019325
+anchor_bottom = 1.7584616
+offset_right = 0.122161865
+offset_bottom = 0.0
+texture_normal = ExtResource("16_cobve")
+texture_hover = ExtResource("17_cmqll")
+left = true
+song = ExtResource("14_gsxep")
 
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Purple\'s advenure/lvl1" unique_id=2014470321]
+[node name="LevelBase3" parent="UI/Menu/Purple\'s advenure" unique_id=1894125025 instance=ExtResource("12_fs0b5")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.35
-anchor_right = 0.5
-anchor_bottom = 1.35
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 56.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("7_nxtc6")
-bbcode_enabled = true
-text = "Stellar ballad
-Rank ???"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="UI/Menu/Purple\'s advenure/lvl1" unique_id=1973303248]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.220231
-anchor_top = 0.4432813
-anchor_right = 2.611
-anchor_bottom = 0.623
-offset_right = -138.01843
-offset_bottom = -0.0039978027
-text = "Must get D or higher in Sticky Eyes"
-metadata/_edit_use_anchors_ = true
-
-[node name="lvl2" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1013879592]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.37254903)
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.07
-anchor_top = 1.2
-anchor_right = 0.3
-anchor_bottom = 1.73
-offset_left = 0.014984131
-offset_top = 7.080017
-offset_right = -0.07662964
-offset_bottom = -0.120025635
-size_flags_vertical = 0
-disabled = true
-texture_normal = ExtResource("14_ft6cd")
-texture_hover = ExtResource("16_cmqll")
-stretch_mode = 4
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Purple\'s advenure/lvl2" unique_id=1242659967]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.35
-anchor_right = 0.5
-anchor_bottom = 1.35
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 32.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("7_nxtc6")
-bbcode_enabled = true
-text = "Spacetime Rift
-Rank ???"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="UI/Menu/Purple\'s advenure/lvl2" unique_id=1855613710]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -2.2026014
-anchor_top = 0.45406258
-anchor_right = -0.476
-anchor_bottom = 0.634
-offset_right = -0.0049819946
-offset_bottom = -0.03199005
-text = "Must get D or higher in Stellar ballad"
-metadata/_edit_use_anchors_ = true
-
-[node name="lvl3" type="TextureButton" parent="UI/Menu/Purple\'s advenure" unique_id=1586063355]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.37254903)
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51
-anchor_top = 1.2
-anchor_right = 0.75
-anchor_bottom = 1.73
-offset_left = 0.014984131
-offset_top = 7.080017
-offset_right = -0.07662964
-offset_bottom = -0.120025635
-size_flags_vertical = 0
-disabled = true
-texture_normal = ExtResource("15_cvmbd")
-texture_hover = ExtResource("18_8cp6k")
-stretch_mode = 4
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Purple\'s advenure/lvl3" unique_id=742860864]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.35
-anchor_right = 0.5
-anchor_bottom = 1.35
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 32.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("7_nxtc6")
-bbcode_enabled = true
-text = "Last Singularity
-Rank ???"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="UI/Menu/Purple\'s advenure/lvl3" unique_id=749843865]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.220231
-anchor_top = 0.4432813
-anchor_right = 2.9390001
-anchor_bottom = 0.623
-offset_right = -180.00244
-offset_bottom = -0.0039978027
-text = "Must get D or higher in Spacetime Rift"
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.7788886
+anchor_top = 1.2813077
+anchor_right = 1.0125645
+anchor_bottom = 1.7892308
+offset_right = 0.122161865
+offset_bottom = 0.0
+texture_normal = ExtResource("19_8cp6k")
+texture_hover = ExtResource("20_8b871")
+song = ExtResource("15_v0vrg")
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
 unique_name_in_owner = true
@@ -1504,241 +1331,9 @@ offset_bottom = 22.999996
 grow_horizontal = 2
 text = "Neru's Kingdom"
 
-[node name="Neru1" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=846237899]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.37254903)
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.07
-anchor_top = 0.34
-anchor_right = 0.3
-anchor_bottom = 0.85
-offset_left = 0.25021744
-offset_top = 3.039978
-offset_right = 0.15859985
-offset_bottom = -3.0517578e-05
-disabled = true
-toggle_mode = true
-texture_normal = ExtResource("19_8b871")
-texture_hover = ExtResource("20_pdwbg")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/Neru1" unique_id=256812430]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.35
-anchor_right = 0.5
-anchor_bottom = 1.35
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 56.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("7_nxtc6")
-bbcode_enabled = true
-text = "Oh My!
-Rank ???"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="UI/Menu/Neru\'s kingdom/Neru1" unique_id=479390100]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -2.2026014
-anchor_top = 0.45406258
-anchor_right = -0.476
-anchor_bottom = 0.634
-offset_right = -0.0049819946
-offset_bottom = -0.03199005
-text = "Must get D or higher in tutorial"
-metadata/_edit_use_anchors_ = true
-
-[node name="Neru2" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1570024180]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.37254903)
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51
-anchor_top = 0.34
-anchor_right = 0.75
-anchor_bottom = 0.85
-offset_left = 0.03640747
-offset_top = 4.05999
-offset_right = -0.0552063
-offset_bottom = -0.020019531
-size_flags_vertical = 0
-disabled = true
-toggle_mode = true
-texture_normal = ExtResource("17_xa025")
-texture_hover = ExtResource("22_5grtr")
-stretch_mode = 5
-flip_h = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/Neru2" unique_id=1978432974]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.35
-anchor_right = 0.5
-anchor_bottom = 1.35
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 56.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("7_nxtc6")
-bbcode_enabled = true
-text = "Cytoplasm
-Rank ???"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="UI/Menu/Neru\'s kingdom/Neru2" unique_id=1406152137]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.188981
-anchor_top = 0.4589063
-anchor_right = 2.9155824
-anchor_bottom = 0.6388437
-offset_right = -0.0049819946
-offset_bottom = -0.03199005
-text = "Must get D or higher in Oh My!"
-metadata/_edit_use_anchors_ = true
-
-[node name="Neru3" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=1453003345]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.37254903)
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.07
-anchor_top = 1.2
-anchor_right = 0.3
-anchor_bottom = 1.73
-offset_left = 0.014976501
-offset_top = 7.080017
-offset_right = 2.1129608
-offset_bottom = -2.7200012
-size_flags_vertical = 0
-disabled = true
-texture_normal = ExtResource("18_36rkl")
-texture_hover = ExtResource("24_vua0o")
-stretch_mode = 4
-flip_v = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/Neru3" unique_id=1051719298]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.35
-anchor_right = 0.5
-anchor_bottom = 1.35
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 32.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("7_nxtc6")
-bbcode_enabled = true
-text = "Fallen Empire
-Rank ???"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="UI/Menu/Neru\'s kingdom/Neru3" unique_id=1457942272]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -2.2026014
-anchor_top = 0.45406258
-anchor_right = -0.476
-anchor_bottom = 0.634
-offset_right = -0.0049819946
-offset_bottom = -0.03199005
-text = "Must get D or higher in Cytoplasm"
-metadata/_edit_use_anchors_ = true
-
-[node name="Neru4" type="TextureButton" parent="UI/Menu/Neru\'s kingdom" unique_id=508552933]
-unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.37254903)
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51
-anchor_top = 1.2
-anchor_right = 0.75
-anchor_bottom = 1.73
-offset_left = 0.014984131
-offset_top = 7.080017
-offset_right = -0.07662964
-offset_bottom = -0.120025635
-size_flags_vertical = 0
-disabled = true
-texture_normal = ExtResource("19_fs0b5")
-texture_hover = ExtResource("26_t70y2")
-stretch_mode = 4
-flip_h = true
-flip_v = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="RichTextLabel" parent="UI/Menu/Neru\'s kingdom/Neru4" unique_id=748588008]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.35
-anchor_right = 0.5
-anchor_bottom = 1.35
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 32.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("7_nxtc6")
-bbcode_enabled = true
-text = "Sticky Eyes
-Rank ???"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="UI/Menu/Neru\'s kingdom/Neru4" unique_id=2004424425]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.188981
-anchor_top = 0.4589063
-anchor_right = 2.9155824
-anchor_bottom = 0.6388437
-offset_right = -0.0049819946
-offset_bottom = -0.03199005
-text = "Must get D or higher in Fallen Empire"
-metadata/_edit_use_anchors_ = true
-
 [node name="Main" type="Control" parent="UI/Menu" unique_id=1614013344]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1958,10 +1553,11 @@ Thanks for playing"
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Chart" type="Node2D" parent="." unique_id=359360928]
+[node name="MusicControl" type="Node2D" parent="." unique_id=359360928]
+unique_name_in_owner = true
 script = ExtResource("8_jlsqs")
 
-[node name="Music" type="AudioStreamPlayer" parent="Chart" unique_id=748155325]
+[node name="Music" type="AudioStreamPlayer" parent="MusicControl" unique_id=748155325]
 
 [node name="cursor" type="Sprite2D" parent="." unique_id=1541986173]
 position = Vector2(-1944, -1570)
@@ -1979,15 +1575,8 @@ position = Vector2(573, 362)
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/right-arrow" to="UI" method="_on_rightarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/left-arrow" to="UI" method="_on_leftarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Purple\'s advenure/Tutorial" to="UI" method="_on_tutorial_pressed"]
-[connection signal="pressed" from="UI/Menu/Purple\'s advenure/lvl1" to="UI" method="_on_lvl_1_pressed"]
-[connection signal="pressed" from="UI/Menu/Purple\'s advenure/lvl2" to="UI" method="_on_lvl_2_pressed"]
-[connection signal="pressed" from="UI/Menu/Purple\'s advenure/lvl3" to="UI" method="_on_lvl_3_pressed"]
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/right-arrow" to="UI" method="_on_rightarrow_pressed"]
 [connection signal="pressed" from="UI/Menu/Neru\'s kingdom/left-arrow" to="UI" method="_on_leftarrow_pressed"]
-[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru1" to="UI" method="_on_neru_1_pressed"]
-[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru2" to="UI" method="_on_neru_2_pressed"]
-[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru3" to="UI" method="_on_neru_3_pressed"]
-[connection signal="pressed" from="UI/Menu/Neru\'s kingdom/Neru4" to="UI" method="_on_neru_4_pressed"]
 [connection signal="pressed" from="UI/Menu/Main/Beginning/play" to="UI/Menu/Main" method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Menu/Main/Beginning/settings" to="UI/Menu/Main" method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/Menu/Main/Beginning/credits" to="UI/Menu/Main" method="_on_credits_pressed"]

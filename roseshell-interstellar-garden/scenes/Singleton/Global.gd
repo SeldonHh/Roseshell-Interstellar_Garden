@@ -10,6 +10,8 @@ var music_volume := .9
 var menu_music_volume := .7
 var song_music : AudioStreamPlayer
 var ui : CanvasLayer
+var music_control : Node2D
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if song_music.playing or get_tree().paused == true:
@@ -26,7 +28,26 @@ func _ready() -> void:
 	await get_tree().create_timer(.1).timeout
 	load_game()
 
+##return true if rank1 is superior to rank 2, i rank1 is equal to rank 2 return true
+func compare_rank(rank1 : String,rank2:String):
+	if rank1 not in ["???","F","D","C","B","A","S","SS","P"] or rank2 not in ["???","F","D","C","B","A","S","SS","P"]:
+		print("ERROR, rank is not the write format")
+		return false
+	match rank1:
+		"???": return false
+		"F": return rank2 == "???"
+		"D": return rank2 in ["???","F","D"]
+		"C": return rank2 in ["???","F","D","C"]
+		"B": return rank2 in ["???","F","D","C","B"]
+		"A": return rank2 in ["???","F","D","C","B","A"]
+		"S": return rank2 in ["???","F","D","C","B","A","S"]
+		"SS": return rank2 in ["???","F","D","C","B","A","S","SS"]
+		"P": return true
+
+
 func save_game():
+	return
+	@warning_ignore("unreachable_code")
 	if OS.get_name() == "Web":
 		return
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
@@ -55,6 +76,8 @@ func save_game():
 
 
 func load_game():
+	return
+	@warning_ignore("unreachable_code")
 	if OS.get_name() == "Web":
 		return
 	if not FileAccess.file_exists("user://savegame.save"):
