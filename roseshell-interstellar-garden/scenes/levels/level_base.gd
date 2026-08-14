@@ -10,15 +10,17 @@ extends TextureButton
 func _ready() -> void:
 	update_self()
 	if not Engine.is_editor_hint():
-		song.updated.connect(update_self)
+		await get_tree().create_timer(.1).timeout
+		Global.music_control.song_ended.connect(update_self)
 
 func update_self():
+	button_pressed = false
 	if song == null:
 		print("ERROR: levelbase had no song resource")
 	if not Engine.is_editor_hint():
 		level_info.text = song.give_level_text()
 		if song.requirement != []:
-			for level in song.requirement:
+			for level in song.requirement.duplicate():
 				if Global.compare_rank(level.highest_rank,song.requirement_rank):
 					no_requirement()
 				else: yes_requirement(level)
@@ -30,15 +32,16 @@ func update_self():
 
 func yes_requirement(level):
 	requirement_label.show()
+	if left:
+		requirement_label.anchor_left = -2.25
+		requirement_label.anchor_right = -.5
 	requirement_label.text = "Must get %s or higher in %s"%[song.requirement_rank,level.song_name]
-	disabled = true
-	self_modulate = Color(1.0,1.0,1.0,.6)
+	if ! Global.IS_DEBUG:
+		disabled = true
+		self_modulate = Color(1.0,1.0,1.0,.6)
 
 func no_requirement():
 	requirement_label.hide()
-	if left:
-		pass
-		#TODO make it go left
 	disabled =  false
 	self_modulate = Color(1.0,1.0,1.0,1.0)
 

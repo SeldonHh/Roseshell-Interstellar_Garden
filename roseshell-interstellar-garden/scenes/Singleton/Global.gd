@@ -11,6 +11,7 @@ var menu_music_volume := .7
 var song_music : AudioStreamPlayer
 var ui : CanvasLayer
 var music_control : Node2D
+var center_black_hole_disabling_player := false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):

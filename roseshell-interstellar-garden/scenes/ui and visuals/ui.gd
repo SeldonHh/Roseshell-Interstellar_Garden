@@ -243,7 +243,7 @@ func _reset_game():
 	music_control.music.stop()
 	menu.show()
 	recap_screen.hide()
-	menu_music.play()
+	#menu_music.play()
 	Global.save_game()
 
 func _on_song_ended():
@@ -362,7 +362,7 @@ func _on_leftarrow_pressed() -> void:
 			neru_s_kingdom.show()
 
 func _on_button_pressed() -> void:
-	$Menu/Main.show()
+	%Main_Menu.show()
 
 
 func _on_critical_mass_recovery_timeout() -> void:

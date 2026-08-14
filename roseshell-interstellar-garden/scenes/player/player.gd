@@ -17,7 +17,11 @@ func _physics_process(delta: float) -> void:
 	if Global.black_hole:
 		position  = Global.black_hole.position
 	var mouse_position = get_global_mouse_position()
-	if (mouse_position - global_position).length() > 50:
+	if Global.center_black_hole_disabling_player:
+		if (mouse_position - global_position).length() > 50:
+			var target_angle = get_angle_to(mouse_position)
+			rotation_factor = lerp_angle(rotation_factor,target_angle,1.0 - exp(-speed * delta))
+	else:
 		var target_angle = get_angle_to(mouse_position)
 		rotation_factor = lerp_angle(rotation_factor,target_angle,1.0 - exp(-speed * delta))
 	if previous_rotation <= rotation_factor-PI/100 or previous_rotation >= rotation_factor+PI/100:

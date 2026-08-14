@@ -2,7 +2,7 @@ extends Camera2D
 
 @onready var og_pos : Vector2 = position
 @export var player_zwoom_factor := 50
-@export var zoom_offset := .7
+@export var zoom_offset := .53
 
 func _process(_delta: float) -> void:
 	var offset_dir = (Global.player.body.global_position-og_pos).normalized()

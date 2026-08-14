@@ -7,12 +7,13 @@ extends Control
 @onready var music_volume: HSlider = %music_volume
 @onready var menu_music_volume: HSlider = %menu_music_volume
 @onready var sfx_volume: HSlider = %sfx_volume
+@export var see_in_editor := false 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		Global.main_menu = self
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() and !see_in_editor:
 		visible = false
 	
 func show_settings():
@@ -61,3 +62,7 @@ func _on_music_volume_value_changed(value: float) -> void:
 
 func _on_menu_music_volume_value_changed(value: float) -> void:
 	Global.menu_music_volume =value
+
+
+func _on_black_hole_disable_player_toggled(toggled_on: bool) -> void:
+	Global.center_black_hole_disabling_player = toggled_on
