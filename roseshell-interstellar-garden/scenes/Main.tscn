@@ -1274,7 +1274,7 @@ offset_right = 0.122161865
 offset_bottom = 0.0
 texture_normal = ExtResource("19_8cp6k")
 texture_hover = ExtResource("20_8b871")
-song = ExtResource("15_v0vrg")
+song = ExtResource("23_8b871")
 
 [node name="Neru\'s kingdom" type="Control" parent="UI/Menu" unique_id=1845890837]
 unique_name_in_owner = true
@@ -1358,9 +1358,9 @@ anchor_right = 0.63441324
 anchor_bottom = 0.78923076
 offset_right = 0.122161865
 offset_bottom = 0.0
-texture_normal = ExtResource("24_5grtr")
-texture_hover = ExtResource("25_vua0o")
-song = ExtResource("22_8cp6k")
+texture_normal = ExtResource("27_t70y2")
+texture_hover = ExtResource("28_8gny2")
+song = ExtResource("15_v0vrg")
 
 [node name="LevelBase2" parent="UI/Menu/Neru\'s kingdom" unique_id=1853393123 instance=ExtResource("12_fs0b5")]
 unique_name_in_owner = false
@@ -1371,10 +1371,10 @@ anchor_right = 0.3019325
 anchor_bottom = 1.7584616
 offset_right = 0.122161865
 offset_bottom = 0.0
-texture_normal = ExtResource("27_t70y2")
-texture_hover = ExtResource("28_8gny2")
+texture_normal = ExtResource("24_5grtr")
+texture_hover = ExtResource("25_vua0o")
 left = true
-song = ExtResource("23_8b871")
+song = ExtResource("22_8cp6k")
 
 [node name="LevelBase3" parent="UI/Menu/Neru\'s kingdom" unique_id=891644021 instance=ExtResource("12_fs0b5")]
 unique_name_in_owner = false

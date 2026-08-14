@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://5yaur3b2grrd"]
 
 [ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/songs/SongChart.gd" id="1_cjxqa"]
-[ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/covers/Cover6.png" id="1_hcb8h"]
-[ext_resource type="Texture2D" uid="uid://dp2iqa0fvtrdi" path="res://Assets/Sprites/covers/Cover6_hover.png" id="2_6ut82"]
+[ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/covers/Cover3.png" id="1_hcb8h"]
+[ext_resource type="Texture2D" uid="uid://cu2o83eonxn4c" path="res://Assets/Sprites/covers/Cover3_hover.png" id="2_6ut82"]
 [ext_resource type="AudioStream" uid="uid://cwsg33egl8y1t" path="res://Assets/music/Cumulo do Espaço Tempo.mp3" id="2_cjxqa"]
-[ext_resource type="Resource" uid="uid://bj4l508i6ovjs" path="res://resources/songs/Stellar ballad.tres" id="4_gbfif"]
+[ext_resource type="Resource" uid="uid://cja8bn21mm8o" path="res://resources/songs/Tutorial.tres" id="4_hcb8h"]
 
 [resource]
 script = ExtResource("1_cjxqa")
 song_name = "Spacetime Rift"
 cover = ExtResource("1_hcb8h")
 cover_hover = ExtResource("2_6ut82")
-requirement = Array[ExtResource("1_cjxqa")]([ExtResource("4_gbfif")])
+difficulty = 6
+requirement = Array[ExtResource("1_cjxqa")]([ExtResource("4_hcb8h")])
+requirement_rank = "C"
 song_file = ExtResource("2_cjxqa")
 decibel_reduction = 0
 start_time = 13.0

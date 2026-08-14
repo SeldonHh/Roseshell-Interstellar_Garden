@@ -6,14 +6,15 @@
 [ext_resource type="AudioStream" uid="uid://d1adeqlqryaqa" path="res://Assets/music/Stellar Ballad.mp3" id="2_l351u"]
 [ext_resource type="Resource" uid="uid://et45168hj3r3" path="res://resources/songs/Oh My!.tres" id="4_51ex1"]
 [ext_resource type="Resource" uid="uid://rcxiw3bhmpqn" path="res://resources/songs/Cytoplasm.tres" id="5_kwvsr"]
-[ext_resource type="Resource" uid="uid://b6eddy0eewpxb" path="res://resources/songs/Fallen Empire.tres" id="6_sxriq"]
+[ext_resource type="Resource" uid="uid://5yaur3b2grrd" path="res://resources/songs/SpacetimeRift.tres" id="6_e0ldu"]
 
 [resource]
 script = ExtResource("1_l351u")
 song_name = "Stellar ballad"
 cover = ExtResource("1_e0ldu")
 cover_hover = ExtResource("2_27har")
-requirement = Array[ExtResource("1_l351u")]([ExtResource("4_51ex1"), ExtResource("5_kwvsr"), ExtResource("6_sxriq")])
+difficulty = 7
+requirement = Array[ExtResource("1_l351u")]([ExtResource("4_51ex1"), ExtResource("5_kwvsr"), ExtResource("6_e0ldu")])
 requirement_rank = "A"
 song_file = ExtResource("2_l351u")
 decibel_reduction = 0

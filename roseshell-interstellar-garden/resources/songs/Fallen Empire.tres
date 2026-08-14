@@ -1,18 +1,18 @@
 [gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://b6eddy0eewpxb"]
 
-[ext_resource type="Texture2D" uid="uid://bpbiyk4s4eert" path="res://Assets/Sprites/covers/Cover3.png" id="1_3y86v"]
 [ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/songs/SongChart.gd" id="1_5pm0e"]
+[ext_resource type="Texture2D" uid="uid://gkjfli0vsq4o" path="res://Assets/Sprites/covers/Cover7.png" id="1_yvv64"]
 [ext_resource type="AudioStream" uid="uid://b3748q3hf2ks7" path="res://Assets/music/Fallen Empire.mp3" id="2_6mmt3"]
-[ext_resource type="Texture2D" uid="uid://cu2o83eonxn4c" path="res://Assets/Sprites/covers/Cover3_hover.png" id="2_yvv64"]
-[ext_resource type="Resource" uid="uid://cja8bn21mm8o" path="res://resources/songs/Tutorial.tres" id="4_yvv64"]
+[ext_resource type="Texture2D" uid="uid://r0le3bhu62n2" path="res://Assets/Sprites/covers/Cover7_hover.png" id="2_vjp4s"]
+[ext_resource type="Resource" uid="uid://bj4l508i6ovjs" path="res://resources/songs/Stellar ballad.tres" id="4_yvv64"]
 
 [resource]
 script = ExtResource("1_5pm0e")
 song_name = "Fallen Empire"
-cover = ExtResource("1_3y86v")
-cover_hover = ExtResource("2_yvv64")
+cover = ExtResource("1_yvv64")
+cover_hover = ExtResource("2_vjp4s")
+difficulty = 7
 requirement = Array[ExtResource("1_5pm0e")]([ExtResource("4_yvv64")])
-requirement_rank = "C"
 song_file = ExtResource("2_6mmt3")
 decibel_reduction = 6
 start_time = 1.666

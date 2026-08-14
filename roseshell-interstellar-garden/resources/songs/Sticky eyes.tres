@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SongChart" format=3 uid="uid://brlpjmmoxfmni"]
 
-[ext_resource type="Texture2D" uid="uid://gkjfli0vsq4o" path="res://Assets/Sprites/covers/Cover7.png" id="1_c8j81"]
+[ext_resource type="Texture2D" uid="uid://cepneff06swfl" path="res://Assets/Sprites/covers/Cover6.png" id="1_c8j81"]
 [ext_resource type="Script" uid="uid://rtkqh03xgiqy" path="res://resources/songs/SongChart.gd" id="1_thvor"]
-[ext_resource type="Texture2D" uid="uid://r0le3bhu62n2" path="res://Assets/Sprites/covers/Cover7_hover.png" id="2_5tyly"]
+[ext_resource type="Texture2D" uid="uid://dp2iqa0fvtrdi" path="res://Assets/Sprites/covers/Cover6_hover.png" id="2_5tyly"]
 [ext_resource type="AudioStream" uid="uid://bxpc7ffxh016r" path="res://Assets/music/Sticky Eyes.mp3" id="2_thvor"]
 [ext_resource type="Resource" uid="uid://bj4l508i6ovjs" path="res://resources/songs/Stellar ballad.tres" id="4_ayupn"]
 
@@ -11,6 +11,7 @@ script = ExtResource("1_thvor")
 song_name = "Sticky Eyes"
 cover = ExtResource("1_c8j81")
 cover_hover = ExtResource("2_5tyly")
+difficulty = 9
 requirement = Array[ExtResource("1_thvor")]([ExtResource("4_ayupn")])
 song_file = ExtResource("2_thvor")
 decibel_reduction = 6

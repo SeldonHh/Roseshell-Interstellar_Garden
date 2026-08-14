@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("1_xo3t6")
-difficulty = 9
+difficulty = 13
 requirement = Array[ExtResource("1_xo3t6")]([ExtResource("4_2f7c2"), ExtResource("5_kjexy")])
 requirement_rank = "A"
 song_file = ExtResource("2_xo3t6")

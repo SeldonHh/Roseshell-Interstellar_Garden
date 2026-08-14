@@ -11,6 +11,7 @@ script = ExtResource("1_yhwpc")
 song_name = "Cytoplasm"
 cover = ExtResource("1_u70bq")
 cover_hover = ExtResource("2_71du7")
+difficulty = 2
 requirement = Array[ExtResource("1_yhwpc")]([ExtResource("4_71du7")])
 requirement_rank = "C"
 song_file = ExtResource("2_yhwpc")

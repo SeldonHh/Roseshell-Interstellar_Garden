@@ -39,11 +39,13 @@ func yes_requirement(level):
 	if ! Global.IS_DEBUG:
 		disabled = true
 		self_modulate = Color(1.0,1.0,1.0,.6)
+	difficulty_texture.self_modulate = self_modulate
 
 func no_requirement():
 	requirement_label.hide()
 	disabled =  false
 	self_modulate = Color(1.0,1.0,1.0,1.0)
+	difficulty_texture.self_modulate = self_modulate
 
 func _on_pressed() -> void:
 	Global.music_control.song = song
