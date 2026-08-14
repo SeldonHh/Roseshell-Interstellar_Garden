@@ -12,6 +12,7 @@ var song_music : AudioStreamPlayer
 var ui : CanvasLayer
 var music_control : Node2D
 var center_black_hole_disabling_player := false
+var song_resources : Array[SongChart] = []
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -47,11 +48,9 @@ func compare_rank(rank1 : String,rank2:String):
 
 
 func save_game():
-	return
-	@warning_ignore("unreachable_code")
 	if OS.get_name() == "Web":
 		return
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var save_file = FileAccess.open("user://Space Sonata.save", FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
 		# Check the node is an instanced scene so it can be instanced again during load.
@@ -77,11 +76,9 @@ func save_game():
 
 
 func load_game():
-	return
-	@warning_ignore("unreachable_code")
 	if OS.get_name() == "Web":
 		return
-	if not FileAccess.file_exists("user://savegame.save"):
+	if not FileAccess.file_exists("user://Space Sonata.save"):
 		return # Error! We don't have a save to load.
 
 	# We need to revert the game state so we're not cloning objects
@@ -94,7 +91,7 @@ func load_game():
 
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	var save_file = FileAccess.open("user://Space Sonata.save", FileAccess.READ)
 	while save_file.get_position() < save_file.get_length():
 		var json_string = save_file.get_line()
 

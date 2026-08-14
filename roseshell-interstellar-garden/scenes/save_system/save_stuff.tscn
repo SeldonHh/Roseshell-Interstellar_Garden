@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://crm4cqousafmh" path="res://scenes/save_system/save_stuff.gd" id="1_dxvyf"]
 
-[node name="SaveStuff" type="Node" unique_id=155425733]
+[node name="SaveStuff" type="Node" unique_id=155425733 groups=["Persist"]]
 script = ExtResource("1_dxvyf")

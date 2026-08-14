@@ -8,6 +8,9 @@ extends Control
 @onready var menu_music_volume: HSlider = %menu_music_volume
 @onready var sfx_volume: HSlider = %sfx_volume
 @export var see_in_editor := false 
+@onready var black_hole_disable_player: CheckButton = $Settings/black_hole_disable_player
+
+
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		Global.main_menu = self

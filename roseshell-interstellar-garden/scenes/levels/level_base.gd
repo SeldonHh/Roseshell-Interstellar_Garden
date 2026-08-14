@@ -9,10 +9,13 @@ extends TextureButton
 
 func _ready() -> void:
 	update_self()
+	if song == null:
+		print("ERROR: levelbase had no song resource")
+	Global.song_resources.append(song)
 	if not Engine.is_editor_hint():
 		await get_tree().create_timer(.1).timeout
 		Global.music_control.song_ended.connect(update_self)
-
+		update_self()
 func update_self():
 	button_pressed = false
 	if song == null:
