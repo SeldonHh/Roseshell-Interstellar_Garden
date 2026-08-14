@@ -48,7 +48,7 @@ func compare_rank(rank1 : String,rank2:String):
 
 
 func save_game():
-	if OS.get_name() == "Web":
+	if not OS.is_userfs_persistent():
 		return
 	var save_file = FileAccess.open("user://Space Sonata.save", FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
@@ -76,14 +76,14 @@ func save_game():
 
 
 func load_game():
-	if OS.get_name() == "Web":
+	if not OS.is_userfs_persistent():
 		return
 	if not FileAccess.file_exists("user://Space Sonata.save"):
 		return # Error! We don't have a save to load.
 
 	# We need to revert the game state so we're not cloning objects
 	# during loading. This will vary wildly depending on the needs of a
-	# project, so take care with this step.
+	# project, so take care with this step. 
 	# For our example, we will accomplish this by deleting saveable objects.
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for i in save_nodes:
